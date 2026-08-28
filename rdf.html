@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Triple RDF — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html" aria-current="page">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+    <span class="eyebrow">Triple RDF</span>
+    <h1 class="page-title">Dalle informazioni verificate alle triple</h1>
+    <p class="lede">Solo le informazioni confermate contro fonti autorevoli vengono trasformate in triple RDF, usando le classi e proprietà individuate nella pagina <a href="ontology.html">Ontologia</a>.</p>
+
+    <h2>Esempio di conversione</h2>
+    <div class="card">
+      <strong>Informazione verificata:</strong> la Casa di Quartiere Graf è gestita da "Graf San Donato APS" (associazione di promozione sociale, gestore singolo).
+    </div>
+    <pre>@prefix bo: &lt;https://nomeutente.github.io/nomerepo/ontology#&gt; .
+@prefix wd: &lt;http://www.wikidata.org/entity/&gt; .
+@prefix covapit: &lt;https://w3id.org/italia/onto/COV/&gt; .
+
+bo:CasaDiQuartiereGraf a wd:Q77115 ;
+    rdfs:label "Casa di Quartiere Graf"@it ;
+    bo:gestitaDa bo:GrafSanDonato .
+
+bo:GrafSanDonato a covapit:PrivateOrganization ;
+    covapit:legalName "Graf San Donato APS" .</pre>
+
+    <h2>Elenco delle triple generate</h2>
+    <div class="todo">Sostituire con il dump completo (o un estratto rappresentativo) delle triple generate per le Case di Quartiere prive di rappresentazione, in formato Turtle, con indicazione della fonte di verifica per ciascuna.</div>
+
+    <h2>Formato di esportazione</h2>
+    <div class="todo">Indicare il formato scelto per il dataset finale (Turtle, N-Triples, RDF/XML) e il link al file nel repository GitHub.</div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

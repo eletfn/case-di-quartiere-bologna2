@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM &amp; Prompt — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html" aria-current="page">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+    <span class="eyebrow">LLM &amp; Prompt</span>
+    <h1 class="page-title">Recuperare le informazioni mancanti con l'AI</h1>
+    <p class="lede">Per le Case di Quartiere assenti dai knowledge graph, usiamo almeno due LLM per proporre le informazioni mancanti (indirizzo, gestore, orari, attività), da verificare criticamente prima di trasformarle in triple.</p>
+
+    <h2>Modelli confrontati</h2>
+    <div class="todo">Indicare qui i modelli usati (es. ChatGPT, Gemini, Claude), versione e data di utilizzo.</div>
+
+    <h2>Struttura dei prompt</h2>
+    <p>Per ciascun prompt documentiamo: perché è scritto in quel modo, quali informazioni rischiano di essere inventate (allucinazioni), come verifichiamo le risposte.</p>
+    <div class="card">
+      <strong>Esempio di struttura prompt</strong>
+      <pre>Sei un assistente che raccoglie informazioni pubbliche verificabili.
+Per la Casa di Quartiere "{nome}" a Bologna, indirizzo "{via}, {civico}",
+fornisci: sito web ufficiale, orari di apertura, principali attività ospitate.
+Se non sei sicuro di un'informazione, dillo esplicitamente invece di inventarla.</pre>
+    </div>
+    <div class="todo">Sostituire con i prompt effettivamente usati, uno per ciascuna informazione da recuperare (sito web, orari, attività, gestore/forma giuridica).</div>
+
+    <h2>Confronto tra modelli</h2>
+    <div class="todo">Tabella con: informazione richiesta → risposta Modello A → risposta Modello B → verificata (sì/no/parziale) → fonte di verifica usata.</div>
+
+    <h2>Gestione delle allucinazioni</h2>
+    <p>Ogni informazione fornita da un LLM viene considerata un'ipotesi da verificare, non un dato accertato — solo le informazioni confermate contro fonti autorevoli (sito del Comune, pagine ufficiali delle associazioni) vengono convertite in triple RDF (vedi <a href="rdf.html">Triple RDF</a>).</p>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Query SPARQL — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html" aria-current="page">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page wide">
+    <span class="eyebrow">Query SPARQL</span>
+    <h1 class="page-title">Le interrogazioni, per knowledge graph</h1>
+    <p class="lede">Ogni query è riportata nella versione realmente eseguita — incluse quelle che hanno prodotto errori o risultati poi rivisti, perché il percorso di tentativi ed errori è parte della metodologia.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn" data-tab="tab-wikidata" role="tab" aria-selected="true">Wikidata</button>
+      <button class="tab-btn" data-tab="tab-ontopia" role="tab" aria-selected="false">OntoPiA</button>
+      <button class="tab-btn" data-tab="tab-arco" role="tab" aria-selected="false">ArCo</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-wikidata">
+      <h3>Ricerca per classe candidata (community centre)</h3>
+      <p>Endpoint: <code>query.wikidata.org</code></p>
+      <pre>SELECT DISTINCT ?item ?itemLabel ?class ?classLabel ?coord ?website WHERE {
+  ?item wdt:P31 wd:Q77115 .
+  ?item wdt:P131 wd:Q1891 .          # situato a Bologna
+  OPTIONAL { ?item wdt:P625 ?coord. }
+  OPTIONAL { ?item wdt:P856 ?website. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "it,en". }
+}
+ORDER BY ?itemLabel</pre>
+      <p><strong>Risultato:</strong> 3 elementi (Centro Costa, Centro sociale della Pace, Isola nel Kantiere). Verifica manuale: solo i primi due corrispondono a Case di Quartiere reali del dataset comunale.</p>
+
+      <h3>Estrazione empirica delle proprietà usate</h3>
+      <pre>SELECT DISTINCT ?item ?itemLabel ?propLabel ?value ?valueLabel WHERE {
+  VALUES ?item { wd:Q106087121 wd:Q124358767 wd:Q106061123 wd:Q106084039 wd:Q25403967 }
+  ?item ?p ?value .
+  ?prop wikibase:directClaim ?p .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "it,en". }
+}
+ORDER BY ?itemLabel ?propLabel</pre>
+      <p><strong>Risultato:</strong> vocabolario osservato — <code>P31</code>, <code>P625</code>, <code>P6375</code>, <code>P131</code>, <code>P276</code>, <code>P1435</code>, <code>P973</code>, <code>P856</code>, <code>P18</code>, tra le altre.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-ontopia">
+      <h3>Proprietà della classe Organization (COV-AP_IT)</h3>
+      <p>Endpoint: <code>schema.gov.it/sparql</code> — esplorazione TBox (schema), non ABox.</p>
+      <pre>PREFIX covapit: &lt;https://w3id.org/italia/onto/COV/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT DISTINCT ?property ?propertyLabel ?range WHERE {
+  ?property rdfs:domain covapit:Organization .
+  OPTIONAL { ?property rdfs:label ?propertyLabel . FILTER(lang(?propertyLabel) = "it") }
+  OPTIONAL { ?property rdfs:range ?range . }
+}</pre>
+      <p><strong>Risultato:</strong> proprietà rilevanti individuate — <code>legalName</code>, <code>altName</code>, <code>orgAcronym</code>, <code>taxCode</code>, <code>hasLegalStatus</code>, <code>hasActivityType</code>, <code>hasSubOrganization</code>/<code>subOrganizationOf</code>.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-arco">
+      <h3>Beni architettonici a Bologna (esempio di struttura query)</h3>
+      <p>Endpoint: <code>dati.beniculturali.it/sparql</code></p>
+      <pre>PREFIX arco-arco: &lt;https://w3id.org/arco/ontology/arco/&gt;
+PREFIX arco-location: &lt;https://w3id.org/arco/ontology/location/&gt;
+PREFIX arco-dd: &lt;https://w3id.org/arco/ontology/denotative-description/&gt;
+PREFIX CLV: &lt;https://w3id.org/italia/onto/CLV/&gt;
+
+SELECT (count(distinct ?cultpro) as ?count) WHERE {
+  ?cultpro a arco-arco:ArchitecturalOrLandscapeHeritage .
+  ?cultpro arco-location:hasCulturalPropertyAddress ?address .
+  ?address CLV:hasRegion ?region .
+  ?region rdfs:label ?regNome .
+  FILTER regex(?regNome, "Emilia-Romagna", "i")
+}</pre>
+      <div class="todo">Sostituire con le query effettivamente eseguite su ArCo per le 3 Case di Quartiere ospitate in edifici storici (ville), con relativi risultati.</div>
+    </div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

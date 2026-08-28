@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologia — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html" aria-current="page">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+    <span class="eyebrow">Metodologia</span>
+    <h1 class="page-title">Tre knowledge graph, un metodo comune</h1>
+    <p class="lede">Per ogni knowledge graph esplorato abbiamo seguito lo stesso approccio: cercare le istanze, disambiguare le classi candidate, estrarre empiricamente il vocabolario davvero usato — prima di decidere cosa riutilizzare.</p>
+
+    <h2>Step 1 — Wikidata</h2>
+    <p>Obiettivo: verificare quali delle 33 Case di Quartiere sono già rappresentate, quali classi/proprietà vengono usate per concetti analoghi, e cosa manca del tutto.</p>
+    <ol>
+      <li>Ricerca per classi candidate (<code>wd:Q77115</code> centro sociale, <code>wd:Q294422</code> edificio pubblico, <code>wd:Q8536775</code> centro sociale autogestito), poi disambiguazione leggendo etichetta/descrizione/alias di ciascuna.</li>
+      <li>Ricerca sistematica per nome sulle 33 case, con verifica manuale dei falsi positivi (scuole, fermate del tram, eventi storici omonimi).</li>
+      <li>Estrazione empirica di tutte le proprietà realmente usate sugli elementi confermati, per costruire il mapping ontologico su basi osservate e non su ipotesi.</li>
+    </ol>
+
+    <h2>Step 2 — OntoPiA</h2>
+    <p>Obiettivo: verificare se la rete di ontologie della Pubblica Amministrazione italiana (<code>schema.gov.it</code>) copre meglio, rispetto a Wikidata, i concetti amministrativi assenti (in particolare il gestore).</p>
+    <ol>
+      <li>Esplorazione TBox (a livello di schema, non di istanze) dell'ontologia <strong>COV-AP_IT</strong> (Organizzazioni), tramite interrogazione delle proprietà con dominio <code>covapit:Organization</code>.</li>
+      <li>Valutazione di quali proprietà sono generalizzabili a tutte le 33 case e quali solo condizionate ai dati disponibili.</li>
+    </ol>
+
+    <h2>Step 3 — ArCo</h2>
+    <p>Obiettivo: verificare la copertura per le Case di Quartiere ospitate in edifici storici/vincolati (le ville individuate in Wikidata), dato che ArCo è il knowledge graph di riferimento per il patrimonio culturale italiano.</p>
+
+    <div class="arcade" aria-hidden="true"></div>
+
+    <h2>Principio metodologico comune</h2>
+    <p>In ogni step abbiamo preferito l'osservazione empirica del vocabolario realmente usato rispetto all'assunzione teorica che una proprietà "dovrebbe" esistere — una proprietà disponibile in astratto in un'ontologia non implica che venga effettivamente usata sulle entità del nostro dominio specifico.</p>
+
+    <div class="todo">Aggiungere qui un diagramma riassuntivo del flusso Wikidata → OntoPiA → ArCo → LLM, ed eventuali riferimenti bibliografici/slide del corso citate a lezione.</div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

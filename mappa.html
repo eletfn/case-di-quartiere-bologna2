@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mappa — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html" aria-current="page">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page wide">
+  <span class="eyebrow">Mappa</span>
+  <h1 class="page-title">Le 32 Case sui sei quartieri</h1>
+  <p class="lede">Coordinate usate nel Knowledge Graph. Clicca un marker per vedere nome, indirizzo e quartiere; il colore indica il quartiere amministrativo di appartenenza.</p>
+
+  <div class="legend" id="legend"></div>
+
+  <div id="map"></div>
+
+  <p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">
+    Fonte coordinate: dataset open data del Comune di Bologna. Non compare Villa Paradiso (cdq_15): convenzione revocata nel 2025 — vedi <a href="challenges.html">Difficoltà</a>.
+  </p>
+</main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="script.js"></script>
+<script>
+  // Dataset: 32 Case di Quartiere attive (dataset open data Comune di Bologna)
+  var case_di_quartiere = [
+    {id:"cdq_01", nome:"Graf", via:"Piazza Spadolini 3", quartiere:"San Donato - San Vitale", lat:44.504120, lon:11.367093},
+    {id:"cdq_02", nome:"Santa Viola", via:"Via Emilia Ponente 131", quartiere:"Borgo Panigale - Reno", lat:44.507201, lon:11.305317},
+    {id:"cdq_03", nome:"Area Ortiva Paleotto", via:"Via del Paleotto 11", quartiere:"Savena", lat:44.444218, lon:11.352974},
+    {id:"cdq_04", nome:"Casa del Gufo", via:"Via Luigi Longo 10-12", quartiere:"Savena", lat:44.468699, lon:11.385095},
+    {id:"cdq_05", nome:"Villa Bernaroli", via:"Via Morazzo 1", quartiere:"Borgo Panigale - Reno", lat:44.502813, lon:11.255971},
+    {id:"cdq_06", nome:"Casa Gialla", via:"Piazza Da Verrazzano 1/3", quartiere:"Navile", lat:44.519256, lon:11.327223},
+    {id:"cdq_07", nome:"Due Agosto 1980", via:"Via Filippo Turati 98", quartiere:"Porto - Saragozza", lat:44.490475, lon:11.321290},
+    {id:"cdq_08", nome:"Stella", via:"Via Savioli 3", quartiere:"Santo Stefano", lat:44.487029, lon:11.364030},
+    {id:"cdq_09", nome:"Il Parco", via:"Via Edgar Allan Poe 4", quartiere:"Borgo Panigale - Reno", lat:44.511173, lon:11.285485},
+    {id:"cdq_10", nome:"Pescarola", via:"Via F. Zanardi 228", quartiere:"Navile", lat:44.524566, lon:11.317064},
+    {id:"cdq_11", nome:"Nello Frassinetti", via:"Via Isabella Andreini 18", quartiere:"San Donato - San Vitale", lat:44.503630, lon:11.373682},
+    {id:"cdq_12", nome:"Villa Torchi", via:"Via Colombarola 40", quartiere:"Navile", lat:44.544357, lon:11.358699},
+    {id:"cdq_13", nome:"Scipione dal Ferro", via:"Via Sante Vincenzi 50", quartiere:"San Donato - San Vitale", lat:44.496257, lon:11.370732},
+    {id:"cdq_14", nome:"La Dacia", via:"Via Abramo Lincoln 22/3", quartiere:"Savena", lat:44.483701, lon:11.391451},
+    {id:"cdq_16", nome:"Italicus", via:"Via Giovanni Antonio Sacco 16", quartiere:"San Donato - San Vitale", lat:44.504444, lon:11.356646},
+    {id:"cdq_17", nome:"Fondo Comini", via:"Via Fioravanti 68", quartiere:"Navile", lat:44.515460, lon:11.339350},
+    {id:"cdq_18", nome:"Croce Coperta", via:"Via Papini 28", quartiere:"Navile", lat:44.534806, lon:11.352169},
+    {id:"cdq_19", nome:"Giorgio Costa", via:"Via Azzo Gardino 48", quartiere:"Porto - Saragozza", lat:44.501679, lon:11.335251},
+    {id:"cdq_20", nome:"Cà Solare", via:"Via Del Pilastro 5", quartiere:"San Donato - San Vitale", lat:44.508044, lon:11.384978},
+    {id:"cdq_21", nome:"Croce del Biacco", via:"Via Giuseppe Rivani 1", quartiere:"San Donato - San Vitale", lat:44.489969, lon:11.398092},
+    {id:"cdq_22", nome:"Katia Bertasi", via:"Via Fioravanti 22", quartiere:"Navile", lat:44.511946, lon:11.340981},
+    {id:"cdq_23", nome:"Ruozi", via:"Via Castelmerlo 13", quartiere:"San Donato - San Vitale", lat:44.491715, lon:11.378243},
+    {id:"cdq_24", nome:"Della Pace", via:"Via del Pratello 53", quartiere:"Porto - Saragozza", lat:44.495539, lon:11.331678},
+    {id:"cdq_25", nome:"Pilastro", via:"Via Dino Campana 4", quartiere:"San Donato - San Vitale", lat:44.513998, lon:11.398009},
+    {id:"cdq_26", nome:"Foscherara", via:"Via Giuseppe Cesare Abba 6/A", quartiere:"Savena", lat:44.465083, lon:11.379103},
+    {id:"cdq_27", nome:"San Rafel", via:"Via A. Ponchielli 21", quartiere:"Savena", lat:44.465975, lon:11.373990},
+    {id:"cdq_28", nome:"Villa Mazzacorati", via:"Via Toscana 19", quartiere:"Savena", lat:44.469732, lon:11.370009},
+    {id:"cdq_29", nome:"Montanari", via:"Via di Saliceto 3/21", quartiere:"Navile", lat:44.513031, lon:11.350404},
+    {id:"cdq_30", nome:"Saffi", via:"Via Ludovico Berti", quartiere:"Porto - Saragozza", lat:44.501768, lon:11.329953},
+    {id:"cdq_31", nome:"Tolmino", via:"Via Podgora 41", quartiere:"Porto - Saragozza", lat:44.497736, lon:11.318100},
+    {id:"cdq_32", nome:"Rosa Marchi", via:"Via Pietro Nenni 11", quartiere:"Borgo Panigale - Reno", lat:44.492778, lon:11.290776},
+    {id:"cdq_33", nome:"Lunetta Gamberini", via:"Via Degli Orti 60", quartiere:"Santo Stefano", lat:44.476985, lon:11.374893}
+  ];
+
+  var coloriQuartiere = {
+    "Borgo Panigale - Reno": "#8C3B2E",
+    "Navile": "#3F5C4E",
+    "Porto - Saragozza": "#B8933F",
+    "San Donato - San Vitale": "#2E6873",
+    "Santo Stefano": "#6B3F5C",
+    "Savena": "#B85C2E"
+  };
+
+  // Legenda
+  var legend = document.getElementById("legend");
+  Object.keys(coloriQuartiere).forEach(function (q) {
+    var item = document.createElement("span");
+    item.innerHTML = '<span class="dot" style="background:' + coloriQuartiere[q] + '"></span>' + q;
+    legend.appendChild(item);
+  });
+
+  // Mappa
+  var map = L.map('map').setView([44.4949, 11.3426], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  case_di_quartiere.forEach(function (c) {
+    var colore = coloriQuartiere[c.quartiere] || "#8C3B2E";
+    L.circleMarker([c.lat, c.lon], {
+      radius: 7,
+      color: "#2A2420",
+      weight: 1,
+      fillColor: colore,
+      fillOpacity: 0.9
+    }).addTo(map).bindPopup(
+      "<strong>" + c.nome + "</strong><br>" + c.via + "<br>" + c.quartiere + "<br><code>" + c.id + "</code>"
+    );
+  });
+</script>
+</body>
+</html>

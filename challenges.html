@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Difficoltà — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html" aria-current="page">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+    <span class="eyebrow">Difficoltà</span>
+    <h1 class="page-title">Cosa non ha funzionato al primo colpo</h1>
+    <p class="lede">Il percorso di tentativi ed errori è parte della metodologia: qui documentiamo i problemi reali incontrati e come li abbiamo risolti.</p>
+
+    <h3>Timeout su query troppo complesse</h3>
+    <p>Una prima query su Wikidata che combinava tre <code>UNION</code> con percorsi transitivi (<code>wdt:P279*</code>) nello stesso blocco ha prodotto un errore <code>502 Bad Gateway</code>: il server pubblico ha un timeout stringente. Soluzione: query semplificate, eliminando i percorsi transitivi e usando istanza diretta (<code>wdt:P31</code>) con classi verificate manualmente.</p>
+
+    <h3>Ambiguità tra classi con la stessa etichetta italiana</h3>
+    <p><code>wd:Q77115</code> (centro sociale / community centre, concetto generico) e <code>wd:Q8536775</code> (centro sociale autogestito, spazi occupati/attivisti) condividono l'etichetta italiana "centro sociale", pur essendo concettualmente diversi. Questo ha inizialmente reso ambiguo un risultato con tre righe identiche in <code>classLabel</code>. Risolto disambiguando le classi tramite descrizione e alias, non solo etichetta — ed è servito a spiegare perché "Isola nel Kantiere" (un centro sociale autogestito storico, non una Casa di Quartiere) sembrava un match ma non lo era.</p>
+
+    <h3>Falsi positivi nella ricerca per nome</h3>
+    <p>La ricerca sistematica dei nomi delle 33 case su Wikidata ha restituito diversi falsi positivi: scuole omonime, fermate tranviarie, un parco tematico, un evento storico (strage del Pilastro). Tutti scartati dopo verifica manuale di descrizione e coordinate.</p>
+
+    <h3>Dato non più corrente nel dataset open</h3>
+    <p>La Casa di Quartiere <strong>Villa Paradiso</strong> risultava nel dataset comunale come attiva, ma una verifica ha rivelato che a gennaio 2025 il Comune ha revocato la convenzione con la storica gestione, destinando lo stabile ad altro uso. Abbiamo quindi rimosso questa voce dal dataset di lavoro — un esempio concreto di disallineamento tra dato pubblicato e situazione reale al momento dell'analisi.</p>
+
+    <h3>Variabili non collegate nel pattern SPARQL</h3>
+    <p>Errore frequente nelle prime query: citare una variabile nel <code>SELECT</code> senza mai vincolarla con una tripla nel <code>WHERE</code> (es. <code>?abstract</code> mai legata). SPARQL restituisce un errore esplicito (<em>"Variable used in the query result set but not assigned"</em>) — utile da documentare perché è un errore molto comune per chi comincia.</p>
+
+    <div class="arcade" aria-hidden="true"></div>
+
+    <div class="todo">Aggiungere qui le difficoltà incontrate nelle fasi successive del progetto: prompting degli LLM, gestione delle allucinazioni, eventuali problemi di validazione delle triple generate.</div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

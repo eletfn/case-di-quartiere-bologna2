@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argomento — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html" aria-current="page">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql.html">Query SPARQL</a>
+      <a href="llm.html">LLM &amp; Prompt</a>
+      <a href="rdf.html">Triple RDF</a>
+      <a href="results.html">Risultati</a>
+      <a href="challenges.html">Difficoltà</a>
+    </nav>
+  </div>
+</header>
+
+<main class="page">
+    <span class="eyebrow">Argomento</span>
+    <h1 class="page-title">Le Case di Quartiere di Bologna</h1>
+    <p class="lede">Il tema scelto per il progetto, il dataset comunale di partenza e le domande a cui vogliamo rispondere.</p>
+
+    <h2>Cosa sono</h2>
+    <p>Le Case di Quartiere sono una rete di <strong>33 spazi comunitari</strong> distribuiti nei sei quartieri amministrativi di Bologna, gestiti da associazioni del terzo settore. La rete nasce nel 2019 dalla trasformazione dei centri sociali anziani storici della città in spazi aperti a tutta la cittadinanza.</p>
+
+    <h2>Il dataset di partenza</h2>
+    <p>Il Comune di Bologna pubblica come open data l'elenco completo delle 33 case, con le seguenti informazioni per ciascuna:</p>
+    <div class="card">
+      <code>id_casa, nome_casa, via, numero_civico, gestore, specifiche, area_verde, area_ortiva, attività, lat, lon, quartiere, zona_di_prossimità, area_statistica, geopoint</code>
+    </div>
+    <p>Il campo <code>quartiere</code> riporta uno dei 6 quartieri amministrativi attuali; <code>zona_di_prossimità</code> e <code>area_statistica</code> sono suddivisioni comunali più fini, usate per le statistiche di quartiere.</p>
+
+    <h2>Perché è un buon caso di studio</h2>
+    <p>È un tema locale, recente (2019) e amministrativo — caratteristiche che lo rendono un candidato ideale per verificare un'ipotesi centrale del progetto: i knowledge graph pubblici tendono a documentare bene il patrimonio "di prestigio" (monumenti, musei, palazzi storici), mentre i luoghi di prossimità e i servizi comunitari restano sistematicamente sotto-rappresentati.</p>
+
+    <h2>Domande a cui rispondiamo</h2>
+    <ul>
+      <li>Quante delle 33 Case di Quartiere sono già rappresentate su Wikidata, e con quale grado di completezza?</li>
+      <li>Quali classi e proprietà, tra quelle già esistenti in Wikidata, OntoPiA e ArCo, sono adatte a modellarle correttamente?</li>
+      <li>Quali informazioni mancano del tutto, e possono essere recuperate — sotto verifica critica — con l'aiuto di LLM?</li>
+      <li>Come si comportano diversi LLM nel fornire queste informazioni, e quanto sono affidabili?</li>
+    </ul>
+
+    <p>Per una vista d'insieme geografica, vai alla <a href="mappa.html">mappa interattiva</a> delle 32 Case attive.</p>
+
+    <div class="todo">Aggiungere qui, se utile, una galleria fotografica delle Case di Quartiere e un link al dataset open data originale del Comune.</div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
