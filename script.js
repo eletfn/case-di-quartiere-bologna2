@@ -22,3 +22,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Cartoline del team: flip anche al tocco (mobile) e da tastiera
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.team-flip-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      card.classList.toggle('flipped');
+    });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
+});
