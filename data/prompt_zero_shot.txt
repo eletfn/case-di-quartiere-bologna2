@@ -1,1 +1,2 @@
-
+Genera triple RDF in formato Turtle valide per descrivere le case di quartiere
+estratti dal dataset nome.csv, utilizzando la ontologia allegata.
