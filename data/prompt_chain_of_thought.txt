@@ -1,0 +1,26 @@
+Genera triple RDF in formato Turtle valide per descrivere le Case di Quartiere
+estratte dal dataset nome.csv, utilizzando l'ontologia allegata.
+
+Prima di generare le triple, ragiona esplicitamente passo dopo passo per ogni riga:
+
+1. IDENTIFICAZIONE DEL SOGGETTO PRINCIPALE E DELLE ENTITA' SECONDARIE
+   Costruisci l'URI del soggetto principale (bo:CQ<id>). Determina quali
+   entità secondarie creare in base alle colonne effettivamente valorizzate
+   (indirizzo, orario, gestore).
+
+2. ESTRAZIONE DELLE PROPRIETA' (DATATYPE E OBJECT PROPERTIES)
+   Per ogni colonna valorizzata, individua quale proprietà dell'ontologia si
+   adatta al dato e con quale datatype XSD (xsd:string, xsd:time, ...).
+
+3. VERIFICA DEI DOMINI E DEI RANGE
+   Controlla che il soggetto e l'oggetto di ogni tripla rispettino il
+   domain/range dichiarato dalla proprietà usata.
+
+Regole esplicite per i casi limite:
+- numero civico con "/" (es. "3/A"): separare in parte numerica base e
+  specificità, non trattarlo come stringa unica.
+- edificio storico: collegare a un bene ArCo (arco:ArchitecturalOrLandscapeHeritage)
+  solo se l'informazione è confermata, mai per inferenza.
+
+Genera ora le triple, una riga del dataset alla volta, mostrando il
+ragionamento seguito prima della tripla finale.
