@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPARQL 1 · OntoPiA — Case di Quartiere di Bologna</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql-ontopia.html" aria-current="page">SPARQL 1 · OntoPiA</a>
+      <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>
+      <a href="llm.html">LLM</a>
+      <a href="challenges.html">Sfide</a>
+    </nav>
+  </div>
+</header>
+<main class="page wide">
+  <span class="eyebrow">Query SPARQL 1</span>
+  <h1 class="page-title">Query sul vocabolario OntoPiA</h1>
+  <p class="lede">Query che esercitano le proprietà riusate dalle ontologie OntoPiA (COV, CLV, AccessCondition, TI) — cioè il vocabolario che il progetto non ha dovuto reinventare.</p>
+
+  <div class="card">
+    <p style="margin-bottom:6px">Keyword SPARQL utilizzate in queste query:</p>
+    <div class="badges">
+      <span class="badge">OPTIONAL</span>
+      <span class="badge">UNION</span>
+      <span class="badge">FILTER</span>
+      <span class="badge">REGEX</span>
+      <span class="badge">LIMIT</span>
+      <span class="badge">ORDER BY</span>
+      <span class="badge">DISTINCT</span>
+    </div>
+    <p style="margin-top:14px">Le query sono state eseguite su <a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" rel="noopener">SPARQL Playground</a> (motore Comunica, conforme a SPARQL 1.1) sul grafo unito (schema + 32 istanze), verificate in modo indipendente con rdflib. Dettagli sugli strumenti provati nella pagina <a href="challenges.html">Sfide</a>. Le query sulla struttura della nostra classe <code>bo:CasaDiQuartiere</code> sono nella pagina <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
+  </div>
+
+  <section class="card query-block">
+    <h3>Query 1 — Coerenza testuale sui gestori (COV, FILTER + REGEX)</h3>
+    <p><span class="label">Obiettivo:</span> individuare i gestori che si dichiarano "APS" (associazione di promozione sociale), tramite la proprietà <code>cov:legalName</code>.</p>
+    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
+PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
+PREFIX cov: &lt;https://w3id.org/italia/onto/COV/&gt;
+
+SELECT ?nome ?nomeGestore
+WHERE {
+  ?casa a bo:CasaDiQuartiere ;
+        poi:POIofficialName ?nome ;
+        bo:isManagedBy ?gestore .
+  ?gestore cov:legalName ?nomeGestore .
+  FILTER(REGEX(?nomeGestore, "APS", "i"))
+}
+ORDER BY ?nome</code></pre>
+    <p><span class="label">Risultato:</span> 11 risultati, tutti effettivamente contenenti "APS" nel nome (es. "Graf San Donato APS", "Centro Sociale e Orti Villa Bernaroli APS").</p>
+    <p><span class="label">Interpretazione:</span> nessuna corrispondenza spuria — il testo importato dal CSV è pulito e coerente.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>Query 2 — Case per quartiere (CLV, UNION)</h3>
+    <p><span class="label">Obiettivo:</span> confrontare le Case di due quartieri (Navile e Savena) per verificare il collegamento al distretto tramite <code>clv:hasDistrict</code>.</p>
+    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
+PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
+PREFIX clv: &lt;https://w3id.org/italia/onto/CLV/&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?nome ?quartiere
+WHERE {
+  ?casa a bo:CasaDiQuartiere ;
+        poi:POIofficialName ?nome ;
+        clv:hasAddress ?indirizzo .
+  ?indirizzo clv:hasDistrict ?distretto .
+  {
+    ?distretto rdfs:label "Navile"@it .
+    BIND("Navile"@it AS ?quartiere)
+  }
+  UNION
+  {
+    ?distretto rdfs:label "Savena"@it .
+    BIND("Savena"@it AS ?quartiere)
+  }
+}
+ORDER BY ?quartiere ?nome</code></pre>
+    <p><span class="label">Risultato:</span> 13 righe — 7 Case a Navile (Casa Gialla, Croce Coperta, Katia Bertasi, Montanari, Villa Torchi, Fondo Comini, Pescarola) e 6 a Savena (Area Ortiva Paleotto, Casa del Gufo, La Dacia, Villa Mazzacorati, San Rafel, Foscherara).</p>
+    <p><span class="label">Interpretazione:</span> il collegamento <code>clv:hasDistrict</code> funziona correttamente per entrambi i quartieri testati.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>Query 3 — Orari del lunedì (AccessCondition/TI, OPTIONAL)</h3>
+    <p><span class="label">Obiettivo:</span> verificare che apertura/chiusura siano popolate coerentemente per una fascia specifica, tramite <code>ac:hasAccessCondition</code> e <code>ti:Monday</code>.</p>
+    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
+PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
+PREFIX ac: &lt;https://w3id.org/italia/onto/AccessCondition/&gt;
+PREFIX ti: &lt;https://w3id.org/italia/onto/TI/&gt;
+
+SELECT ?nome ?apertura ?chiusura
+WHERE {
+  ?casa a bo:CasaDiQuartiere ;
+        poi:POIofficialName ?nome ;
+        ac:hasAccessCondition ?orario .
+  ?orario ac:hasDayOfWeek ti:Monday .
+  OPTIONAL { ?orario ac:opens ?apertura }
+  OPTIONAL { ?orario ac:closes ?chiusura }
+}
+ORDER BY ?nome</code></pre>
+    <p><span class="label">Risultato:</span> elenco coerente delle fasce del lunedì (es. Santa Viola 08:00-11:30 e 14:00-18:30). Un caso limite: Giorgio Costa risulta con apertura 13:00:00 e chiusura 00:00:00.</p>
+    <p><span class="label">Interpretazione:</span> il valore "00:00:00" come chiusura, formalmente valido, va verificato sul CSV sorgente — probabilmente indica un orario fino a mezzanotte da normalizzare (segnalato in <a href="challenges.html">Sfide</a>).</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>Query 4 — Le 10 aperture più mattiniere (AccessCondition, LIMIT + ORDER BY)</h3>
+    <p><span class="label">Obiettivo:</span> controllo di plausibilità sui valori xsd:time di apertura (<code>ac:opens</code>).</p>
+    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
+PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
+PREFIX ac: &lt;https://w3id.org/italia/onto/AccessCondition/&gt;
+
+SELECT DISTINCT ?nome ?apertura
+WHERE {
+  ?casa a bo:CasaDiQuartiere ;
+        poi:POIofficialName ?nome ;
+        ac:hasAccessCondition ?orario .
+  ?orario ac:opens ?apertura .
+}
+ORDER BY ?apertura
+LIMIT 10</code></pre>
+    <p><span class="label">Risultato:</span> Katia Bertasi (07:00) la più mattiniera, seguita da un gruppo di Case alle 08:00, poi Montanari (08:45) e Casa del Gufo (09:00).</p>
+    <p><span class="label">Interpretazione:</span> tutti i valori sono plausibili per orari di apertura di un servizio comunitario diurno — nessuna anomalia tra i 10 più mattinieri.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

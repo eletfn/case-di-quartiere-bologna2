@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPARQL 2 · Ontologia — Case di Quartiere di Bologna</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a>
+      <a href="sparql-ontologia.html" aria-current="page">SPARQL 2 · Ontologia</a>
+      <a href="llm.html">LLM</a>
+      <a href="challenges.html">Sfide</a>
+    </nav>
+  </div>
+</header>
+<main class="page wide">
+  <span class="eyebrow">Query SPARQL 2</span>
+  <h1 class="page-title">Query sulla nostra ontologia</h1>
+  <p class="lede">Query che verificano direttamente la nostra estensione custom — la classe <code>bo:CasaDiQuartiere</code> e le sue istanze — indipendentemente dal vocabolario OntoPiA sottostante.</p>
+
+  <div class="card">
+    <p style="margin-bottom:6px">Keyword SPARQL utilizzate in questa query:</p>
+    <div class="badges">
+      <span class="badge">OPTIONAL</span>
+      <span class="badge">BIND</span>
+      <span class="badge">DISTINCT</span>
+      <span class="badge">ORDER BY</span>
+    </div>
+    <p style="margin-top:14px">Le query sul vocabolario OntoPiA riusato (COV, CLV, AccessCondition) sono nella pagina <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a>.</p>
+  </div>
+
+  <section class="card query-block">
+    <h3>Query 1 — Completezza strutturale delle 32 Case</h3>
+    <p><span class="label">Obiettivo:</span> verificare che ogni istanza di <code>bo:CasaDiQuartiere</code> abbia gestore, indirizzo, orari e sito web, individuando eventuali lacune nella nostra classe.</p>
+    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
+PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
+PREFIX clv: &lt;https://w3id.org/italia/onto/CLV/&gt;
+PREFIX sm: &lt;https://w3id.org/italia/onto/SM/&gt;
+PREFIX ac: &lt;https://w3id.org/italia/onto/AccessCondition/&gt;
+
+SELECT DISTINCT ?nome ?haGestore ?haIndirizzo ?haOrari ?haSitoWeb
+WHERE {
+  ?casa a bo:CasaDiQuartiere ;
+        poi:POIofficialName ?nome .
+  OPTIONAL { ?casa bo:isManagedBy ?g . BIND(true AS ?haGestore) }
+  OPTIONAL { ?casa clv:hasAddress ?a . BIND(true AS ?haIndirizzo) }
+  OPTIONAL { ?casa ac:hasAccessCondition ?o . BIND(true AS ?haOrari) }
+  OPTIONAL { ?casa sm:hasWebSite ?w . BIND(true AS ?haSitoWeb) }
+}
+ORDER BY ?nome</code></pre>
+    <p><span class="label">Risultato:</span> 32 righe, una per Casa, senza duplicati. Indirizzo e sito web presenti su tutte e 32. Gestore assente solo per Stella e Tolmino. Orari assenti solo per Foscherara, Pilastro e Villa Mazzacorati.</p>
+    <p><span class="label">Interpretazione:</span> le lacune corrispondono esattamente alle celle vuote nel CSV originale per quelle stesse Case — il grafo riflette correttamente l'assenza del dato invece di inventarlo. Il pattern con <code>OPTIONAL</code> + <code>BIND(true AS ...)</code>, invece di selezionare direttamente il valore, evita le righe duplicate quando una proprietà è multi-valore (vedi <a href="challenges.html">Sfide</a>).</p>
+  </section>
+
+  <div class="todo">Aggiungere qui eventuali ulteriori query specifiche sulla classe bo:CasaDiQuartiere (es. verifica di bo:isLocatedInHeritageBuilding sulle case ospitate in edifici storici).</div>
+</main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

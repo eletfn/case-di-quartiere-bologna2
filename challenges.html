@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Difficoltà — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a>
+      <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>
+      <a href="llm.html">LLM</a>
+      <a href="challenges.html" aria-current="page">Sfide</a>
+    </nav>
+  </div>
+</header>
+<main class="page">
+    <span class="eyebrow">Sfide</span>
+    <h1 class="page-title">Sfide affrontate</h1>
+    <p class="lede">Problemi tecnici incontrati durante il progetto e come sono stati risolti.</p>
+
+    <h3>Tab SPARQL Query di Protégé non funzionante</h3>
+    <p>Dopo aver caricato lo schema e le istanze in Protégé e attivato il tab SPARQL Query da Window &rarr; Tabs, il campo di inserimento della query non accettava input, né da tastiera né da copia-incolla — un probabile bug di rendering.</p>
+    <p><strong>Soluzione:</strong> passaggio a uno strumento SPARQL online, in sostituzione del tab non funzionante di Protégé.</p>
+
+    <div class="arcade" aria-hidden="true"></div>
+
+    <h3>Risultati sbagliati da un motore SPARQL online (non dai dati)</h3>
+    <p>Un primo strumento online testato restituiva risultati sbagliati su più tipi di query: con <code>OPTIONAL</code> combinato a <code>BIND</code> perdeva silenziosamente le colonne derivate; con <code>COUNT</code>/<code>GROUP BY</code> non calcolava affatto l'aggregazione; con <code>FILTER</code> + <code>REGEX</code> restituiva righe che non rispettavano il filtro e perdeva una delle variabili richieste in <code>SELECT</code>.</p>
+    <p><strong>Soluzione:</strong> ogni risultato sospetto è stato verificato in modo indipendente con <strong>rdflib</strong> (Python) sugli stessi file, per stabilire con certezza se il problema fosse nei dati o nello strumento. In tutti e tre i casi il problema era lo strumento, non il grafo. Si è quindi passati a <a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" rel="noopener">SPARQL Playground</a>, basato sul motore <strong>Comunica</strong>, conforme allo standard SPARQL 1.1 — i risultati da quel momento sono risultati coerenti con la verifica indipendente.</p>
+    <div class="note ok">Questo episodio è un esempio concreto di metodologia di debugging: mai accettare un risultato "0 righe" o "risultato inatteso" come conclusione sui dati, senza prima escludere che il problema sia nello strumento di query.</div>
+
+    <h3>Righe duplicate con OPTIONAL su una proprietà multi-valore</h3>
+    <p>Una prima versione della query di completezza (Query 1) selezionava direttamente l'orario stesso all'interno dell'<code>OPTIONAL</code>, invece di un semplice booleano di presenza. Poiché una Casa può avere più fasce orarie (<code>ac:hasAccessCondition</code>), questo produceva una riga per ogni combinazione — molti apparenti "doppioni".</p>
+    <p><strong>Soluzione:</strong> non è un errore nei dati, ma una conseguenza della semantica standard dei join in SPARQL su variabili multi-valore. Risolto riducendo l'esito di ciascun <code>OPTIONAL</code> a un valore booleano con <code>BIND</code>, quando l'obiettivo è verificare l'esistenza e non elencare ogni valore.</p>
+
+    <h3>FILTER isolato dentro un ramo di UNION</h3>
+    <p>La query per confrontare le Case di due quartieri (Query 3) restituiva inizialmente 0 risultati. La causa non era nei dati: un blocco <code>{ FILTER(...) }</code> usato come ramo di <code>UNION</code>, senza uno schema di tripla al suo interno, non eredita i binding di variabile stabiliti fuori da quel ramo — valuta il filtro su una variabile non vincolata, che fallisce sempre.</p>
+    <p><strong>Soluzione:</strong> vincolare la variabile con una tripla e un <code>BIND</code> dentro ciascun ramo dello <code>UNION</code>, invece di affidarsi a un <code>FILTER</code> isolato. Verificato prima con rdflib (13 risultati attesi), poi confermato identico su SPARQL Playground.</p>
+
+    <h3>Valore orario limite: "00:00:00" come chiusura</h3>
+    <p>La Query 4 (orari del lunedì) ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
+    <p><strong>Stato:</strong> segnalato come punto da verificare manualmente sul CSV sorgente — verosimilmente rappresenta un orario fino a mezzanotte da normalizzare, coerentemente con un problema analogo già individuato altrove nel dataset ("24:00:00", anch'esso non un valore <code>xsd:time</code> valido in senso stretto).</p>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

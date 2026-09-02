@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologia — Case di Quartiere di Bologna nel Knowledge Graph</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">
+      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
+      <span>Case di Quartiere <em>KG</em></span>
+    </a>
+    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
+    <nav class="site-nav" aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="topic.html">Argomento</a>
+      <a href="mappa.html">Mappa</a>
+      <a href="methodology.html" aria-current="page">Metodologia</a>
+      <a href="ontology.html">Ontologia</a>
+      <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a>
+      <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>
+      <a href="llm.html">LLM</a>
+      <a href="challenges.html">Sfide</a>
+    </nav>
+  </div>
+</header>
+<main class="page">
+    <span class="eyebrow">Metodologia</span>
+    <h1 class="page-title">Dal dataset tabellare al Knowledge Graph verificato</h1>
+    <p class="lede">Come siamo passati dal CSV comunale al grafo di conoscenza, e con quali strumenti.</p>
+
+    <h2>Dataset di partenza</h2>
+    <p>Punto di partenza: il CSV pubblico delle Case di Quartiere, ripulito e strutturato in 32 righe e 21 colonne — <code>id_casa</code>, <code>nome_casa</code>, <code>via</code>, <code>gestore</code>, <code>lat</code>, <code>lon</code>, <code>quartiere</code>, <code>numero_civico</code>, <code>area_ortiva</code>, <code>area_statistica</code>, <code>sito_web</code>, più 14 colonne giorno&times;fascia per gli orari di apertura. Prima della modellazione abbiamo preso alcune decisioni strutturali esplicite: il numero civico è stato separato in parte numerica e specificità (es. "3/A" &rarr; base 3, specificità A); area verde e area ortiva sono trattate come due colonne/concetti distinti; gli orari sono normalizzati nel formato <code>HH:MM-HH:MM</code>, con cella vuota a indicare chiusura.</p>
+
+    <h2>Le fasi del lavoro</h2>
+    <div class="timeline">
+      <div class="timeline-step">
+        <h3>1. Analisi del gap ed esplorazione ontologica</h3>
+        <p>Studio del dataset per individuare i concetti mancanti rispetto a un vocabolario semantico standard, ed esplorazione della rete <strong>OntoPiA</strong> per identificare le classi e proprietà già disponibili (indirizzo, organizzazione, condizioni di accesso, punti di interesse) da riusare invece di reinventarle.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>2. Progettazione dello schema (Turtle)</h3>
+        <p>Definizione di un piccolo vocabolario proprio (namespace <code>bo:</code>) che estende OntoPiA e ArCo solo dove necessario: la classe <code>bo:CasaDiQuartiere</code> e le proprietà <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>. Dettagli nella pagina <a href="ontology.html">Ontologia</a>.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>3. Generazione delle triple con più LLM</h3>
+        <p>Le triple RDF di istanza sono state generate sottoponendo il CSV e lo schema a più Large Language Model, confrontati su tre tecniche di prompting (zero-shot, few-shot, chain-of-thought). Dettagli e confronto nella pagina <a href="llm.html">LLM</a>.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>4. Caricamento e verifica di consistenza</h3>
+        <p>Schema e istanze sono stati uniti in un unico grafo Turtle e caricati in <strong>Protégé</strong>, dove il reasoner <strong>HermiT</strong> ha confermato l'assenza di inconsistenze logiche.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>5. Verifica dei dati con SPARQL</h3>
+        <p>Interrogazione del grafo con query SPARQL per verificarne completezza e correttezza, coprendo tutte le keyword richieste (OPTIONAL, DISTINCT, UNION, FILTER, REGEX, LIMIT, ORDER BY). Dettagli nelle pagine <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a> e <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>6. Pubblicazione</h3>
+        <p>Documentazione del progetto e pubblicazione di questo sito su GitHub Pages, con i dati, lo schema e i prompt utilizzati resi pubblicamente disponibili nella repository.</p>
+      </div>
+    </div>
+
+    <h2>Strumenti utilizzati</h2>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-size:1.1rem; color:var(--brick-dark);">Modellazione e verifica</h3>
+        <ul>
+          <li><a href="https://protege.stanford.edu/" target="_blank" rel="noopener">Protégé</a> — editor di ontologie</li>
+          <li>Reasoner <strong>HermiT</strong> — verifica di consistenza logica</li>
+          <li><a href="https://github.com/RDFLib/rdflib" target="_blank" rel="noopener">rdflib</a> (Python) — parsing e verifica indipendente</li>
+          <li><a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" rel="noopener">SPARQL Playground</a> (motore Comunica) — query SPARQL online</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:1.1rem; color:var(--brick-dark);">Ontologie di riferimento</h3>
+        <ul>
+          <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener">OntoPiA</a> — rete ontologica della PA italiana</li>
+          <li><a href="https://w3id.org/arco" target="_blank" rel="noopener">ArCo</a> — grafo del patrimonio culturale italiano</li>
+          <li>pandas — pulizia e analisi del CSV sorgente</li>
+          <li>Claude e Gemini — generazione e confronto delle triple</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+<footer class="site-footer">
+  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
