@@ -251,3 +251,59 @@ code { font-family: var(--mono); font-size: 0.9em; }
 /* Query SPARQL: blocco singola query */
 .query-block h3 { color: var(--brick-dark); }
 .query-block .label { font-weight: 600; color: var(--brick-dark); }
+
+/* ---------- Sezione Team ---------- */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+.team-card { background: var(--plaster); border: 1px solid var(--line); border-radius: 8px; padding: 1.4rem; text-align: center; }
+.team-card img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin: 0 auto 0.8rem; display: block; border: 2px solid var(--brick); }
+.team-card .avatar-fallback {
+  width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--brick); color: var(--paper);
+  font-family: var(--display); font-weight: 600; font-size: 1.3rem;
+}
+.team-card h3 { margin: 0; font-size: 1rem; }
+.team-card p { margin: 0.2rem 0 0; font-size: 0.8rem; color: var(--ink-soft); }
+
+/* ---------- Team: cartolina flip-card ---------- */
+.team-grid.flip { perspective: 1200px; }
+.team-flip-card {
+  background: none; border: none; padding: 0;
+  perspective: 1200px;
+  cursor: pointer;
+}
+.team-flip-inner {
+  position: relative;
+  width: 100%; height: 210px;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(.4,.2,.2,1);
+}
+.team-flip-card:hover .team-flip-inner,
+.team-flip-card.flipped .team-flip-inner { transform: rotateY(180deg); }
+
+.team-flip-front, .team-flip-back {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  padding: 1.4rem 1.2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+}
+.team-flip-front { background: var(--plaster); }
+.team-flip-front img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin-bottom: 0.8rem; border: 2px solid var(--brick); }
+.team-flip-front .avatar-fallback {
+  width: 84px; height: 84px; border-radius: 50%; margin-bottom: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--brick); color: var(--paper);
+  font-family: var(--display); font-weight: 600; font-size: 1.3rem;
+}
+.team-flip-front h3 { margin: 0; font-size: 1rem; }
+.team-flip-front .flip-hint { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-soft); margin-top: 0.5rem; opacity: 0.7; }
+
+.team-flip-back {
+  background: var(--brick-dark);
+  color: var(--paper);
+  transform: rotateY(180deg);
+}
+.team-flip-back p { margin: 0; font-size: 0.85rem; line-height: 1.5; }
+.team-flip-back .role-tag { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 0.5rem; display: block; }
