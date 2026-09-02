@@ -1,0 +1,22 @@
+Genera triple RDF in formato Turtle valide per descrivere le Case di Quartiere
+estratte dal dataset nome.csv, utilizzando l'ontologia allegata.
+
+Prima di generare le triple sul resto del dataset, ecco alcuni esempi di
+istanza già completati, da usare come riferimento per il pattern da seguire:
+
+Esempio tripla 1
+Subject: Casa di Quartiere con ID CQ01 -> bo:CQ01
+Predicate: rdf:type
+Object: bo:CasaDiQuartiere
+RDF Triple: bo:CQ01 a bo:CasaDiQuartiere .
+
+Esempio tripla 2
+Subject: bo:CQ01
+Predicate: poi:POIofficialName
+Object: "Casa di Quartiere Giorgio Costa"@it
+RDF Triple: bo:CQ01 poi:POIofficialName "Casa di Quartiere Giorgio Costa"@it .
+
+[...]
+
+Genera ora le triple corrispondenti per tutte le righe rimanenti del dataset,
+seguendo lo stesso schema soggetto/predicato/oggetto.
