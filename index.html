@@ -1,85 +1,88 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Case di Quartiere di Bologna nel Knowledge Graph</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+ Case di Quartiere KG ☰
+Home Argomento Mappa Metodologia Ontologia SPARQL 1 · OntoPiA SPARQL 2 · Ontologia LLM Sfide
+Knowledge Graph con OntoPiA/ArCo e LLM
+Case di Quartiere di Bologna
+Un Knowledge Graph che collega i 32 centri di comunità del Comune di Bologna alle reti ontologiche nazionali OntoPiA e ArCo, costruito con il supporto di più Large Language Model e verificato tramite query SPARQL.
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="index.html" class="brand">
-      <svg class="brand-arch" viewBox="0 0 24 20" aria-hidden="true"><path d="M2 18 A 10 10 0 0 1 22 18" /></svg>
-      <span>Case di Quartiere <em>KG</em></span>
-    </a>
-    <button class="nav-toggle" data-nav-toggle aria-label="Apri il menu di navigazione">&#9776;</button>
-    <nav class="site-nav" aria-label="Navigazione principale">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="topic.html">Argomento</a>
-      <a href="mappa.html">Mappa</a>
-      <a href="methodology.html">Metodologia</a>
-      <a href="ontology.html">Ontologia</a>
-      <a href="sparql.html">Query SPARQL</a>
-      <a href="llm.html">LLM &amp; Prompt</a>
-      <a href="rdf.html">Triple RDF</a>
-      <a href="results.html">Risultati</a>
-      <a href="challenges.html">Difficoltà</a>
-    </nav>
-  </div>
-</header>
+Portici di Bologna Portici di Via Indipendenza, Bologna Portici di Bologna Foto: Wikimedia Commons — CC BY-SA 3.0 / CC BY-SA 4.0 (vedi pagine dei singoli file per l'attribuzione completa)
+32Case di Quartiere modellate come istanze del Knowledge Graph
+2 ontologieOntoPiA (COV, CLV, POI-AP_IT, TI, AccessCondition, SM) e ArCo, estese con vocabolario proprio
+3 tecniche + 2 LLMZero-shot, few-shot, chain-of-thought; confronto tra Claude e Gemini
+Abstract
+Le Case di Quartiere sono spazi di comunità gestiti da associazioni, cooperative ed enti del terzo settore, distribuiti nei quartieri di Bologna, che offrono attività sociali, culturali e ricreative ai cittadini. Il Comune di Bologna pubblica i dati relativi (indirizzo, gestore, orari, sede) in formato tabellare aperto, ma senza alcun collegamento a vocabolari semantici standard: non è possibile, ad esempio, sapere in modo interoperabile a quale distretto amministrativo appartiene una Casa, se la sua sede è un edificio storico tutelato, o confrontarne gli orari con altri servizi pubblici della città.
 
-<div class="hero-band">
-  <div class="hero-inner">
-    <span class="eyebrow">Arricchimento di un Knowledge Graph con LLM</span>
-    <h1 class="page-title">33 Case di Quartiere.<br>Un vuoto nel grafo della conoscenza.</h1>
-    <p class="lede">Wikidata, OntoPiA e ArCo dicono poco sulla rete comunale delle Case di Quartiere di Bologna. Le abbiamo interrogate, misurato il vuoto, e usato più LLM per colmarlo con nuove triple RDF — verificate una per una.</p>
+Questo progetto colma questa lacuna trasformando il dataset in un grafo di conoscenza (Knowledge Graph) conforme alle ontologie OntoPiA (il network semantico della Pubblica Amministrazione italiana) e ArCo (il grafo del patrimonio culturale italiano), estendendole con una piccola ontologia dedicata. La generazione delle triple RDF è stata condotta con l'ausilio di più Large Language Model, confrontati su tre diverse tecniche di prompting (zero-shot, few-shot, chain-of-thought), e il grafo risultante è stato verificato per consistenza logica e correttezza tramite query SPARQL.
 
-    <svg class="hero-graph" viewBox="0 0 640 150" role="img" aria-label="Illustrazione: nodi del grafo collegati da archi a forma di portico">
-      <path class="arc" d="M 40 130 A 90 90 0 0 1 220 130" />
-      <path class="arc" d="M 220 130 A 90 90 0 0 1 400 130" />
-      <path class="arc" d="M 400 130 A 90 90 0 0 1 580 130" />
-      <circle class="node" cx="40" cy="130" r="5"/>
-      <circle class="node alt" cx="220" cy="130" r="5"/>
-      <circle class="node alt" cx="400" cy="130" r="5"/>
-      <circle class="node" cx="580" cy="130" r="5"/>
-      <text x="14" y="146">bo:CasaDiQuartiere</text>
-      <text x="188" y="146">wd:Q77115</text>
-      <text x="366" y="146">covapit:Organization</text>
-      <text x="556" y="146">arco:…</text>
-    </svg>
+Esplora il progetto
+01
+Argomento
+Il tema, la lacuna informativa, gli obiettivi
 
-    <div class="stat-row">
-      <div class="stat"><span class="num">33</span><span class="label">Case di Quartiere censite dal Comune</span></div>
-      <div class="stat"><span class="num">~15%</span><span class="label">collegabili a un'entità Wikidata</span></div>
-      <div class="stat"><span class="num">3</span><span class="label">knowledge graph esplorati</span></div>
-    </div>
-  </div>
-</div>
+02
+Mappa
+Le 32 Case attive sui sei quartieri
 
-<main class="page wide">
-    <section>
-      <h2>Esplora il progetto</h2>
-      <p>Dall'esplorazione dei knowledge graph esistenti alla generazione di nuove triple con l'aiuto di più LLM, fino al confronto critico dei risultati.</p>
-      <div class="card-grid">
-        <a class="nav-card" href="topic.html"><span class="nc-eyebrow">01</span><h3>Argomento</h3><p>Il tema, il dataset comunale, gli obiettivi</p></a>
-        <a class="nav-card" href="mappa.html"><span class="nc-eyebrow">02</span><h3>Mappa</h3><p>Le 32 Case attive sui sei quartieri</p></a>
-        <a class="nav-card" href="methodology.html"><span class="nc-eyebrow">03</span><h3>Metodologia</h3><p>Come abbiamo esplorato Wikidata, OntoPiA e ArCo</p></a>
-        <a class="nav-card" href="ontology.html"><span class="nc-eyebrow">04</span><h3>Ontologia</h3><p>Classi e proprietà scelte o progettate</p></a>
-        <a class="nav-card" href="sparql.html"><span class="nc-eyebrow">05</span><h3>Query SPARQL</h3><p>Le interrogazioni sui tre knowledge graph</p></a>
-        <a class="nav-card" href="llm.html"><span class="nc-eyebrow">06</span><h3>LLM &amp; Prompt</h3><p>Prompt usati e confronto tra i modelli</p></a>
-        <a class="nav-card" href="rdf.html"><span class="nc-eyebrow">07</span><h3>Triple RDF</h3><p>Le nuove triple generate e validate</p></a>
-        <a class="nav-card" href="results.html"><span class="nc-eyebrow">08</span><h3>Risultati</h3><p>Il gap misurato, e quanto ne resta colmato</p></a>
-        <a class="nav-card" href="challenges.html"><span class="nc-eyebrow">09</span><h3>Difficoltà</h3><p>Problemi incontrati e come li abbiamo risolti</p></a>
-      </div>
-    </section>
-  </main>
+03
+Metodologia
+Le fasi del lavoro, dal CSV al grafo verificato
 
-<footer class="site-footer">
-  <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph · Corso di Semantic Web &amp; Knowledge Graph · A.A. 2025/2026 · Università di Bologna</p>
-</footer>
+04
+Ontologia
+OntoPiA e ArCo riusate, più l'estensione bo:
 
-<script src="script.js"></script>
-</body>
-</html>
+05
+SPARQL 1 · OntoPiA
+Query sul vocabolario OntoPiA riusato
+
+06
+SPARQL 2 · Ontologia
+Query sulla nostra estensione bo:CasaDiQuartiere
+
+07
+LLM
+Prompt e confronto Claude vs Gemini
+
+08
+Sfide
+Problemi incontrati e come li abbiamo risolti
+
+Esplora il progetto
+Dall'esplorazione dei knowledge graph esistenti alla generazione di nuove triple con l'aiuto di più LLM, fino al confronto critico dei risultati.
+
+01
+Argomento
+Il tema, il dataset comunale, gli obiettivi
+
+02
+Mappa
+Le 32 Case attive sui sei quartieri
+
+03
+Metodologia
+Come abbiamo esplorato Wikidata, OntoPiA e ArCo
+
+04
+Ontologia
+Classi e proprietà scelte o progettate
+
+05
+Query SPARQL
+Le interrogazioni sui tre knowledge graph
+
+06
+LLM & Prompt
+Prompt usati e confronto tra i modelli
+
+07
+Triple RDF
+Le nuove triple generate e validate
+
+08
+Risultati
+Il gap misurato, e quanto ne resta colmato
+
+09
+Difficoltà
+Problemi incontrati e come li abbiamo risolti
+
+Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026
