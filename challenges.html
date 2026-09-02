@@ -33,6 +33,14 @@
     <h1 class="page-title">Sfide affrontate</h1>
     <p class="lede">Problemi tecnici incontrati durante il progetto e come sono stati risolti.</p>
 
+    <h3>Dato non più corrente nel dataset open: Villa Paradiso</h3>
+    <p>Il CSV open data pubblicato dal Comune riportava tra le 33 Case di Quartiere anche <strong>Villa Paradiso</strong> (cdq_15), completa di gestore e coordinate, apparentemente una Casa attiva come tutte le altre.</p>
+    <p>Durante l'inserimento dei siti web ufficiali per ciascuna Casa, una verifica incrociata con l'elenco pubblicato sul sito del Comune di Bologna ha mostrato che Villa Paradiso non compare più tra le Case di Quartiere attive. Approfondendo, è emerso che a gennaio 2025 l'Amministrazione ha revocato la convenzione con la storica gestione e destinato lo stabile a un uso diverso.</p>
+    <p><strong>Soluzione:</strong> abbiamo rimosso questa voce dal dataset di lavoro (portando il totale da 33 a 32 Case), poiché non rappresenta più una Casa di Quartiere realmente attiva.</p>
+
+
+    <div class="arcade" aria-hidden="true"></div>
+
     <h3>Tab SPARQL Query di Protégé non funzionante</h3>
     <p>Dopo aver caricato lo schema e le istanze in Protégé e attivato il tab SPARQL Query da Window &rarr; Tabs, il campo di inserimento della query non accettava input, né da tastiera né da copia-incolla — un probabile bug di rendering.</p>
     <p><strong>Soluzione:</strong> passaggio a uno strumento SPARQL online, in sostituzione del tab non funzionante di Protégé.</p>
