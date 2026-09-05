@@ -79,15 +79,14 @@
     <p class="lede">La modellazione si fonda sull'adozione dei vocabolari controllati della Pubblica Amministrazione italiana: le classi e le proprietà già disponibili non vengono ridichiarate, ma importate così come definite nei rispettivi namespace. L'estensione <code>bo:</code> interviene solo dove tali vocabolari non coprono un concetto specifico del dominio.</p>
 
     <h2>Fasi della progettazione dello schema</h2>
-    <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico. Corrispondono, nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>, alle fasi 1 (analisi del gap ed esplorazione ontologica) e 2 (progettazione dello schema).</p>
+    <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico. Corrispondono, nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>.</p>
     <ol>
       <li><strong>Analisi del gap concettuale.</strong> Studio degli attributi del dataset "Case di Quartiere di Bologna" (denominazione, indirizzo, gestore, orari di apertura, aree verdi e ortive, quartiere di appartenenza, coordinate geografiche) per individuare i concetti non rappresentabili con i soli vocabolari controllati esistenti.</li>
       <li><strong>Esplorazione della rete OntoPiA e di ArCo.</strong> Ricognizione sistematica delle classi e delle proprietà già disponibili, quali indirizzo, organizzazione, condizioni di accesso e punti di interesse, da riusare al posto di reinventarle.</li>
       <li><strong>Modellazione concettuale in draw.io.</strong> Rappresentazione grafica della sola porzione di schema priva di copertura, per definire la gerarchia di classi e le relazioni di dominio e codominio prima della formalizzazione in OWL.</li>
       <li><strong>Formalizzazione in Turtle dell'estensione <code>bo:</code>.</strong> Scrittura della classe <code>bo:CasaDiQuartiere</code> e delle proprietà oggetto <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>, con le relative etichette e i commenti in lingua italiana.</li>
     </ol>
-    <p>La validazione logica dello schema, effettuata sul grafo completo comprensivo delle istanze generate con gli LLM, corrisponde alla fase 4 della metodologia generale ed è descritta nel riquadro seguente.</p>
-
+  
     <h2>Riuso dei vocabolari controllati</h2>
     <p>In linea con i principi dell'ontology engineering, e in particolare con il criterio del riuso, il progetto evita di ridichiarare classi o proprietà già disponibili nei vocabolari ufficiali della Pubblica Amministrazione italiana. Le classi e le proprietà elencate di seguito sono riusate mantenendo inalterati gli IRI originali, così come definiti nei rispettivi namespace.</p>
     <div class="grid-2">
