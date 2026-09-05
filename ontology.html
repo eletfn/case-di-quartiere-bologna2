@@ -30,19 +30,17 @@
 <main class="page">
     <span class="eyebrow">Ontologia</span>
     <h1 class="page-title">Processo di modellazione dell'ontologia</h1>
-    <p class="lede">Il criterio metodologico adottato è il riuso: nessuna classe o proprietà è stata ridichiarata laddove ne esistesse già una equivalente in un vocabolario controllato della Pubblica Amministrazione italiana. L'estensione <code>bo:</code> è stata introdotta esclusivamente per i concetti privi di copertura.</p>
+    <p class="lede">Il criterio guida della modellazione è il riuso dei vocabolari controllati della Pubblica Amministrazione italiana: le classi e le proprietà già disponibili non vengono ridichiarate, ma reimpiegate così come definite nei rispettivi namespace. L'estensione <code>bo:</code> interviene solo dove questi vocabolari non coprono un concetto specifico del dominio.</p>
 
-    <h2>Fasi del processo di modellazione</h2>
-    <p>La costruzione dello schema, dall'analisi del dataset alla pubblicazione, si è articolata nelle seguenti fasi.</p>
+    <h2>Fasi della progettazione dello schema</h2>
+    <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico. Corrispondono, nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>, alle fasi 1 (analisi del gap ed esplorazione ontologica) e 2 (progettazione dello schema).</p>
     <ol>
-      <li><strong>Analisi del dominio e specificazione dei requisiti.</strong> A partire dagli attributi del dataset "Case di Quartiere di Bologna" (denominazione, indirizzo, gestore, orari di apertura, aree verdi e ortive, quartiere di appartenenza, coordinate geografiche) sono stati individuati i concetti, le relazioni e i vincoli rilevanti per il dominio da rappresentare.</li>
-      <li><strong>Ricognizione dei vocabolari controllati esistenti.</strong> Per ciascun concetto individuato è stata verificata sistematicamente la disponibilità di una classe o di una proprietà equivalente nei vocabolari OntoPiA (COV, CLV, POI, TI, AC) e nell'ontologia ArCo, in applicazione del criterio del riuso.</li>
-      <li><strong>Modellazione concettuale preliminare.</strong> Lo schema è stato rappresentato graficamente in draw.io, per definire gerarchie di classi, proprietà e relazioni di dominio e codominio prima della formalizzazione in OWL. Questa fase ha reso esplicite le sovrapposizioni tra i vocabolari riusati e i concetti privi di copertura, poi coperti dall'estensione <code>bo:</code>.</li>
-      <li><strong>Riuso e integrazione dei vocabolari selezionati.</strong> Le classi e le proprietà individuate nella fase precedente sono state importate per IRI, senza essere ridichiarate, in modo da preservare l'interoperabilità con i vocabolari nazionali di riferimento.</li>
-      <li><strong>Progettazione dell'estensione <code>bo:</code>.</strong> Esclusivamente per i concetti privi di corrispondenza nei vocabolari riusati sono state introdotte una classe (<code>bo:CasaDiQuartiere</code>) e due proprietà oggetto (<code>bo:isManagedBy</code>, <code>bo:isLocatedInHeritageBuilding</code>).</li>
-      <li><strong>Verifica della consistenza logica.</strong> Lo schema, popolato con le 32 istanze derivate dal dataset, è stato validato con il reasoner HermiT in Protégé, per accertare l'assenza di inconsistenze e di classi insoddisfacibili.</li>
-      <li><strong>Formalizzazione e pubblicazione.</strong> Il diagramma delle classi elaborato nella fase 3 è stato aggiornato per riflettere lo schema definitivo, e lo schema completo è stato esportato in formato Turtle a corredo della documentazione del progetto.</li>
+      <li><strong>Analisi del gap concettuale.</strong> Studio degli attributi del dataset "Case di Quartiere di Bologna" (denominazione, indirizzo, gestore, orari di apertura, aree verdi e ortive, quartiere di appartenenza, coordinate geografiche) per individuare i concetti non rappresentabili con i soli vocabolari controllati esistenti.</li>
+      <li><strong>Esplorazione della rete OntoPiA e di ArCo.</strong> Ricognizione sistematica delle classi e delle proprietà già disponibili, quali indirizzo, organizzazione, condizioni di accesso e punti di interesse, da riusare al posto di reinventarle.</li>
+      <li><strong>Modellazione concettuale in draw.io.</strong> Rappresentazione grafica della sola porzione di schema priva di copertura, per definire la gerarchia di classi e le relazioni di dominio e codominio prima della formalizzazione in OWL.</li>
+      <li><strong>Formalizzazione in Turtle dell'estensione <code>bo:</code>.</strong> Scrittura della classe <code>bo:CasaDiQuartiere</code> e delle proprietà oggetto <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>, con le relative etichette e i commenti in lingua italiana.</li>
     </ol>
+    <p>La validazione logica dello schema, effettuata sul grafo completo comprensivo delle istanze generate con gli LLM, corrisponde alla fase 4 della metodologia generale ed è descritta nel riquadro seguente.</p>
 
     <h2>Riuso dei vocabolari controllati</h2>
     <p>In linea con i principi dell'ontology engineering, e in particolare con il criterio del riuso, il progetto evita di ridichiarare classi o proprietà già disponibili nei vocabolari ufficiali della Pubblica Amministrazione italiana. Le classi e le proprietà elencate di seguito sono riusate mantenendo inalterati gli IRI originali, così come definiti nei rispettivi namespace.</p>
@@ -88,10 +86,10 @@
     rdfs:range arco:ArchitecturalOrLandscapeHeritage ;
     rdfs:label "è ubicata nell'edificio storico"@it .</code></pre>
 
-    <div class="note ok">La consistenza logica dello schema, comprensivo delle 32 istanze, è stata verificata con il reasoner <strong>HermiT</strong> in Protégé (fase 6 del processo di modellazione): non sono state rilevate inconsistenze. Per il dettaglio delle verifiche si rimanda alla pagina <a href="challenges.html">Sfide</a>.</div>
+    <div class="note ok">Una volta unito alle istanze generate dagli LLM (si veda la pagina <a href="llm.html">LLM</a>), il grafo completo (schema più 32 istanze) è stato caricato in Protégé e validato con il reasoner <strong>HermiT</strong>: non sono state rilevate inconsistenze logiche. Per il dettaglio delle verifiche si rimanda alla pagina <a href="challenges.html">Sfide</a>.</div>
 
     <h2>Diagramma delle classi</h2>
-    <p>Il diagramma delle classi, elaborato in draw.io nella fase di modellazione concettuale preliminare e successivamente aggiornato per riflettere lo schema definitivo, è riportato di seguito:</p>
+    <p>Il diagramma delle classi, elaborato in draw.io nella fase di modellazione concettuale (fase 3) e successivamente aggiornato per riflettere lo schema definitivo, è riportato di seguito:</p>
     <!-- Sostituire con il diagramma reale: esportare da draw.io come PNG/SVG e caricarlo in questa cartella -->
     <img src="ontology-diagram.png" alt="Diagramma delle classi e delle proprietà dell'ontologia, elaborato in draw.io" style="width:100%; border-radius:8px; border:1px solid var(--line);">
     <div class="todo">Sostituire ontology-diagram.png con l'esportazione reale del diagramma draw.io (File → Export as → PNG/SVG), caricando il file in questa stessa cartella del sito con lo stesso nome.</div>
