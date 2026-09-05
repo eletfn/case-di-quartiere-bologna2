@@ -5,6 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ontologia · Processo di modellazione · Case di Quartiere di Bologna nel Knowledge Graph</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Cornice per il diagramma: sfondo bianco (il PNG esportato da draw.io ha sfondo trasparente)
+     e lente di ingrandimento che compare al passaggio del mouse; il click apre l'immagine intera. */
+  .diagram-frame {
+    position: relative;
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    padding: 1rem;
+    overflow: hidden;
+  }
+  .diagram-frame img {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    transition: transform 0.2s ease;
+  }
+  .diagram-frame:hover img,
+  .diagram-frame:focus-visible img {
+    transform: scale(1.02);
+  }
+  .diagram-zoom {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background: var(--brick-dark);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    pointer-events: none;
+  }
+  .diagram-zoom svg { width: 1.15rem; height: 1.15rem; }
+  .diagram-frame:hover .diagram-zoom,
+  .diagram-frame:focus-visible .diagram-zoom {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -30,7 +76,7 @@
 <main class="page">
     <span class="eyebrow">Ontologia</span>
     <h1 class="page-title">Processo di modellazione dell'ontologia</h1>
-    <p class="lede">Il criterio guida della modellazione è il riuso dei vocabolari controllati della Pubblica Amministrazione italiana: le classi e le proprietà già disponibili non vengono ridichiarate, ma reimpiegate così come definite nei rispettivi namespace. L'estensione <code>bo:</code> interviene solo dove questi vocabolari non coprono un concetto specifico del dominio.</p>
+    <p class="lede">La modellazione si fonda sull'adozione dei vocabolari controllati della Pubblica Amministrazione italiana: le classi e le proprietà già disponibili non vengono ridichiarate, ma importate così come definite nei rispettivi namespace. L'estensione <code>bo:</code> interviene solo dove tali vocabolari non coprono un concetto specifico del dominio.</p>
 
     <h2>Fasi della progettazione dello schema</h2>
     <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico. Corrispondono, nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>, alle fasi 1 (analisi del gap ed esplorazione ontologica) e 2 (progettazione dello schema).</p>
@@ -91,7 +137,12 @@
     <h2>Diagramma delle classi</h2>
     <p>Il diagramma delle classi, elaborato in <a href="https://app.diagrams.net/#Wb!6xCPrHI9GE6jfAtqeJ4ixNbgjh9NvHpNlHoM-MGToi7JAa1y9ZIGRKGmgc9i2jlj%2F01TL4J6D7AXLXQGEGFANFY6HKPEOK2HYQY#%7B%22pageId%22%3A%22lLnx4PRSh0v65gNuHNGt%22%7D" target="_blank" rel="noopener">draw.io</a> nella fase di modellazione concettuale (fase 3) e successivamente aggiornato per riflettere lo schema definitivo, è riportato di seguito:</p>
     <!-- Sostituire con il diagramma reale: esportare da draw.io come PNG/SVG e caricarlo in questa cartella -->
-    <img src="ontology-diagram.png" alt="Diagramma delle classi e delle proprietà dell'ontologia, elaborato in draw.io" style="width:100%; border-radius:8px; border:1px solid var(--line);">
+    <a class="diagram-frame" href="ontology-diagram.png" target="_blank" rel="noopener" aria-label="Apri il diagramma a dimensione intera in una nuova scheda">
+      <img src="ontology-diagram.png" alt="Diagramma delle classi e delle proprietà dell'ontologia, elaborato in draw.io">
+      <span class="diagram-zoom" aria-hidden="true">
+        <svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+    </a>
     <div class="todo">Sostituire ontology-diagram.png con l'esportazione reale del diagramma draw.io (File → Export as → PNG/SVG), caricando il file in questa stessa cartella del sito con lo stesso nome.</div>
 
     <h2>Esempio di istanza</h2>
@@ -126,3 +177,4 @@ bo:OrarioCasaEsempio_Lun_Mattina a ac:OpeningHoursSpecification ;
 <script src="script.js"></script>
 </body>
 </html>
+
