@@ -150,7 +150,6 @@
         <svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </span>
     </a>
-    
     <h2>Esempio di istanza</h2>
     <p>Si riporta di seguito un esempio semplificato dell'istanziazione dei pattern precedentemente descritti per una singola Casa di Quartiere:</p>
     <pre><code>bo:CasaEsempio a bo:CasaDiQuartiere ;
@@ -171,8 +170,110 @@ bo:OrarioCasaEsempio_Lun_Mattina a ac:OpeningHoursSpecification ;
     ac:closes "13:00:00"^^xsd:time ;
     ac:hasDayOfWeek ti:Monday .</code></pre>
     <h2>Schema completo</h2>
-    <p>Lo schema completo, corredato dalle note di modellazione, è disponibile per il download: <a href="data/schema_case_di_quartiere.ttl" download>schema_case_di_quartiere.ttl</a></p>
-    <div class="todo">Caricare in data/schema_case_di_quartiere.ttl il file Turtle completo dello schema.</div>
+    <p>Lo schema completo, corredato dalle note di modellazione, è riportato di seguito ed è inoltre disponibile per il download: <a href="data/schema_case_di_quartiere.ttl" download>schema_case_di_quartiere.ttl</a></p>
+    <pre><code># ================================================================
+# Ontologia — Case di Quartiere di Bologna
+#
+# NAMESPACE bo: ancora placeholder — https://example.org/casediquartierebologna#
+# ================================================================
+
+@prefix bo:    &lt;https://example.org/casediquartierebologna#&gt; .
+@prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdf:   &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix cov:   &lt;https://w3id.org/italia/onto/COV/&gt; .
+@prefix clv:   &lt;https://w3id.org/italia/onto/CLV/&gt; .
+@prefix poi:   &lt;https://w3id.org/italia/onto/POI/&gt; .
+@prefix ti:    &lt;https://w3id.org/italia/onto/TI/&gt; .
+@prefix ac:    &lt;https://w3id.org/italia/onto/AccessCondition/&gt; .
+@prefix sm:    &lt;https://w3id.org/italia/onto/SM/&gt; .
+@prefix arco:  &lt;https://w3id.org/arco/ontology/arco/&gt; .
+@prefix l0:    &lt;https://w3id.org/italia/onto/l0/&gt; .
+
+# ----------------------------------------------------------------
+# 1) CLASSI E PROPRIETÀ CUSTOM DEL PROGETTO (bo:)
+# ----------------------------------------------------------------
+
+&lt;https://example.org/casediquartierebologna&gt;
+    a owl:Ontology ;
+    rdfs:label "Ontologia Case di Quartiere di Bologna"@it .
+
+bo:CasaDiQuartiere
+    a owl:Class ;
+    rdfs:subClassOf poi:PointOfInterest ;
+    rdfs:label "Casa di Quartiere"@it ;
+    rdfs:comment "Spazio comunitario gestito da associazioni del terzo settore, parte della rete istituzionale del Comune di Bologna."@it .
+
+bo:isLocatedInHeritageBuilding
+    a owl:ObjectProperty ;
+    rdfs:domain bo:CasaDiQuartiere ;
+    rdfs:range arco:ArchitecturalOrLandscapeHeritage ;
+    rdfs:label "è ubicata nell'edificio storico"@it ;
+    rdfs:comment "Collega una Casa di Quartiere al bene architettonico/paesaggistico ArCo che la ospita, indicato dalla colonna 'edificio_storico' del CSV."@it .
+
+bo:isManagedBy
+    a owl:ObjectProperty ;
+    rdfs:domain bo:CasaDiQuartiere ;
+    rdfs:range cov:PrivateOrganization ;
+    rdfs:label "è gestita da"@it ;
+    rdfs:comment "Collega una Casa di Quartiere all'organizzazione privata che la gestisce (colonna 'gestore' del CSV)."@it .
+
+# ----------------------------------------------------------------
+# 2) VOCABOLARIO DI RIFERIMENTO — proprietà/classi esterne da RIUSARE
+#    (non ridichiarate: sono già definite nei rispettivi namespace
+#    ufficiali OntoPiA/ArCo)
+# ----------------------------------------------------------------
+
+# --- Identificativo, nome, descrizione della Casa ---
+# poi:POIID              [dominio: poi:PointOfInterest] [range: Literal]     — identificativo (colonna ed-casa)
+# poi:POIofficialName    [dominio: poi:PointOfInterest] [range: Literal@it]  — nome ufficiale (colonna nome_casa)
+# poi:POIdescription     [dominio: poi:PointOfInterest] [range: Literal@it]  — descrizione (colonna descrizione)
+
+# --- Indirizzo (via, numero civico, quartiere, comune) ---
+# clv:hasAddress          [dominio: owl:Thing]        [range: clv:Address]        — collega la Casa al suo indirizzo
+# clv:hasStreetToponym    [dominio: clv:Address]      [range: clv:StreetToponym]  — collega l'indirizzo al nome della via
+# clv:officialStreetName  [dominio: clv:StreetToponym][range: Literal@it]         — nome via, es. "Azzo Gardino"
+# clv:toponymQualifier    [dominio: clv:StreetToponym][range: Literal@it]         — es. "Via", "Piazza", "Corso"
+# clv:hasNumber           [dominio: clv:Address]      [range: clv:CivicNumbering] — collega l'indirizzo al civico (può ripetersi più volte sulla stessa Address)
+# clv:streetNumber        [dominio: clv:CivicNumbering][range: xsd:int]           — parte numerica del civico
+# clv:peculiarity         [dominio: clv:CivicNumbering][range: Literal]           — suffisso/lettera del civico (es. "A", "3"), quando presente
+# clv:hasDistrict         [dominio: clv:Address]      [range: clv:District]       — collega l'indirizzo al quartiere
+# clv:hasCity             [dominio: clv:Address]      [range: clv:City]           — collega l'indirizzo al comune
+# rdfs:label              — su clv:District e clv:City: nessuna proprietà-nome dedicata in CLV, si usa rdfs:label@it come fallback
+
+# --- Comune di Bologna: individuo UNICO, va riusato identico per tutte le 33 Case ---
+# clv:hasIdentifier  [dominio: clv:City] [range: clv:Identifier]
+# l0:identifier      [dominio: clv:Identifier] [range: Literal] — valore del codice, es. "037006" (ISTAT)
+# clv:identifierType [dominio: clv:Identifier] [range: Literal] — es. "ISTAT"
+# clv:issuedBy       [dominio: clv:Identifier] [range: cov:Organization]
+# owl:sameAs         — clv:City del Comune di Bologna verso &lt;http://www.wikidata.org/entity/Q1891&gt;
+
+# --- Geometria (coordinate) ---
+# clv:hasGeometry [dominio: owl:Thing] [range: clv:Geometry]
+# clv:lat         [dominio: clv:Geometry] [range: xsd:decimal]
+# clv:long        [dominio: clv:Geometry] [range: xsd:decimal]
+
+# --- Gestore ---
+# cov:legalName      [dominio: cov:PrivateOrganization] [range: Literal@it] — ragione sociale (colonna gestore)
+# cov:hasActivityType [dominio: cov:PrivateOrganization] [range: skos:Concept ATECO] — OPZIONALE, es. ateco-2025/94992
+
+# --- Orari di apertura (una istanza per ogni cella non vuota del CSV) ---
+# ac:hasAccessCondition [dominio: owl:Thing] [range: ac:OpeningHoursSpecification]
+# ac:opens              [dominio: ac:OpeningHoursSpecification] [range: xsd:time] — es. "09:00:00"
+# ac:closes             [dominio: ac:OpeningHoursSpecification] [range: xsd:time] — es. "13:00:00"
+# ac:hasDayOfWeek        [dominio: ac:OpeningHoursSpecification] [range: ti:DayOfWeek] — usa gli individui fissi ti:Monday, ti:Tuesday, ti:Wednesday, ti:Thursday, ti:Friday, ti:Saturday, ti:Sunday
+
+# --- Sito web ---
+# sm:hasWebSite [dominio: owl:Thing] [range: sm:WebSite] — l'URL stesso è l'IRI dell'istanza sm:WebSite, nessun'altra proprietà dato
+
+# --- Area verde / area ortiva (parco o orto che contiene la Casa) ---
+# poi:isIncludedInPOI [dominio: poi:PointOfInterest] [range: poi:MultiplePointOfInterest]
+# poi:hasPOICategory  [dominio: poi:PointOfInterest] [range: skos:Concept] — usa l'individuo fisso cat_2_recreation (categoria "Settore svago": giardini, parchi) del vocabolario &lt;https://w3id.org/italia/controlled-vocabulary/poi-category-classification&gt;
+# poi:POIofficialName — anche sul parco/orto, per il suo nome proprio (se noto)
+
+# --- Edificio storico (colonna 'edificio_storico' del CSV) ---
+# bo:isLocatedInHeritageBuilding [dominio: bo:CasaDiQuartiere] [range: arco:ArchitecturalOrLandscapeHeritage] — collega la Casa al bene ArCo indicato dalla colonna 'edificio_storico' del CSV (vedi definizione sopra); genera la tripla solo per le righe in cui questa colonna non è vuota</code></pre>
   </main>
 <footer class="site-footer">
   <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
@@ -180,5 +281,3 @@ bo:OrarioCasaEsempio_Lun_Mattina a ac:OpeningHoursSpecification ;
 <script src="script.js"></script>
 </body>
 </html>
-
-
