@@ -50,6 +50,21 @@
     opacity: 1;
     transform: scale(1);
   }
+  /* Link nel corpo del testo: la regola globale del sito (color: inherit; text-decoration: none)
+     li rende indistinguibili dal testo normale. Qui vengono resi riconoscibili in modo uniforme
+     (sottolineati e in grassetto), lasciando esclusa la cornice del diagramma, che è un'immagine
+     cliccabile e non un link testuale. */
+  main.page a:not(.diagram-frame) {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    font-weight: 600;
+    color: var(--brick-dark);
+  }
+  main.page a:not(.diagram-frame):hover,
+  main.page a:not(.diagram-frame):focus-visible {
+    color: var(--brick);
+  }
 </style>
 </head>
 <body>
@@ -77,16 +92,15 @@
     <span class="eyebrow">Ontologia</span>
     <h1 class="page-title">Processo di modellazione dell'ontologia</h1>
     <p class="lede">La modellazione si fonda sull'adozione dei vocabolari controllati della Pubblica Amministrazione italiana: le classi e le proprietà già disponibili non vengono ridichiarate, ma importate così come definite nei rispettivi namespace. L'estensione <code>bo:</code> interviene solo dove tali vocabolari non coprono un concetto specifico del dominio.</p>
-
     <h2>Fasi della progettazione dello schema</h2>
-    <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico. Corrispondono, nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>.</p>
+    <p>Le fasi seguenti riguardano esclusivamente la costruzione dello schema ontologico e si collocano nell'articolazione più generale del progetto descritta nella pagina <a href="methodology.html">Metodologia</a>.</p>
     <ol>
       <li><strong>Analisi del gap concettuale.</strong> Studio degli attributi del dataset "Case di Quartiere di Bologna" (denominazione, indirizzo, gestore, orari di apertura, aree verdi e ortive, quartiere di appartenenza, coordinate geografiche) per individuare i concetti non rappresentabili con i soli vocabolari controllati esistenti.</li>
       <li><strong>Esplorazione della rete OntoPiA e di ArCo.</strong> Ricognizione sistematica delle classi e delle proprietà già disponibili, quali indirizzo, organizzazione, condizioni di accesso e punti di interesse, da riusare al posto di reinventarle.</li>
       <li><strong>Modellazione concettuale in draw.io.</strong> Rappresentazione grafica della sola porzione di schema priva di copertura, per definire la gerarchia di classi e le relazioni di dominio e codominio prima della formalizzazione in OWL.</li>
       <li><strong>Formalizzazione in Turtle dell'estensione <code>bo:</code>.</strong> Scrittura della classe <code>bo:CasaDiQuartiere</code> e delle proprietà oggetto <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>, con le relative etichette e i commenti in lingua italiana.</li>
     </ol>
-  
+
     <h2>Riuso dei vocabolari controllati</h2>
     <p>In linea con i principi dell'ontology engineering, e in particolare con il criterio del riuso, il progetto evita di ridichiarare classi o proprietà già disponibili nei vocabolari ufficiali della Pubblica Amministrazione italiana. Le classi e le proprietà elencate di seguito sono riusate mantenendo inalterati gli IRI originali, così come definiti nei rispettivi namespace.</p>
     <div class="grid-2">
@@ -102,10 +116,8 @@
       </ul>
     </div>
     <p>L'intera rete di vocabolari controllati OntoPiA è mantenuta e documentata dal team Developers Italia: <a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener">github.com/italia/daf-ontologie-vocabolari-controllati</a>.</p>
-
     <h2>Estensione minima del vocabolario: namespace <code>bo:</code></h2>
     <p>Esclusivamente per i concetti del dominio privi di copertura nei vocabolari riusati è stata introdotta una piccola estensione, con prefisso <code>bo:</code> (<code>https://example.org/casediquartierebologna#</code>).</p>
-
     <h3>Classe: <code>bo:CasaDiQuartiere</code></h3>
     <p>La classe è definita come sottoclasse di <code>poi:PointOfInterest</code>, di cui eredita le proprietà proprie dei punti di interesse (identificativo, denominazione ufficiale, indirizzo, geometria). Rappresenta la Casa di Quartiere come spazio comunitario, distinguendola dalle altre tipologie di punti di interesse presenti nel territorio comunale.</p>
     <pre><code>bo:CasaDiQuartiere
@@ -114,7 +126,6 @@
     rdfs:label "Casa di Quartiere"@it ;
     rdfs:comment "Spazio comunitario gestito da associazioni del terzo
         settore, parte della rete istituzionale del Comune di Bologna."@it .</code></pre>
-
     <h3>Proprietà: <code>bo:isManagedBy</code></h3>
     <p>La proprietà oggetto collega un'istanza di <code>bo:CasaDiQuartiere</code> all'organizzazione, tipizzata come <code>cov:PrivateOrganization</code>, che ne cura la gestione; corrisponde alla colonna <code>gestore</code> del dataset di origine.</p>
     <pre><code>bo:isManagedBy
@@ -122,7 +133,6 @@
     rdfs:domain bo:CasaDiQuartiere ;
     rdfs:range cov:PrivateOrganization ;
     rdfs:label "è gestita da"@it .</code></pre>
-
     <h3>Proprietà: <code>bo:isLocatedInHeritageBuilding</code></h3>
     <p>La proprietà oggetto collega un'istanza di <code>bo:CasaDiQuartiere</code> al bene architettonico ArCo che la ospita, nei casi in cui l'edificio risulti catalogato come patrimonio storico o architettonico.</p>
     <pre><code>bo:isLocatedInHeritageBuilding
@@ -130,9 +140,7 @@
     rdfs:domain bo:CasaDiQuartiere ;
     rdfs:range arco:ArchitecturalOrLandscapeHeritage ;
     rdfs:label "è ubicata nell'edificio storico"@it .</code></pre>
-
     <div class="note ok">Una volta unito alle istanze generate dagli LLM (si veda la pagina <a href="llm.html">LLM</a>), il grafo completo (schema più 32 istanze) è stato caricato in Protégé e validato con il reasoner <strong>HermiT</strong>: non sono state rilevate inconsistenze logiche. Per il dettaglio delle verifiche si rimanda alla pagina <a href="challenges.html">Sfide</a>.</div>
-
     <h2>Diagramma delle classi</h2>
     <p>Il diagramma delle classi, elaborato in <a href="https://app.diagrams.net/#Wb!6xCPrHI9GE6jfAtqeJ4ixNbgjh9NvHpNlHoM-MGToi7JAa1y9ZIGRKGmgc9i2jlj%2F01TL4J6D7AXLXQGEGFANFY6HKPEOK2HYQY#%7B%22pageId%22%3A%22lLnx4PRSh0v65gNuHNGt%22%7D" target="_blank" rel="noopener">draw.io</a> nella fase di modellazione concettuale (fase 3) e successivamente aggiornato per riflettere lo schema definitivo, è riportato di seguito:</p>
     <!-- Sostituire con il diagramma reale: esportare da draw.io come PNG/SVG e caricarlo in questa cartella -->
@@ -143,7 +151,6 @@
       </span>
     </a>
     <div class="todo">Sostituire ontology-diagram.png con l'esportazione reale del diagramma draw.io (File → Export as → PNG/SVG), caricando il file in questa stessa cartella del sito con lo stesso nome.</div>
-
     <h2>Esempio di istanza</h2>
     <p>Si riporta di seguito un esempio semplificato dell'istanziazione dei pattern precedentemente descritti per una singola Casa di Quartiere:</p>
     <pre><code>bo:CasaEsempio a bo:CasaDiQuartiere ;
@@ -154,18 +161,15 @@
     bo:isManagedBy bo:GestoreCasaEsempio ;
     sm:hasWebSite &lt;http://www.esempio-casa.it&gt; ;
     ac:hasAccessCondition bo:OrarioCasaEsempio_Lun_Mattina .
-
 bo:AddressCasaEsempio a clv:Address ;
     clv:hasStreetToponym bo:ViaEsempio ;
     clv:hasNumber bo:Civico22_3 ;
     clv:hasDistrict bo:QuartierePortoSaragozza ;
     clv:hasCity bo:ComuneBologna .
-
 bo:OrarioCasaEsempio_Lun_Mattina a ac:OpeningHoursSpecification ;
     ac:opens "09:00:00"^^xsd:time ;
     ac:closes "13:00:00"^^xsd:time ;
     ac:hasDayOfWeek ti:Monday .</code></pre>
-
     <h2>Schema completo</h2>
     <p>Lo schema completo, corredato dalle note di modellazione, è disponibile per il download: <a href="data/schema_case_di_quartiere.ttl" download>schema_case_di_quartiere.ttl</a></p>
     <div class="todo">Caricare in data/schema_case_di_quartiere.ttl il file Turtle completo dello schema.</div>
@@ -176,4 +180,5 @@ bo:OrarioCasaEsempio_Lun_Mattina a ac:OpeningHoursSpecification ;
 <script src="script.js"></script>
 </body>
 </html>
+
 
