@@ -44,11 +44,11 @@
       </div>
       <div class="timeline-step">
         <h3>2. Progettazione dello schema (Turtle)</h3>
-        <p>Definizione di un piccolo vocabolario proprio (namespace <code>bo:</code>) che estende OntoPiA e ArCo solo dove necessario: la classe <code>bo:CasaDiQuartiere</code> e le proprietà <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>. Dettagli nella pagina <a href="ontology.html">Ontologia</a>.</p>
+        <p>Definizione di un piccolo vocabolario proprio (namespace <code>bo:</code>) che estende OntoPiA e ArCo solo dove necessario: la classe <code>bo:CasaDiQuartiere</code> e le proprietà <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>. Dettagli nella pagina <a href="ontology.html" style="text-decoration: underline;">Ontologia</a>.</p>
       </div>
       <div class="timeline-step">
         <h3>3. Generazione delle triple con più LLM</h3>
-        <p>Le triple RDF di istanza sono state generate sottoponendo il CSV e lo schema a più Large Language Model, confrontati su tre tecniche di prompting (zero-shot, few-shot, chain-of-thought). Dettagli e confronto nella pagina <a href="llm.html">LLM</a>.</p>
+        <p>Le triple RDF di istanza sono state generate sottoponendo il CSV e lo schema a più Large Language Model, confrontati su tre tecniche di prompting (zero-shot, few-shot, chain-of-thought). Dettagli e confronto nella pagina <a href="llm.html" style="text-decoration: underline;">LLM</a>.</p>
       </div>
       <div class="timeline-step">
         <h3>4. Caricamento e verifica di consistenza</h3>
@@ -56,7 +56,7 @@
       </div>
       <div class="timeline-step">
         <h3>5. Verifica dei dati con SPARQL</h3>
-        <p>Interrogazione del grafo con query SPARQL per verificarne completezza e correttezza, coprendo tutte le keyword richieste (OPTIONAL, DISTINCT, UNION, FILTER, REGEX, LIMIT, ORDER BY). Dettagli nelle pagine <a href="sparql-ontopia.html">SPARQL 1 · OntoPiA</a> e <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
+        <p>Interrogazione del grafo con query SPARQL per verificarne completezza e correttezza, coprendo tutte le keyword richieste (OPTIONAL, DISTINCT, UNION, FILTER, REGEX, LIMIT, ORDER BY). Dettagli nelle pagine <a href="sparql-ontopia.html" style="text-decoration: underline;">SPARQL 1 · OntoPiA</a> e <a href="sparql-ontologia.html" style="text-decoration: underline;">SPARQL 2 · Ontologia</a>.</p>
       </div>
       <div class="timeline-step">
         <h3>6. Pubblicazione</h3>
@@ -73,16 +73,16 @@
       <div>
         <h3 style="font-size:1.1rem; color:var(--brick-dark);">Modellazione e verifica</h3>
         <ul>
-          <li><a href="https://protege.stanford.edu/" target="_blank" rel="noopener">Protégé</a> — editor di ontologie</li>
+          <li><a href="https://protege.stanford.edu/" target="_blank" rel="noopener" style="text-decoration: underline;">Protégé</a> — editor di ontologie</li>
           <li>Reasoner <strong>HermiT</strong> — verifica di consistenza logica</li>
-          <li><a href="https://github.com/RDFLib/rdflib" target="_blank" rel="noopener">rdflib</a> (Python) — parsing e verifica indipendente</li>
+          <li><a href="https://github.com/RDFLib/rdflib" target="_blank" rel="noopener" style="text-decoration: underline;">rdflib</a> (Python) — parsing e verifica indipendente</li>
         </ul>
       </div>
       <div>
         <h3 style="font-size:1.1rem; color:var(--brick-dark);">Ontologie di riferimento</h3>
         <ul>
-          <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener">OntoPiA</a> — rete ontologica della PA italiana</li>
-          <li><a href="https://w3id.org/arco" target="_blank" rel="noopener">ArCo</a> — grafo del patrimonio culturale italiano</li>
+          <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener" style="text-decoration: underline;">OntoPiA</a> — rete ontologica della PA italiana</li>
+          <li><a href="https://w3id.org/arco" target="_blank" rel="noopener" style="text-decoration: underline;">ArCo</a> — grafo del patrimonio culturale italiano</li>
           <li>pandas — pulizia e analisi del CSV sorgente</li>
           <li>Claude e Gemini — generazione e confronto delle triple</li>
         </ul>
