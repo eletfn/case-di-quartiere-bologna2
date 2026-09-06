@@ -1,0 +1,319 @@
+@prefix bo:     <https://example.org/casediquartierebologna#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix cov:    <https://w3id.org/italia/onto/COV/> .
+@prefix clv:    <https://w3id.org/italia/onto/CLV/> .
+@prefix poi:    <https://w3id.org/italia/onto/POI/> .
+@prefix ti:     <https://w3id.org/italia/onto/TI/> .
+@prefix ac:     <https://w3id.org/italia/onto/AccessCondition/> .
+@prefix sm:     <https://w3id.org/italia/onto/SM/> .
+@prefix arco:   <https://w3id.org/arco/ontology/arco/> .
+@prefix l0:     <https://w3id.org/italia/onto/l0/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+
+# ================================================================
+# ENTI E RISORSE CONDIVISE / REPOSITORY GLOBALI
+# ================================================================
+
+# --- Comune di Bologna ---
+bo:ComuneBologna a clv:City , cov:Organization ;
+    rdfs:label "Bologna"@it ;
+    clv:hasIdentifier bo:Id_Comune_Bologna ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1891> .
+
+bo:Id_Comune_Bologna a clv:Identifier ;
+    l0:identifier "037006" ;
+    clv:identifierType "ISTAT" ;
+    clv:issuedBy bo:ComuneBologna .
+
+# --- Categoria POI: Settore Svago ---
+<https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> a skos:Concept .
+
+# --- Quartieri ---
+bo:Quartiere_BorgoPanigaleReno a clv:District ;
+    rdfs:label "Borgo Panigale - Reno"@it .
+
+bo:Quartiere_Navile a clv:District ;
+    rdfs:label "Navile"@it .
+
+bo:Quartiere_SantoStefano a clv:District ;
+    rdfs:label "Santo Stefano"@it .
+
+bo:Quartiere_SanDonatoSanVitale a clv:District ;
+    rdfs:label "San Donato - San Vitale"@it .
+
+bo:Quartiere_Savena a clv:District ;
+    rdfs:label "Savena"@it .
+
+bo:Quartiere_PortoSaragozza a clv:District ;
+    rdfs:label "Porto - Saragozza"@it .
+
+# --- Edifici Storici catalogati ArCo ---
+bo:VillaBernaroli a arco:ArchitecturalOrLandscapeHeritage ;
+    rdfs:label "Villa Bernaroli"@it .
+
+bo:VillaMazzacorati a arco:ArchitecturalOrLandscapeHeritage ;
+    rdfs:label "Villa Mazzacorati"@it .
+
+
+# ================================================================
+# CASE DI QUARTIERE
+# ================================================================
+
+# ----------------------------------------------------------------
+# CQ01 - Casa di Quartiere Giorgio Costa
+# ----------------------------------------------------------------
+bo:CQ01 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ01" ;
+    poi:POIofficialName "Casa di Quartiere Giorgio Costa"@it ;
+    poi:POIdescription "La Casa di Quartiere Giorgio Costa è uno spazio aperto a cittadini di ogni età dove è possibile svolgere attività culturali, sociali e ricreative."@it ;
+    clv:hasAddress bo:Address_CQ01 ;
+    clv:hasGeometry bo:Geometry_CQ01 ;
+    bo:isManagedBy bo:Gestore_CQ01 ;
+    sm:hasWebSite <https://www.casadiquartieregiorgiocosta.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ01_1 , bo:OpeningHours_CQ01_2 .
+
+bo:Address_CQ01 a clv:Address ;
+    clv:hasStreetToponym bo:Via_AzzoGardino ;
+    clv:hasNumber bo:Civic_CQ01 ;
+    clv:hasDistrict bo:Quartiere_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_AzzoGardino a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Azzo Gardino"@it .
+
+bo:Civic_CQ01 a clv:CivicNumbering ;
+    clv:streetNumber 48 .
+
+bo:Geometry_CQ01 a clv:Geometry ;
+    clv:lat 44.501230 ;
+    clv:long 11.336450 .
+
+bo:Gestore_CQ01 a cov:PrivateOrganization ;
+    cov:legalName "Associazione Giorgio Costa APS"@it .
+
+bo:OpeningHours_CQ01_1 a ac:OpeningHoursSpecification ;
+    ac:opens "08:30:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday .
+
+bo:OpeningHours_CQ01_2 a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday .
+
+
+# ----------------------------------------------------------------
+# CQ02 - Casa di Quartiere Villa Bernaroli
+# ----------------------------------------------------------------
+bo:CQ02 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ02" ;
+    poi:POIofficialName "Casa di Quartiere Villa Bernaroli"@it ;
+    poi:POIdescription "Immersa nel parco di una villa storica, la Casa di Quartiere Villa Bernaroli è un punto di riferimento per le attività della comunità locale."@it ;
+    clv:hasAddress bo:Address_CQ02 ;
+    clv:hasGeometry bo:Geometry_CQ02 ;
+    bo:isManagedBy bo:Gestore_CQ02 ;
+    bo:isLocatedInHeritageBuilding bo:VillaBernaroli ;
+    poi:isIncludedInPOI bo:Parco_CQ02 ;
+    sm:hasWebSite <https://www.villabernaroli.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ02_1 .
+
+bo:Address_CQ02 a clv:Address ;
+    clv:hasStreetToponym bo:Via_Morazzo ;
+    clv:hasNumber bo:Civic_CQ02 ;
+    clv:hasDistrict bo:Quartiere_BorgoPanigaleReno ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_Morazzo a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Morazzo"@it .
+
+bo:Civic_CQ02 a clv:CivicNumbering ;
+    clv:streetNumber 2 .
+
+bo:Geometry_CQ02 a clv:Geometry ;
+    clv:lat 44.518920 ;
+    clv:long 11.265430 .
+
+bo:Gestore_CQ02 a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Villa Bernaroli APS"@it .
+
+bo:Parco_CQ02 a poi:MultiplePointOfInterest ;
+    poi:POIofficialName "Parco di Villa Bernaroli"@it ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:OpeningHours_CQ02_1 a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday , ti:Saturday .
+
+
+# ----------------------------------------------------------------
+# CQ03 - Casa di Quartiere Katia Bertasi
+# ----------------------------------------------------------------
+bo:CQ03 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ03" ;
+    poi:POIofficialName "Casa di Quartiere Katia Bertasi"@it ;
+    poi:POIdescription "Spazio socioculturale situato nel quartiere Navile, attivo nella promozione dell'integrazione e di iniziative comunitarie."@it ;
+    clv:hasAddress bo:Address_CQ03 ;
+    clv:hasGeometry bo:Geometry_CQ03 ;
+    bo:isManagedBy bo:Gestore_CQ03 ;
+    sm:hasWebSite <https://www.katiabertasi.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ03_1 .
+
+bo:Address_CQ03 a clv:Address ;
+    clv:hasStreetToponym bo:Via_Fioravanti ;
+    clv:hasNumber bo:Civic_CQ03 ;
+    clv:hasDistrict bo:Quartiere_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_Fioravanti a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Fioravanti"@it .
+
+bo:Civic_CQ03 a clv:CivicNumbering ;
+    clv:streetNumber 22 ;
+    clv:peculiarity "F" .
+
+bo:Geometry_CQ03 a clv:Geometry ;
+    clv:lat 44.509810 ;
+    clv:long 11.343120 .
+
+bo:Gestore_CQ03 a cov:PrivateOrganization ;
+    cov:legalName "Associazione Katia Bertasi APS"@it .
+
+bo:OpeningHours_CQ03_1 a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday , ti:Saturday .
+
+
+# ----------------------------------------------------------------
+# CQ04 - Casa di Quartiere Scipione dal Ferro
+# ----------------------------------------------------------------
+bo:CQ04 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ04" ;
+    poi:POIofficialName "Casa di Quartiere Scipione dal Ferro"@it ;
+    poi:POIdescription "Centro di aggregazione nel cuore del quartiere San Donato-San Vitale, con un programma ricco di laboratori e momenti d'incontro."@it ;
+    clv:hasAddress bo:Address_CQ04 ;
+    clv:hasGeometry bo:Geometry_CQ04 ;
+    bo:isManagedBy bo:Gestore_CQ04 ;
+    sm:hasWebSite <https://www.scipionedalferro.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ04_1 .
+
+bo:Address_CQ04 a clv:Address ;
+    clv:hasStreetToponym bo:Via_SanteVincenzi ;
+    clv:hasNumber bo:Civic_CQ04 ;
+    clv:hasDistrict bo:Quartiere_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_SanteVincenzi a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Sante Vincenzi"@it .
+
+bo:Civic_CQ04 a clv:CivicNumbering ;
+    clv:streetNumber 50 .
+
+bo:Geometry_CQ04 a clv:Geometry ;
+    clv:lat 44.496540 ;
+    clv:long 11.365890 .
+
+bo:Gestore_CQ04 a cov:PrivateOrganization ;
+    cov:legalName "Associazione Scipione dal Ferro APS"@it .
+
+bo:OpeningHours_CQ04_1 a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday .
+
+
+# ----------------------------------------------------------------
+# CQ05 - Casa di Quartiere Villa Mazzacorati
+# ----------------------------------------------------------------
+bo:CQ05 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ05" ;
+    poi:POIofficialName "Casa di Quartiere Villa Mazzacorati"@it ;
+    poi:POIdescription "Sede di attività culturali e sociali all'interno del complesso monumentale di Villa Mazzacorati."@it ;
+    clv:hasAddress bo:Address_CQ05 ;
+    clv:hasGeometry bo:Geometry_CQ05 ;
+    bo:isManagedBy bo:Gestore_CQ05 ;
+    bo:isLocatedInHeritageBuilding bo:VillaMazzacorati ;
+    poi:isIncludedInPOI bo:Parco_CQ05 ;
+    sm:hasWebSite <https://www.villamazzacorati.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ05_1 , bo:OpeningHours_CQ05_2 .
+
+bo:Address_CQ05 a clv:Address ;
+    clv:hasStreetToponym bo:Via_Toscana ;
+    clv:hasNumber bo:Civic_CQ05 ;
+    clv:hasDistrict bo:Quartiere_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_Toscana a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Toscana"@it .
+
+bo:Civic_CQ05 a clv:CivicNumbering ;
+    clv:streetNumber 93 .
+
+bo:Geometry_CQ05 a clv:Geometry ;
+    clv:lat 44.471200 ;
+    clv:long 11.368100 .
+
+bo:Gestore_CQ05 a cov:PrivateOrganization ;
+    cov:legalName "Associazione Villa Mazzacorati APS"@it .
+
+bo:Parco_CQ05 a poi:MultiplePointOfInterest ;
+    poi:POIofficialName "Parco di Villa Mazzacorati"@it ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:OpeningHours_CQ05_1 a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Wednesday , ti:Friday .
+
+bo:OpeningHours_CQ05_2 a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday , ti:Thursday .
+
+
+# ----------------------------------------------------------------
+# CQ06 - Casa di Quartiere Baraccano
+# ----------------------------------------------------------------
+bo:CQ06 a bo:CasaDiQuartiere ;
+    poi:POIID "CQ06" ;
+    poi:POIofficialName "Casa di Quartiere Baraccano"@it ;
+    poi:POIdescription "Spazio socioculturale situato all'interno del complesso storico del Baraccano nel quartiere Santo Stefano."@it ;
+    clv:hasAddress bo:Address_CQ06 ;
+    clv:hasGeometry bo:Geometry_CQ06 ;
+    bo:isManagedBy bo:Gestore_CQ06 ;
+    sm:hasWebSite <https://www.baraccano.it> ;
+    ac:hasAccessCondition bo:OpeningHours_CQ06_1 .
+
+bo:Address_CQ06 a clv:Address ;
+    clv:hasStreetToponym bo:Via_SantoStefano ;
+    clv:hasNumber bo:Civic_CQ06 ;
+    clv:hasDistrict bo:Quartiere_SantoStefano ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Via_SantoStefano a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Santo Stefano"@it .
+
+bo:Civic_CQ06 a clv:CivicNumbering ;
+    clv:streetNumber 119 .
+
+bo:Geometry_CQ06 a clv:Geometry ;
+    clv:lat 44.485400 ;
+    clv:long 11.352100 .
+
+bo:Gestore_CQ06 a cov:PrivateOrganization ;
+    cov:legalName "Associazione Baraccano APS"@it .
+
+bo:OpeningHours_CQ06_1 a ac:OpeningHoursSpecification ;
+    ac:opens "08:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday .
