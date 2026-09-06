@@ -40,13 +40,20 @@
     <p>Al modello viene fornito solo il CSV sorgente e un'ontologia di riferimento <em>puramente vocabolario</em> — senza alcun esempio di istanza già completata — per verificare la sua capacità di generalizzare autonomamente dal solo schema.</p>
     <div class="card">
       <pre><code>Genera triple RDF in formato Turtle valide per descrivere le case di quartiere
-estratti dal dataset nome.csv, utilizzando la ontologia allegata.</code></pre>
+estratti dal dataset nome.csv, utilizzando l'ontologia allegata</code></pre>
     </div>
     <p><a href="data/prompt_zero_shot.txt" download>Scarica il prompt zero-shot completo</a></p>
+    <p><a href="data/output_zero_shot.ttl" download>Scarica l'output zero-shot completo</a></p>
 
     <h3>2. Few-shot</h3>
     <p>Al modello vengono forniti alcuni esempi completi di tripla (soggetto/predicato/oggetto già risolti) prima di chiedere la generazione sul resto del dataset, per guidarne il pattern di risposta.</p>
-    <pre><code>Esempio tripla 1
+    <pre><code>Sei un esperto di Semantic Web e Knowledge Graph.
+Il tuo compito è generare triple RDF valide in formato Turtle a partire dai
+dati CSV allegato (le Case di Quartiere di Bologna), utilizzando
+esclusivamente le classi e le proprietà presenti nell'ontologia fornita in
+allegato (file ontologia_per_prompt_zero_shot.ttl).
+
+Esempio tripla 1
 Subject: Casa di Quartiere con ID CQ01 &rarr; bo:CQ01
 Predicate: rdf:type
 Object: bo:CasaDiQuartiere
@@ -58,21 +65,75 @@ Predicate: poi:POIofficialName
 Object: "Casa di Quartiere Giorgio Costa"@it
 RDF Triple: bo:CQ01 poi:POIofficialName "Casa di Quartiere Giorgio Costa"@it .
 
-[...]</code></pre>
+Esempio tripla 3
+Subject: bo:CQ01
+Predicate: clv:hasAddress
+Object: Indirizzo con ID Address_CQ01 &rarr; bo:Address_CQ01
+RDF Triple: bo:CQ01 clv:hasAddress bo:Address_CQ01 .
+
+Esempio tripla 4
+Subject: bo:Address_CQ01
+Predicate: clv:hasStreetToponym
+Object: Via con ID Via_AzzoGardino &rarr; bo:Via_AzzoGardino
+RDF Triple: bo:Address_CQ01 clv:hasStreetToponym bo:Via_AzzoGardino .
+
+Esempio tripla 5
+Subject: bo:Via_AzzoGardino
+Predicate: clv:officialStreetName
+Object: "Azzo Gardino"@it
+RDF Triple: bo:Via_AzzoGardino clv:officialStreetName "Azzo Gardino"@it</code></pre>
     <p><a href="data/prompt_few_shot.txt" download>Scarica il prompt few-shot completo</a></p>
+    <p><a href="data/output_few_shot.ttl" download>Scarica l'output few-shot completo</a></p>
 
     <h3>3. Chain-of-thought</h3>
     <p>Al modello viene chiesto di ragionare esplicitamente passo dopo passo prima di generare le triple: identificare soggetto ed entità secondarie, estrarre le proprietà con il datatype corretto, verificare dominio/range — includendo regole esplicite per i casi limite (es. civico con "/" vs "-", edificio storico solo se confermato in ArCo).</p>
-    <pre><code>1. IDENTIFICAZIONE DEL SOGGETTO PRINCIPALE E DELLE ENTITÀ SECONDARIE
-   [...costruzione URI, quali entità secondarie creare in base alle
-   colonne valorizzate...]
+    <pre><code>Sei un esperto di Semantic Web e Knowledge Graph.
+Il tuo compito è generare triple RDF (in sintassi Turtle) a partire dai dati
+estratti dal file CSV delle Case di Quartiere di Bologna allegato,
+utilizzando esclusivamente le classi e le proprietà presenti nell'ontologia
+definita nel file "ontologia_per_prompt_zero_shot.ttl".
 
-2. ESTRAZIONE DELLE PROPRIETÀ (DATATYPE E OBJECT PROPERTIES)
-   [...quale proprietà si adatta al dato, quale datatype XSD...]
+Per ogni riga del CSV che ti viene fornita, devi ragionare e procedere passo
+dopo passo seguendo questa precisa catena di pensiero (Chain-of-Thought):
 
-3. VERIFICA DEI DOMINI E DEI RANGE
-   [...controllo che soggetto/oggetto rispettino domain/range...]</code></pre>
+1. IDENTIFICAZIONE DEL SOGGETTO PRINCIPALE E DELLE ENTITÀ SECONDARIE:
+   Analizza il valore di "ed-casa" (o ID_casa) per costruire l'URI del
+   soggetto principale (es. bo:CQ01). Il soggetto è sempre di classe
+   bo:CasaDiQuartiere. Poi individua quali entità secondarie questa riga
+   richiede di creare, in base a quali colonne sono effettivamente
+   valorizzate: un indirizzo (clv:Address, sempre presente), un civico
+   (clv:CivicNumbering — se il valore contiene "/" crea una sola istanza con
+   clv:peculiarity; se contiene "-" crea due istanze distinte), un gestore
+   (cov:PrivateOrganization, se la colonna gestore è valorizzata), una o più
+   fasce orarie (ac:OpeningHoursSpecification, una per ogni cella
+   giorno&times;fascia non vuota), un parco/orto (poi:MultiplePointOfInterest, solo
+   se area_verde o area_ortiva sono valorizzate), un collegamento
+   all'edificio storico (bo:isLocatedInHeritageBuilding, solo se la Casa è
+   una delle due effettivamente confermate nel catalogo ArCo — Villa
+   Bernaroli o Villa Mazzacorati — non per una generica risposta "sì" nella
+   colonna Edificio storico).
+
+2. ESTRAZIONE DELLE PROPRIETÀ (DATATYPE E OBJECT PROPERTIES):
+   Esamina ogni colonna valorizzata di quella riga. Quale proprietà
+   dell'ontologia si adatta semanticamente a questo dato? Qual è il tipo di
+   dato corretto per il Letterale (es. xsd:decimal per lat/long, xsd:int per
+   la parte numerica del civico, xsd:time per gli orari nel formato
+   "09:00:00", stringa con tag di lingua @it per nomi/descrizioni)?
+
+3. VERIFICA DEI DOMINI E DEI RANGE:
+   Controlla che il Soggetto appartenga al rdfs:domain corretto della
+   proprietà e che l'Oggetto rispetti il rdfs:range. Ad esempio: clv:hasNumber
+   si applica solo a clv:Address e ha come range clv:CivicNumbering (non un
+   numero diretto sulla Casa); ac:hasDayOfWeek si applica solo a
+   ac:OpeningHoursSpecification e il suo range sono gli individui fissi
+   ti:Monday…ti:Sunday, non una stringa libera come "Lunedì".
+
+Ragioniamo passo dopo passo. Scansiona l'intero CSV fornito riga per riga e,
+per ciascuna, individua quali colonne opzionali sono effettivamente
+valorizzate (orari, area_verde, area_ortiva ed Edificio storico non sono
+presenti per tutte le 33 Case), prima di generare le triple corrispondenti.</code></pre>
     <p><a href="data/prompt_chain_of_thought.txt" download>Scarica il prompt chain-of-thought completo</a></p>
+    <p><a href="data/output_chain_of_thought.ttl" download>Scarica l'output chain-of-thought completo</a></p>
 
     <div class="arcade" aria-hidden="true"></div>
 
