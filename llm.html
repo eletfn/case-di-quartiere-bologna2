@@ -31,7 +31,7 @@
 <main class="page">
     <span class="eyebrow">LLM</span>
     <h1 class="page-title">Tre tecniche di prompting, due modelli a confronto</h1>
-    <p class="lede">Per generare le triple RDF di istanza a partire dal CSV.</p>
+    <p class="lede">Per generare le triple RDF di istanza a partire dal CSV abbiamo confrontato due Large Language Model: <strong>Claude</strong> e <strong>Gemini</strong>.</p>
 
     <h2>Perché più tecniche di prompting</h2>
     <p>Per la generazione delle triple RDF a partire dal CSV abbiamo sperimentato tre tecniche di prompting differenti sullo stesso compito, per osservare come la quantità e il tipo di guida fornita al modello influenzino la qualità e la correttezza dell'output.</p>
@@ -42,7 +42,8 @@
       <pre><code>Genera triple RDF in formato Turtle valide per descrivere le case di quartiere
 estratti dal dataset nome.csv, utilizzando l'ontologia allegata</code></pre>
     </div>
-    <p><a href="data/output_zero_shot.ttl" download>Scarica l'output zero-shot completo</a></p>
+    <p><a href="data/output_zero_shot_claude.ttl" download style="text-decoration: underline;">Scarica l'output zero-shot di Claude</a></p>
+    <p><a href="data/output_zero_shot_gemini.ttl" download style="text-decoration: underline;">Scarica l'output zero-shot di Gemini</a></p>
 
     <h3>2. Few-shot</h3>
     <p>Al modello vengono forniti alcuni esempi completi di tripla (soggetto/predicato/oggetto già risolti) prima di chiedere la generazione sul resto del dataset, per guidarne il pattern di risposta.</p>
@@ -81,7 +82,8 @@ Subject: bo:Via_AzzoGardino
 Predicate: clv:officialStreetName
 Object: "Azzo Gardino"@it
 RDF Triple: bo:Via_AzzoGardino clv:officialStreetName "Azzo Gardino"@it</code></pre>
-    <p><a href="data/output_few_shot.ttl" download>Scarica l'output few-shot completo</a></p>
+    <p><a href="data/output_few_shot_claude.ttl" download style="text-decoration: underline;">Scarica l'output few-shot di Claude</a></p>
+    <p><a href="data/output_few_shot_gemini.ttl" download style="text-decoration: underline;">Scarica l'output few-shot di Gemini</a></p>
 
     <h3>3. Chain-of-thought</h3>
     <p>Al modello viene chiesto di ragionare esplicitamente passo dopo passo prima di generare le triple: identificare soggetto ed entità secondarie, estrarre le proprietà con il datatype corretto, verificare dominio/range, includendo regole esplicite per i casi limite (es. civico con "/" vs "-", edificio storico solo se confermato in ArCo).</p>
@@ -130,12 +132,13 @@ Ragioniamo passo dopo passo. Scansiona l'intero CSV fornito riga per riga e,
 per ciascuna, individua quali colonne opzionali sono effettivamente
 valorizzate (orari, area_verde, area_ortiva ed Edificio storico non sono
 presenti per tutte le 33 Case), prima di generare le triple corrispondenti.</code></pre>
-    <p><a href="data/output_chain_of_thought.ttl" download>Scarica l'output chain-of-thought completo</a></p>
+    <p><a href="data/output_chain_of_thought_claude.ttl" download style="text-decoration: underline;">Scarica l'output chain-of-thought di Claude</a></p>
+    <p><a href="data/output_chain_of_thought_gemini.ttl" download style="text-decoration: underline;">Scarica l'output chain-of-thought di Gemini</a></p>
 
     <div class="arcade" aria-hidden="true"></div>
 
-    <h2>Confronto tra modelli: Claude vs Gemini (zero-shot)</h2>
-    <p>Per la tecnica zero-shot abbiamo confrontato l'output di due Large Language Model, <strong>Claude</strong> e <strong>Gemini</strong>, a parità di prompt, CSV e ontologia, verificando ogni tripla generata contro il CSV sorgente con uno script Python indipendente (rdflib + pandas).</p>
+    <h2>Confronto tra modelli: Claude vs Gemini</h2>
+    <p>Abbiamo confrontato complessivamente l'output di due Large Language Model, <strong>Claude</strong> e <strong>Gemini</strong>, a parità di prompt, CSV e ontologia, verificando ogni tripla generata contro il CSV sorgente con uno script Python indipendente (rdflib + pandas).</p>
 
     <table>
       <thead><tr><th>Aspetto verificato</th><th>Esito</th></tr></thead>
@@ -144,7 +147,7 @@ presenti per tutte le 33 Case), prima di generare le triple corrispondenti.</cod
         <tr><td>Orari con celle di testo ambiguo</td><td>Claude ha gestito meglio i casi ambigui rispetto a Gemini</td></tr>
         <tr><td>Copertura dell'area ortiva</td><td>Claude ha coperto tutti i casi presenti nel CSV; Gemini ne ha omessi alcuni</td></tr>
         <tr><td>Identificativo ArCo per edificio storico</td><td>Gemini ha probabilmente generato un identificativo catalografico non derivabile dal CSV fornito (dato verosimilmente inventato)</td></tr>
-        <tr><td>Modellazione del civico con "/" (slash)</td><td>Nessuno dei due modelli ha applicato correttamente la regola di split — regola presente solo nel prompt chain-of-thought, non nel vocabolario zero-shot puro</td></tr>
+        <tr><td>Modellazione del civico con "/" (slash)</td><td>Nessuno dei due modelli ha applicato correttamente la regola di split senza indicazioni esplicite — regola rispettata solo con la tecnica chain-of-thought</td></tr>
       </tbody>
     </table>
 
