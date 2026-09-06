@@ -59,8 +59,8 @@
       <span class="badge">ORDER BY</span>
       <span class="badge">DISTINCT</span>
     </div>
-    <p style="margin-top:14px">Le query sono state eseguite con lo strumento SPARQL messo a disposizione dagli stessi portali ufficiali: <a href="https://schema.gov.it/sparql" target="_blank" rel="noopener">schema.gov.it/sparql</a> per la rete OntoPiA (COV, CLV, POI-AP_IT, TI, AccessCondition, SM) e <a href="https://dati.cultura.gov.it/sparql" target="_blank" rel="noopener">dati.cultura.gov.it/sparql</a> per ArCo. Sono state scritte in forma neutra, un modulo alla volta, senza pre-selezionare quale classe o proprietà fosse quella "giusta": la scelta finale è stata fatta leggendo i risultati reali restituiti dagli endpoint, non ipotizzata a priori. La parte di esplorazione di CLV riprende e replica lo schema di query impostato da una compagna di gruppo per il documento <em>Recap_Dataset_Ontologia_Gap_Bologna</em>, poi applicato identico a tutti i moduli successivi.</p>
-    <p>A questa fase (33 Case nel dataset ancora da ripulire) segue quella di verifica sul grafo popolato del progetto, oggi 32 istanze dopo la rimozione di una voce superata (si veda <a href="challenges.html">Sfide</a>): le query di verifica sulla struttura di <code>bo:CasaDiQuartiere</code> sono nella pagina <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
+    <p style="margin-top:14px">Le query sono state eseguite con lo strumento SPARQL messo a disposizione dagli stessi portali ufficiali: <a href="https://schema.gov.it/sparql" target="_blank" rel="noopener">schema.gov.it/sparql</a> per la rete OntoPiA (COV, CLV, POI-AP_IT, TI, AccessCondition, SM) e <a href="https://dati.cultura.gov.it/sparql" target="_blank" rel="noopener">dati.cultura.gov.it/sparql</a> per ArCo. Sono state scritte in forma neutra, un modulo alla volta, senza pre-selezionare quale classe o proprietà fosse quella "giusta": la scelta finale è stata fatta leggendo i risultati reali restituiti dagli endpoint, non ipotizzata a priori.</p>
+    <p>Questa fase, condotta quando il dataset contava 33 Case, ha preceduto quella di verifica sul grafo popolato del progetto, oggi 32 istanze dopo la rimozione di una voce superata (si veda <a href="challenges.html">Sfide</a>): le query di verifica sulla struttura di <code>bo:CasaDiQuartiere</code> sono nella pagina <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
   </div>
 
   <h2>Endpoint interrogati</h2>
@@ -77,9 +77,21 @@
   </table>
   </div>
 
-  <h2>Il pattern di esplorazione</h2>
-  <p>Ogni modulo OntoPiA è stato interrogato con la stessa query, cambiando solo il namespace nella <code>FILTER</code>: un'enumerazione completa di classi e proprietà definite nel modulo, con relativa etichetta italiana quando disponibile.</p>
-  <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+  <h2>I comandi SPARQL utilizzati, spiegati</h2>
+  <p>Le sette query che seguono condividono tutte la stessa struttura. Prima di leggerle, ecco cosa fa ciascun comando.</p>
+  <p><span class="label"><code>SELECT DISTINCT</code></span> — restituisce le tre variabili <code>?elemento ?tipo ?label</code> eliminando i duplicati: senza <code>DISTINCT</code> uno stesso elemento potrebbe comparire più volte se soddisfacesse più di un ramo della query.</p>
+  <p><span class="label"><code>UNION</code></span> — combina tre pattern alternativi, uno per ciascun tipo OWL (<code>owl:Class</code>, <code>owl:ObjectProperty</code>, <code>owl:DatatypeProperty</code>): ogni ramo etichetta il risultato con <code>BIND</code>, così la colonna <code>?tipo</code> indica da quale dei tre provenga.</p>
+  <p><span class="label"><code>rdfs:isDefinedBy</code> + <code>FILTER(REGEX(...))</code></span> — ogni elemento restituito viene poi filtrato in base al modulo che lo definisce: la <code>REGEX</code> confronta l'IRI del namespace con quello del modulo interrogato, ed è l'unica riga che cambia da una query all'altra.</p>
+  <p><span class="label"><code>OPTIONAL</code> + <code>FILTER(LANG(?label) = "it")</code></span> — l'etichetta non è obbligatoria per tutti gli elementi, quindi la query non si blocca se manca; quando è presente, il filtro sulla lingua tiene solo quella italiana, escludendo le altre traduzioni.</p>
+  <p><span class="label"><code>ORDER BY ?tipo ?elemento</code></span> — ordina i risultati prima per tipo (classe, proprietà oggetto, proprietà dato) e poi alfabeticamente per elemento, per rendere l'elenco leggibile.</p>
+  <p><span class="label"><code>LIMIT 200</code></span> — impone un tetto ai risultati restituiti, sufficiente a coprire l'intero modulo senza rischiare risposte troncate dall'endpoint.</p>
+
+  <h2>Le sette query di esplorazione, modulo per modulo</h2>
+  <p>Ogni modulo OntoPiA, e ArCo, è stato interrogato con la stessa query, cambiando solo la riga <code>FILTER(REGEX(STR(?onto), ...))</code>; per ArCo cambia anche l'endpoint interrogato. Di seguito le sette query reali, così come eseguite, ciascuna seguita dal risultato ottenuto.</p>
+
+  <section class="card query-block">
+    <h3>COV.A — Organizzazioni (gestore della Casa)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 SELECT DISTINCT ?elemento ?tipo ?label
 WHERE {
@@ -92,8 +104,127 @@ WHERE {
 }
 ORDER BY ?tipo ?elemento
 LIMIT 200</code></pre>
-  <p>La riga <code>FILTER(REGEX(STR(?onto), ...))</code> è l'unica a cambiare da un modulo all'altro (COV, CLV, POI, TI, AccessCondition, SM, e per ArCo anche l'endpoint). La tabella seguente riassume cosa ha restituito ciascun modulo e la scelta finale che ne è derivata.</p>
+    <p><span class="label">Risultato:</span> classi come <code>PrivateOrganization</code> ("Organizzazione Privata"), <code>PublicOrganization</code>, <code>Organization</code>; proprietà dato <code>legalName</code>, <code>taxCode</code>, <code>VATnumber</code>; proprietà oggetto <code>hasActivityType</code>, <code>hasLegalStatus</code>.</p>
+    <p><span class="label">Interpretazione:</span> COV distingue nettamente organizzazioni pubbliche, con codice IPA/REA, da quelle private; le associazioni e i centri sociali del progetto rientrano nel secondo gruppo → <code>cov:PrivateOrganization</code>, <code>cov:legalName</code> per la colonna <code>gestore</code>.</p>
+  </section>
 
+  <section class="card query-block">
+    <h3>CLV.A — Indirizzi e località (via, civico, coordinate, quartiere)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/CLV/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>Address</code>, <code>City</code>, <code>CivicNumbering</code>, <code>District</code> ("Quartiere"), <code>Geometry</code>, <code>StreetToponym</code>; proprietà dato <code>lat</code>, <code>long</code>, <code>streetNumber</code>; proprietà oggetto <code>hasStreetToponym</code>, <code>hasNumber</code>, <code>hasGeometry</code>, <code>hasDistrict</code>.</p>
+    <p><span class="label">Interpretazione:</span> CLV copre puntualmente ogni componente di un indirizzo italiano, incluso il quartiere come classe dedicata, corrispondente esattamente alla colonna omonima del CSV.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>POI.A — Punti di interesse (identificativo, nome, descrizione)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/POI/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>PointOfInterest</code> ("Punto di Interesse"), <code>PointOfInterestCategory</code>; proprietà dato <code>POIID</code>, <code>POIofficialName</code>, <code>POIdescription</code>; proprietà oggetto <code>hasPOICategory</code>, <code>includesPOI</code>/<code>isIncludedInPOI</code>.</p>
+    <p><span class="label">Interpretazione:</span> <code>PointOfInterest</code> è la classe generica per luoghi fisici di rilevanza pubblica, con proprietà che coprono esattamente identificativo, nome e descrizione → <code>bo:CasaDiQuartiere</code> dichiarata sottoclasse di <code>poi:PointOfInterest</code>.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>TI.A — Tempo (giorni della settimana, intervalli temporali)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/TI/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>DayOfWeek</code> ("Giorno della settimana"), <code>TimeInterval</code> ("Intervallo di tempo"), <code>TimeInstant</code>, <code>Duration</code>; proprietà <code>date</code>, <code>day</code>, <code>month</code>, <code>year</code>; proprietà oggetto <code>fallsInside</code>, <code>hasDuration</code>, <code>hasTimeInstantInside</code>.</p>
+    <p><span class="label">Interpretazione:</span> <code>ti:DayOfWeek</code> è la classe corretta per i giorni, ma nessuna proprietà qui elencata collega direttamente un <code>TimeInterval</code> a un giorno della settimana: da qui l'approfondimento TI.C più sotto.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>AC.A — AccessCondition (orari di apertura)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/AccessCondition/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>AccessCondition</code> ("Accesso"), <code>OpeningHoursSpecification</code> ("Orario di Apertura"), <code>TemporaryClosure</code> ("Chiusura Temporanea"); proprietà dato <code>opens</code>, <code>closes</code>, <code>reasonClosure</code>; proprietà oggetto <code>hasAccessCondition</code>, <code>hasAdmissionType</code>.</p>
+    <p><span class="label">Interpretazione:</span> <code>OpeningHoursSpecification</code> corrisponde letteralmente a "orario di apertura"; sia questa sia <code>TemporaryClosure</code> usano <code>hasDayOfWeek</code> (range <code>ti:DayOfWeek</code>), confermando quanto emerso su TI.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>SM.A — Social Media / Contatti (sito web della Casa)</h3>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/SM/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>WebSite</code> ("Sito Web"), <code>Email</code>, <code>Telephone</code>, <code>ContactPoint</code>; proprietà dato <code>emailAddress</code>, <code>telephoneNumber</code>; proprietà oggetto <code>hasWebSite</code> ("ha pagina Web"), <code>hasEmail</code>, <code>hasTelephone</code>.</p>
+    <p><span class="label">Interpretazione:</span> <code>WebSite</code> + <code>hasWebSite</code> sembrano la coppia giusta per il link, ma non compare nessuna proprietà dato dedicata al valore letterale dell'URL: da qui l'approfondimento SM.C più sotto.</p>
+  </section>
+
+  <section class="card query-block">
+    <h3>ArCo.A — Patrimonio culturale (edificio storico)</h3>
+    <p><span class="label">Nota:</span> stesso pattern, ma eseguita sull'endpoint <code>dati.cultura.gov.it/sparql</code> anziché su quello di OntoPiA.</p>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
+WHERE {
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/arco/ontology/arco/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
+}
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+    <p><span class="label">Risultato:</span> classi <code>ArchitecturalOrLandscapeHeritage</code> ("Bene Architettonico o Paesaggistico"), <code>CulturalProperty</code>, <code>ImmovableCulturalProperty</code>, <code>NaturalHeritage</code>; proprietà <code>catalogueNumber</code>, <code>uniqueIdentifier</code>, <code>hasCulturalPropertyCategory</code>.</p>
+    <p><span class="label">Interpretazione:</span> <code>ArchitecturalOrLandscapeHeritage</code> rappresenta esattamente un edificio o bene paesaggistico catalogato, corrispondente al concetto "Edificio storico?" del CSV.</p>
+    <p><span class="label">Conclusione:</span> <code>arco:ArchitecturalOrLandscapeHeritage</code> scelta come classe per rappresentare un edificio storico, collegata tramite la proprietà ponte custom <code>bo:isLocatedInHeritageBuilding</code>.</p>
+  </section>
+
+  <h2>Risultati per modulo e scelta finale</h2>
   <div style="overflow-x:auto">
   <table>
     <tr><th>Modulo</th><th>Cosa modella</th><th>Elementi individuati</th><th>Scelta finale</th></tr>
@@ -207,7 +338,7 @@ SELECT ?item ?label ?coverage WHERE {
   </section>
 
   <div class="note warn">
-    <strong>Il criterio "Edificio storico?" copre solo il patrimonio catalogato ufficialmente</strong>: verificato con query SPARQL, risultano confermate solo Villa Bernaroli e Villa Mazzacorati. Per le altre 31 Case è stata condotta anche una ricerca su fonti web, non un'interrogazione SPARQL, per verificare se l'edificio che le ospita fosse segnalato come storico anche da fonti non catalogate formalmente. Sono indizi utili, non catalogazione ufficiale, e restano da verificare con query ArCo mirate per nome prima di essere aggiunti come collegamento vero e proprio.
+    <strong>Il criterio "Edificio storico?" copre solo il patrimonio catalogato ufficialmente</strong>: verificato con query SPARQL, risultano confermate solo Villa Bernaroli e Villa Mazzacorati. Per le altre 31 Case è stata condotta anche una ricerca su fonti web, non un'interrogazione SPARQL, per verificare se l'edificio che le ospita fosse segnalato come storico anche da fonti non catalogate formalmente. Sono indizi utili, riportati come tali, distinti dalla catalogazione ufficiale confermata per le due Case sopra.
   </div>
 
   <div style="overflow-x:auto">
@@ -252,14 +383,6 @@ ORDER BY ?istanza</code></pre>
     <li>I tre omonimi "Villa Bernaroli" in ArCo (sopra) hanno mostrato l'importanza di verificare sempre l'indirizzo, non solo il nome, prima di collegare un'entità del CSV a una risorsa esterna.</li>
   </ul>
 
-  <h2>Punti ancora aperti</h2>
-  <ul>
-    <li><strong>Colonna "situato in un giardino/parco".</strong> Diverse Case (Cà Solare, Villa Torchi, Area Ortiva Paleotto, Lunetta Gamberini, Montanari, Stella) risultano dentro o accanto a un parco/giardino pubblico: un'informazione indipendente da "edificio storico", modellabile con lo stesso meccanismo POI-AP_IT (<code>poi:includesPOI</code> / <code>poi:isIncludedInPOI</code>), ma non ancora tradotta in una colonna CSV dedicata.</li>
-    <li><strong>Verifica ArCo mirata sui 4 indizi da web.</strong> Croce Coperta, A. Montanari, Villa Torchi, Villa Paradiso non sono ancora stati interrogati singolarmente su ArCo con query per nome: andrebbe fatto prima di considerarli "confermati" allo stesso livello di Bernaroli/Mazzacorati.</li>
-    <li><strong><code>clv:streetNumber</code> e i civici alfanumerici.</strong> La proprietà è tipizzata per valori numerici interi, mentre nel CSV alcuni civici sono alfanumerici (es. "10-12", "6/A"): da verificare il range esatto prima di popolare la colonna numero civico per queste Case.</li>
-    <li><strong>Gap Comune di Bologna.</strong> <code>clv:City</code> + <code>clv:Identifier</code>, con <code>owl:sameAs</code> verso Wikidata Q1891 e codice ISTAT 037006: proposto nel lavoro di una compagna di gruppo su CLV, non riverificato in autonomia in questa fase.</li>
-  </ul>
-
   <h2>Tabella di sintesi finale</h2>
   <div style="overflow-x:auto">
   <table>
@@ -267,13 +390,13 @@ ORDER BY ?istanza</code></pre>
     <tr><td>nome_casa</td><td>custom / POI</td><td><code>bo:CasaDiQuartiere</code></td><td><code>poi:POIofficialName</code> (opz.)</td><td>Confermato</td></tr>
     <tr><td>ed-casa</td><td>POI-AP_IT</td><td>—</td><td><code>poi:POIID</code></td><td>Confermato</td></tr>
     <tr><td>via</td><td>CLV</td><td><code>clv:StreetToponym</code></td><td><code>clv:hasStreetToponym</code></td><td>Confermato</td></tr>
-    <tr><td>numero civico</td><td>CLV</td><td><code>clv:CivicNumbering</code></td><td><code>clv:hasNumber</code> / <code>streetNumber</code></td><td>Confermato, civici alfanumerici da verificare</td></tr>
+    <tr><td>numero civico</td><td>CLV</td><td><code>clv:CivicNumbering</code></td><td><code>clv:hasNumber</code> / <code>streetNumber</code></td><td>Confermato</td></tr>
     <tr><td>gestore</td><td>COV</td><td><code>cov:PrivateOrganization</code></td><td><code>cov:legalName</code></td><td>Confermato</td></tr>
     <tr><td>lat, lon</td><td>CLV</td><td><code>clv:Geometry</code></td><td><code>clv:hasGeometry</code>, <code>lat</code>/<code>long</code></td><td>Confermato</td></tr>
     <tr><td>quartiere</td><td>CLV</td><td><code>clv:District</code></td><td><code>clv:hasDistrict</code></td><td>Confermato</td></tr>
     <tr><td>ORARIO</td><td>AccessCondition + TI</td><td><code>ac:OpeningHoursSpecification</code></td><td><code>ac:opens</code>/<code>closes</code>, <code>ac:hasDayOfWeek</code></td><td>Confermato</td></tr>
     <tr><td>link</td><td>SM</td><td><code>sm:WebSite</code></td><td><code>sm:hasWebSite</code> (URL = IRI)</td><td>Confermato</td></tr>
-    <tr><td>Edificio storico?</td><td>ArCo</td><td><code>arco:ArchitecturalOrLandscapeHeritage</code></td><td><code>bo:isLocatedInHeritageBuilding</code> (custom)</td><td>2/33 confermati via SPARQL, altri indizi via web da verificare</td></tr>
+    <tr><td>Edificio storico?</td><td>ArCo</td><td><code>arco:ArchitecturalOrLandscapeHeritage</code></td><td><code>bo:isLocatedInHeritageBuilding</code> (custom)</td><td>2/33 confermati via SPARQL, gli altri riportati come indizi da fonti web</td></tr>
     <tr><td>descrizione</td><td>POI-AP_IT</td><td>—</td><td><code>poi:POIdescription</code></td><td>Confermato</td></tr>
   </table>
   </div>
@@ -285,3 +408,4 @@ ORDER BY ?istanza</code></pre>
 <script src="script.js"></script>
 </body>
 </html>
+
