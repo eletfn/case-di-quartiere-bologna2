@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SPARQL 1 · OntoPiA — Case di Quartiere di Bologna</title>
+<title>SPARQL 1 · Esplorazione di OntoPiA e ArCo — Case di Quartiere di Bologna</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Link nel corpo del testo: la regola globale del sito (color: inherit; text-decoration: none)
+     li rende indistinguibili dal testo normale. Qui vengono resi riconoscibili in modo uniforme
+     (sottolineati e in grassetto), coerentemente con la pagina Ontologia. */
+  main.page a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    font-weight: 600;
+    color: var(--brick-dark);
+  }
+  main.page a:hover,
+  main.page a:focus-visible {
+    color: var(--brick);
+  }
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -29,11 +45,11 @@
 </header>
 <main class="page wide">
   <span class="eyebrow">Query SPARQL 1</span>
-  <h1 class="page-title">Query sul vocabolario OntoPiA</h1>
-  <p class="lede">Query che esercitano le proprietà riusate dalle ontologie OntoPiA (COV, CLV, AccessCondition, TI) — cioè il vocabolario che il progetto non ha dovuto reinventare.</p>
+  <h1 class="page-title">Esplorazione di OntoPiA e ArCo</h1>
+  <p class="lede">Le query SPARQL eseguite direttamente sugli endpoint pubblici della Pubblica Amministrazione italiana, modulo per modulo, per individuare quali classi e proprietà riusare nello schema del progetto: non verifiche sul grafo del progetto, ma la ricognizione che ha preceduto e motivato le scelte descritte nella pagina <a href="ontology.html">Ontologia</a>.</p>
 
   <div class="card">
-    <p style="margin-bottom:6px">Keyword SPARQL utilizzate in queste query:</p>
+    <p style="margin-bottom:6px">Keyword SPARQL richieste dal corso, utilizzate in queste query:</p>
     <div class="badges">
       <span class="badge">OPTIONAL</span>
       <span class="badge">UNION</span>
@@ -43,105 +59,229 @@
       <span class="badge">ORDER BY</span>
       <span class="badge">DISTINCT</span>
     </div>
-    <p style="margin-top:14px">Le query sono state eseguite su <a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" rel="noopener">SPARQL Playground</a> (motore Comunica, conforme a SPARQL 1.1) sul grafo unito (schema + 32 istanze), verificate in modo indipendente con rdflib. Dettagli sugli strumenti provati nella pagina <a href="challenges.html">Sfide</a>. Le query sulla struttura della nostra classe <code>bo:CasaDiQuartiere</code> sono nella pagina <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
+    <p style="margin-top:14px">Le query sono state eseguite con lo strumento SPARQL messo a disposizione dagli stessi portali ufficiali: <a href="https://schema.gov.it/sparql" target="_blank" rel="noopener">schema.gov.it/sparql</a> per la rete OntoPiA (COV, CLV, POI-AP_IT, TI, AccessCondition, SM) e <a href="https://dati.cultura.gov.it/sparql" target="_blank" rel="noopener">dati.cultura.gov.it/sparql</a> per ArCo. Sono state scritte in forma neutra, un modulo alla volta, senza pre-selezionare quale classe o proprietà fosse quella "giusta": la scelta finale è stata fatta leggendo i risultati reali restituiti dagli endpoint, non ipotizzata a priori. La parte di esplorazione di CLV riprende e replica lo schema di query impostato da una compagna di gruppo per il documento <em>Recap_Dataset_Ontologia_Gap_Bologna</em>, poi applicato identico a tutti i moduli successivi.</p>
+    <p>A questa fase (33 Case nel dataset ancora da ripulire) segue quella di verifica sul grafo popolato del progetto, oggi 32 istanze dopo la rimozione di una voce superata (si veda <a href="challenges.html">Sfide</a>): le query di verifica sulla struttura di <code>bo:CasaDiQuartiere</code> sono nella pagina <a href="sparql-ontologia.html">SPARQL 2 · Ontologia</a>.</p>
   </div>
 
-  <section class="card query-block">
-    <h3>Query 1 — Coerenza testuale sui gestori (COV, FILTER + REGEX)</h3>
-    <p><span class="label">Obiettivo:</span> individuare i gestori che si dichiarano "APS" (associazione di promozione sociale), tramite la proprietà <code>cov:legalName</code>.</p>
-    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
-PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
-PREFIX cov: &lt;https://w3id.org/italia/onto/COV/&gt;
+  <h2>Endpoint interrogati</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>Ontologia</th><th>Namespace</th><th>Endpoint</th></tr>
+    <tr><td><code>cov:</code></td><td>https://w3id.org/italia/onto/COV</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>clv:</code></td><td>https://w3id.org/italia/onto/CLV</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>poi:</code></td><td>https://w3id.org/italia/onto/POI</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>ti:</code></td><td>https://w3id.org/italia/onto/TI</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>ac:</code></td><td>https://w3id.org/italia/onto/AccessCondition</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>sm:</code></td><td>https://w3id.org/italia/onto/SM</td><td>schema.gov.it/sparql</td></tr>
+    <tr><td><code>arco:</code></td><td>https://w3id.org/arco/ontology/arco</td><td>dati.cultura.gov.it/sparql</td></tr>
+  </table>
+  </div>
 
-SELECT ?nome ?nomeGestore
+  <h2>Il pattern di esplorazione</h2>
+  <p>Ogni modulo OntoPiA è stato interrogato con la stessa query, cambiando solo il namespace nella <code>FILTER</code>: un'enumerazione completa di classi e proprietà definite nel modulo, con relativa etichetta italiana quando disponibile.</p>
+  <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+SELECT DISTINCT ?elemento ?tipo ?label
 WHERE {
-  ?casa a bo:CasaDiQuartiere ;
-        poi:POIofficialName ?nome ;
-        bo:isManagedBy ?gestore .
-  ?gestore cov:legalName ?nomeGestore .
-  FILTER(REGEX(?nomeGestore, "APS", "i"))
+  { ?elemento a owl:Class . BIND("Classe" AS ?tipo) }
+  UNION { ?elemento a owl:ObjectProperty . BIND("Proprietà oggetto" AS ?tipo) }
+  UNION { ?elemento a owl:DatatypeProperty . BIND("Proprietà dato" AS ?tipo) }
+  ?elemento rdfs:isDefinedBy ?onto .
+  FILTER(REGEX(STR(?onto), "^https://w3id.org/italia/onto/COV/?$"))
+  OPTIONAL { ?elemento rdfs:label ?label . FILTER(LANG(?label) = "it") }
 }
-ORDER BY ?nome</code></pre>
-    <p><span class="label">Risultato:</span> 11 risultati, tutti effettivamente contenenti "APS" nel nome (es. "Graf San Donato APS", "Centro Sociale e Orti Villa Bernaroli APS").</p>
-    <p><span class="label">Interpretazione:</span> nessuna corrispondenza spuria — il testo importato dal CSV è pulito e coerente.</p>
+ORDER BY ?tipo ?elemento
+LIMIT 200</code></pre>
+  <p>La riga <code>FILTER(REGEX(STR(?onto), ...))</code> è l'unica a cambiare da un modulo all'altro (COV, CLV, POI, TI, AccessCondition, SM, e per ArCo anche l'endpoint). La tabella seguente riassume cosa ha restituito ciascun modulo e la scelta finale che ne è derivata.</p>
+
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>Modulo</th><th>Cosa modella</th><th>Elementi individuati</th><th>Scelta finale</th></tr>
+    <tr>
+      <td><code>cov:</code></td>
+      <td>gestore della Casa</td>
+      <td>Distingue <code>PublicOrganization</code> (con codice IPA/REA, enti della PA) da <code>PrivateOrganization</code> ("Associazione privata"): le APS e i centri sociali del progetto rientrano nel secondo gruppo.</td>
+      <td><code>cov:PrivateOrganization</code>, <code>cov:legalName</code> → colonna <code>gestore</code></td>
+    </tr>
+    <tr>
+      <td><code>clv:</code></td>
+      <td>via, civico, coordinate, quartiere</td>
+      <td>Copre puntualmente ogni componente di un indirizzo italiano: <code>StreetToponym</code> (via), <code>CivicNumbering</code> (civico), <code>Geometry</code> (coordinate), <code>District</code> (quartiere, corrisponde esattamente alla colonna omonima).</td>
+      <td><code>clv:hasStreetToponym</code>, <code>clv:hasNumber</code>, <code>clv:hasGeometry</code>, <code>clv:hasDistrict</code></td>
+    </tr>
+    <tr>
+      <td><code>poi:</code></td>
+      <td>identificativo, nome, descrizione della Casa</td>
+      <td><code>PointOfInterest</code> è la classe generica per luoghi fisici di rilevanza pubblica; le sue proprietà dato coprono esattamente identificativo, nome ufficiale e descrizione.</td>
+      <td><code>bo:CasaDiQuartiere rdfs:subClassOf poi:PointOfInterest</code>; <code>poi:POIID</code> → colonna <code>ed-casa</code>; <code>poi:POIdescription</code> → colonna <code>descrizione</code></td>
+    </tr>
+    <tr>
+      <td><code>ti:</code></td>
+      <td>giorni della settimana, intervalli temporali</td>
+      <td><code>DayOfWeek</code> è la classe corretta per i giorni; <code>TimeInterval</code> da solo però non basta, perché le sue proprietà (<code>startTime</code>, <code>endTime</code>) non collegano a un giorno della settimana (si veda l'approfondimento TI.C più sotto).</td>
+      <td><code>ti:DayOfWeek</code> riusata come range di una proprietà di AccessCondition, non di TI</td>
+    </tr>
+    <tr>
+      <td><code>ac:</code></td>
+      <td>orari di apertura</td>
+      <td>Individuata durante la verifica su TI, non nell'elenco di partenza: <code>OpeningHoursSpecification</code> corrisponde letteralmente a "orario di apertura", con <code>opens</code>/<code>closes</code> e <code>hasDayOfWeek</code> (range <code>ti:DayOfWeek</code>).</td>
+      <td><code>ac:OpeningHoursSpecification</code>, <code>ac:opens</code>/<code>ac:closes</code>, <code>ac:hasDayOfWeek</code>, <code>ac:hasAccessCondition</code> → colonna <code>ORARIO</code></td>
+    </tr>
+    <tr>
+      <td><code>sm:</code></td>
+      <td>sito web della Casa</td>
+      <td><code>WebSite</code> + <code>hasWebSite</code> sono la coppia giusta, ma non esiste una proprietà dato per l'URL: è il pattern Linked Data in cui l'indirizzo del sito è l'IRI stesso dell'istanza (approfondimento SM.C più sotto).</td>
+      <td><code>sm:WebSite</code>, <code>sm:hasWebSite</code> → colonna <code>link</code>, con l'URL come IRI dell'istanza</td>
+    </tr>
+    <tr>
+      <td><code>arco:</code></td>
+      <td>edificio storico che ospita la Casa</td>
+      <td><code>ArchitecturalOrLandscapeHeritage</code> rappresenta esattamente un edificio o bene paesaggistico catalogato (approfondimento ArCo più sotto).</td>
+      <td><code>arco:ArchitecturalOrLandscapeHeritage</code>, collegata tramite la proprietà ponte custom <code>bo:isLocatedInHeritageBuilding</code></td>
+    </tr>
+  </table>
+  </div>
+
+  <h2>Approfondimenti</h2>
+  <p>Oltre alla ricognizione generale, quattro casi hanno richiesto una query dedicata per essere chiariti fino in fondo.</p>
+
+  <section class="card query-block">
+    <h3>TI.C — Un'ipotesi corretta in corso d'opera</h3>
+    <p><span class="label">Obiettivo:</span> verificare quali proprietà abbiano realmente <code>ti:TimeInterval</code> come dominio, dopo aver ipotizzato in una fase precedente che esistesse una proprietà <code>ti:hasDayOfWeek</code> diretta su questa classe.</p>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT ?p ?range WHERE {
+  ?p rdfs:domain &lt;https://w3id.org/italia/onto/TI/TimeInterval&gt; .
+  OPTIONAL { ?p rdfs:range ?range }
+}</code></pre>
+    <p><span class="label">Risultato:</span> <code>startTime</code>, <code>endTime</code>, <code>hasTimeInstantInside</code>: nessuna proprietà diretta verso <code>DayOfWeek</code>.</p>
+    <p><span class="label">Interpretazione:</span> l'ipotesi iniziale non era confermata dai dati reali. <code>TimeInterval</code> da solo non basta a modellare "lunedì-sabato 11:00-13:00": serve una classe più specifica.</p>
+    <p><span class="label">Conclusione:</span> l'ipotesi è stata ritirata esplicitamente prima di scrivere qualunque tripla definitiva. La proprietà cercata esiste davvero, ma appartiene ad AccessCondition (<code>ac:hasDayOfWeek</code>, range <code>ti:DayOfWeek</code>), non a TI: da qui la scoperta del modulo AccessCondition, non presente nell'elenco di partenza.</p>
   </section>
 
   <section class="card query-block">
-    <h3>Query 2 — Case per quartiere (CLV, UNION)</h3>
-    <p><span class="label">Obiettivo:</span> confrontare le Case di due quartieri (Navile e Savena) per verificare il collegamento al distretto tramite <code>clv:hasDistrict</code>.</p>
-    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
-PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
-PREFIX clv: &lt;https://w3id.org/italia/onto/CLV/&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-
-SELECT ?nome ?quartiere
-WHERE {
-  ?casa a bo:CasaDiQuartiere ;
-        poi:POIofficialName ?nome ;
-        clv:hasAddress ?indirizzo .
-  ?indirizzo clv:hasDistrict ?distretto .
-  {
-    ?distretto rdfs:label "Navile"@it .
-    BIND("Navile"@it AS ?quartiere)
-  }
-  UNION
-  {
-    ?distretto rdfs:label "Savena"@it .
-    BIND("Savena"@it AS ?quartiere)
-  }
-}
-ORDER BY ?quartiere ?nome</code></pre>
-    <p><span class="label">Risultato:</span> 13 righe — 7 Case a Navile (Casa Gialla, Croce Coperta, Katia Bertasi, Montanari, Villa Torchi, Fondo Comini, Pescarola) e 6 a Savena (Area Ortiva Paleotto, Casa del Gufo, La Dacia, Villa Mazzacorati, San Rafel, Foscherara).</p>
-    <p><span class="label">Interpretazione:</span> il collegamento <code>clv:hasDistrict</code> funziona correttamente per entrambi i quartieri testati.</p>
+    <h3>AC.C — Cosa specifica davvero OpeningHoursSpecification</h3>
+    <p><span class="label">Obiettivo:</span> leggere il commento ufficiale e tutte le proprietà della classe scelta per gli orari.</p>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT ?p ?o WHERE {
+  &lt;https://w3id.org/italia/onto/AccessCondition/OpeningHoursSpecification&gt; ?p ?o .
+}</code></pre>
+    <p><span class="label">Risultato:</span> commento ufficiale: "Individui di questa classe specificano gli orari di apertura […] espressi in termini di: orario apertura, orario di chiusura, il giorno della settimana […] il tipo di apertura […]. Con questa classe è possibile modellare dati di questo tipo: 'Orari di apertura (03/05-30/05/2018) lu-sa: 11:00-13:00 / 15:00-19:00'."</p>
+    <p><span class="label">Interpretazione:</span> la classe copre esattamente il caso d'uso del CSV, comprese fasce orarie diverse in giorni diversi.</p>
+    <p><span class="label">Conclusione:</span> confermata la scelta di <code>ac:OpeningHoursSpecification</code> con <code>ac:opens</code>/<code>ac:closes</code> e <code>ac:hasDayOfWeek</code>, collegata alla Casa tramite <code>ac:hasAccessCondition</code>.</p>
   </section>
 
   <section class="card query-block">
-    <h3>Query 3 — Orari del lunedì (AccessCondition/TI, OPTIONAL)</h3>
-    <p><span class="label">Obiettivo:</span> verificare che apertura/chiusura siano popolate coerentemente per una fascia specifica, tramite <code>ac:hasAccessCondition</code> e <code>ti:Monday</code>.</p>
-    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
-PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
-PREFIX ac: &lt;https://w3id.org/italia/onto/AccessCondition/&gt;
-PREFIX ti: &lt;https://w3id.org/italia/onto/TI/&gt;
-
-SELECT ?nome ?apertura ?chiusura
-WHERE {
-  ?casa a bo:CasaDiQuartiere ;
-        poi:POIofficialName ?nome ;
-        ac:hasAccessCondition ?orario .
-  ?orario ac:hasDayOfWeek ti:Monday .
-  OPTIONAL { ?orario ac:opens ?apertura }
-  OPTIONAL { ?orario ac:closes ?chiusura }
-}
-ORDER BY ?nome</code></pre>
-    <p><span class="label">Risultato:</span> elenco coerente delle fasce del lunedì (es. Santa Viola 08:00-11:30 e 14:00-18:30). Un caso limite: Giorgio Costa risulta con apertura 13:00:00 e chiusura 00:00:00.</p>
-    <p><span class="label">Interpretazione:</span> il valore "00:00:00" come chiusura, formalmente valido, va verificato sul CSV sorgente — probabilmente indica un orario fino a mezzanotte da normalizzare (segnalato in <a href="challenges.html">Sfide</a>).</p>
+    <h3>SM.C — Dove finisce scritto l'indirizzo del sito web</h3>
+    <p><span class="label">Obiettivo:</span> verificare tutti i predicati di <code>sm:WebSite</code>, dato che l'esplorazione generale non aveva mostrato nessuna proprietà dato dedicata al valore letterale dell'URL.</p>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT ?p ?o WHERE {
+  &lt;https://w3id.org/italia/onto/SM/WebSite&gt; ?p ?o .
+}</code></pre>
+    <p><span class="label">Risultato:</span> solo <code>prov:wasInfluencedBy</code> verso <code>foaf:Document</code> e schema.org/WebSite: nessuna proprietà dato aggiuntiva per l'URL.</p>
+    <p><span class="label">Interpretazione:</span> non manca nulla. È il pattern classico dei dati collegati in cui l'indirizzo del sito diventa direttamente l'IRI dell'istanza di <code>WebSite</code>, non un valore scritto dentro una proprietà separata.</p>
+    <p><span class="label">Conclusione:</span> <code>sm:WebSite</code> + <code>sm:hasWebSite</code> → colonna <code>link</code>, con l'URL della Casa come IRI dell'istanza:</p>
+    <pre><code>ex:CQ01 sm:hasWebSite &lt;http://www.example-casa.it&gt; .
+&lt;http://www.example-casa.it&gt; a sm:WebSite .</code></pre>
   </section>
 
   <section class="card query-block">
-    <h3>Query 4 — Le 10 aperture più mattiniere (AccessCondition, LIMIT + ORDER BY)</h3>
-    <p><span class="label">Obiettivo:</span> controllo di plausibilità sui valori xsd:time di apertura (<code>ac:opens</code>).</p>
-    <pre><code>PREFIX bo: &lt;https://example.org/casediquartierebologna#&gt;
-PREFIX poi: &lt;https://w3id.org/italia/onto/POI/&gt;
-PREFIX ac: &lt;https://w3id.org/italia/onto/AccessCondition/&gt;
-
-SELECT DISTINCT ?nome ?apertura
-WHERE {
-  ?casa a bo:CasaDiQuartiere ;
-        poi:POIofficialName ?nome ;
-        ac:hasAccessCondition ?orario .
-  ?orario ac:opens ?apertura .
-}
-ORDER BY ?apertura
-LIMIT 10</code></pre>
-    <p><span class="label">Risultato:</span> Katia Bertasi (07:00) la più mattiniera, seguita da un gruppo di Case alle 08:00, poi Montanari (08:45) e Casa del Gufo (09:00).</p>
-    <p><span class="label">Interpretazione:</span> tutti i valori sono plausibili per orari di apertura di un servizio comunitario diurno — nessuna anomalia tra i 10 più mattinieri.</p>
+    <h3>ArCo.B / ArCo.C — Villa Bernaroli: tre omonimi da disambiguare</h3>
+    <p><span class="label">Obiettivo:</span> cercare, tra i beni ArCo coperti da "Bologna", quelli con nome riconducibile alle Case che nel CSV hanno un'intestazione da edificio storico ("Villa…").</p>
+    <pre><code>PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+SELECT ?item ?label ?coverage WHERE {
+  ?item a &lt;https://w3id.org/arco/ontology/arco/ArchitecturalOrLandscapeHeritage&gt; .
+  ?item rdfs:label ?label .
+  ?item dc:coverage ?coverage .
+  FILTER(CONTAINS(STR(?coverage), "Bologna"))
+  FILTER(CONTAINS(LCASE(STR(?label)), "bernaroli") ||
+         CONTAINS(LCASE(STR(?label)), "mazzacorati") ||
+         CONTAINS(LCASE(STR(?label)), "paradiso"))
+}</code></pre>
+    <p><span class="label">Risultato:</span> 3 record per "Villa Bernaroli" (…/0800242824, …/0800241982, …/0800241983) e 1 per "Villa Aldrovandi Mazzacorati" (…/0800241647). Nessun risultato per "Paradiso".</p>
+    <p><span class="label">Interpretazione:</span> tre omonimi per Villa Bernaroli richiedono di disambiguare tramite l'indirizzo, dato che il CSV riporta Villa Bernaroli in Via Morazzo 1. Interrogando singolarmente ciascuno dei tre URI: 0800242824 ("convento camaldolese") risulta in Via San Mamolo 26 / Via Codivilla 1, indirizzo diverso, omonimo scartato; 0800241982 ("complesso rurale") e 0800241983 ("villa") risultano entrambi in Via Morazzo 3, vicini al civico 1 del CSV.</p>
+    <p><span class="label">Conclusione:</span> scelto 0800241983 ("villa") come collegamento principale, la villa essendo verosimilmente l'edificio principale che ospita oggi il centro:</p>
+    <pre><code>ex:CasaVillaBernaroli bo:isLocatedInHeritageBuilding
+  &lt;https://w3id.org/arco/resource/ArchitecturalOrLandscapeHeritage/0800241983&gt; .</code></pre>
+    <p>ArCo non prevede una proprietà nativa per collegare un'entità esterna, come una Casa di Quartiere, a un bene catalogato: da qui la proposta della proprietà ponte custom <code>bo:isLocatedInHeritageBuilding</code>, documentata nella pagina <a href="ontology.html">Ontologia</a>.</p>
   </section>
-</main>
 
+  <div class="note warn">
+    <strong>Il criterio "Edificio storico?" copre solo il patrimonio catalogato ufficialmente</strong>: verificato con query SPARQL, risultano confermate solo Villa Bernaroli e Villa Mazzacorati. Per le altre 31 Case è stata condotta anche una ricerca su fonti web, non un'interrogazione SPARQL, per verificare se l'edificio che le ospita fosse segnalato come storico anche da fonti non catalogate formalmente. Sono indizi utili, non catalogazione ufficiale, e restano da verificare con query ArCo mirate per nome prima di essere aggiunti come collegamento vero e proprio.
+  </div>
+
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>Casa</th><th>Esito ricerca web</th><th>Fonte principale</th></tr>
+    <tr><td>Villa Mazzacorati</td><td>Confermata: villa neoclassica fine '700 (famiglie Marescotti/Aldrovandi), teatro storico del 1763</td><td>storiaememoriadibologna.it</td></tr>
+    <tr><td>Giorgio Costa</td><td>Ex convento: loggia e volte del complesso riportate alla luce nel restauro del 1981</td><td>giorgiocostablog.wordpress.com</td></tr>
+    <tr><td>Rosa Marchi</td><td>Ex casa colonica (1977)</td><td>centrorosamarchi.it</td></tr>
+    <tr><td>Montanari</td><td>Ex rimessa tram/cavalli delle Tramvie Bolognesi, nel Giardino Zucca</td><td>centrosocialemontanari.it</td></tr>
+    <tr><td>Croce Coperta</td><td>Antico complesso rurale (casa colonica, fienile, magazzino, aia)</td><td>centrocrocecoperta.it</td></tr>
+    <tr><td>Casa Gialla</td><td>Comprende una stalla storica del territorio Beverara</td><td>digitale.regione.emilia-romagna.it</td></tr>
+    <tr><td>Pilastro</td><td>Edificio agricolo rurale (stalle/fienili), ex zona di campagna</td><td>pilastrobologna.it</td></tr>
+    <tr><td>Cà Solare</td><td>Vecchio casale di campagna ristrutturato, nel Parco dell'Arboreto</td><td>pilastrobologna.it</td></tr>
+    <tr><td>Stella</td><td>Primo piano di una piccola villa in via Savioli</td><td>comune.bologna.it</td></tr>
+    <tr><td>Villa Paradiso, Villa Torchi</td><td>Nome suggestivo, ma nessuna conferma diretta sull'edificio (Villa Torchi: sede più recente, nel parco dell'omonima villa)</td><td>villatorchi.it</td></tr>
+    <tr><td>Altre 19 Case</td><td>Nessun indizio di edificio storico nelle fonti web consultate</td><td>varie</td></tr>
+  </table>
+  </div>
+
+  <h2>Un approfondimento sulle categorie POI</h2>
+  <section class="card query-block">
+    <h3>Le categorie POI-AP_IT includono qualcosa per un centro comunitario?</h3>
+    <p><span class="label">Obiettivo:</span> verificare se il vocabolario controllato delle categorie POI-AP_IT include una categoria adatta a classificare un parco/giardino che ospita una Casa, o la Casa di Quartiere stessa.</p>
+    <pre><code>PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT ?istanza ?nome ?definizione
+WHERE {
+  ?istanza skos:inScheme &lt;https://w3id.org/italia/controlled-vocabulary/poi-category-classification&gt; .
+  ?istanza skos:prefLabel ?nome . FILTER(LANG(?nome) = "it")
+  ?istanza skos:definition ?definizione .
+}
+ORDER BY ?istanza</code></pre>
+    <p><span class="label">Risultato:</span> 8 categorie definite in SKOS (non in rdfs:label): entertainment, recreation, food, shopping, automotive, travel, geographical, publicservice. <code>cat_2_recreation</code> ("Settore svago") si definisce come "centri sportivi, giardini, parchi, centri benessere, ecc."</p>
+    <p><span class="label">Interpretazione:</span> nessuna delle 8 categorie menziona centri sociali, civici o case di quartiere: un gap del vocabolario, coerente con gli altri gap già rilevati nel progetto (Wikidata, ArCo). Tra le disponibili, <code>cat_2_recreation</code> resta l'approssimazione più ragionevole anche per la Casa stessa, preferibile a <code>cat_1_entertainment</code> (locali commerciali), <code>cat_6_travel</code> (turismo) e <code>cat_8_publicservice</code> (infrastrutture/servizi tecnici).</p>
+    <p><span class="label">Conclusione:</span> parco/giardino → <code>poi:hasPOICategory</code> → <code>cat_2_recreation</code>. Per la Casa di Quartiere in sé nessuna categoria è un match esatto: se assegnata comunque, va segnalata esplicitamente come approssimazione, non come corrispondenza diretta.</p>
+  </section>
+
+  <h2>Trasparenza metodologica: errori e correzioni</h2>
+  <p>Per onestà del processo, si documentano qui gli errori emersi e corretti nel corso dell'esplorazione:</p>
+  <ul>
+    <li>Ipotesi non verificata su <code>ti:hasDayOfWeek</code>: ritirata esplicitamente dopo la query TI.C (sopra), prima di scrivere qualunque tripla definitiva.</li>
+    <li>Un primo tentativo aveva esplorato tutte le ontologie insieme in un unico documento, con classi già pre-suggerite: corretto ripartendo da zero, un'ontologia alla volta, con query neutre e senza risposte anticipate.</li>
+    <li>I tre omonimi "Villa Bernaroli" in ArCo (sopra) hanno mostrato l'importanza di verificare sempre l'indirizzo, non solo il nome, prima di collegare un'entità del CSV a una risorsa esterna.</li>
+  </ul>
+
+  <h2>Punti ancora aperti</h2>
+  <ul>
+    <li><strong>Colonna "situato in un giardino/parco".</strong> Diverse Case (Cà Solare, Villa Torchi, Area Ortiva Paleotto, Lunetta Gamberini, Montanari, Stella) risultano dentro o accanto a un parco/giardino pubblico: un'informazione indipendente da "edificio storico", modellabile con lo stesso meccanismo POI-AP_IT (<code>poi:includesPOI</code> / <code>poi:isIncludedInPOI</code>), ma non ancora tradotta in una colonna CSV dedicata.</li>
+    <li><strong>Verifica ArCo mirata sui 4 indizi da web.</strong> Croce Coperta, A. Montanari, Villa Torchi, Villa Paradiso non sono ancora stati interrogati singolarmente su ArCo con query per nome: andrebbe fatto prima di considerarli "confermati" allo stesso livello di Bernaroli/Mazzacorati.</li>
+    <li><strong><code>clv:streetNumber</code> e i civici alfanumerici.</strong> La proprietà è tipizzata per valori numerici interi, mentre nel CSV alcuni civici sono alfanumerici (es. "10-12", "6/A"): da verificare il range esatto prima di popolare la colonna numero civico per queste Case.</li>
+    <li><strong>Gap Comune di Bologna.</strong> <code>clv:City</code> + <code>clv:Identifier</code>, con <code>owl:sameAs</code> verso Wikidata Q1891 e codice ISTAT 037006: proposto nel lavoro di una compagna di gruppo su CLV, non riverificato in autonomia in questa fase.</li>
+  </ul>
+
+  <h2>Tabella di sintesi finale</h2>
+  <div style="overflow-x:auto">
+  <table>
+    <tr><th>Colonna CSV</th><th>Ontologia</th><th>Classe</th><th>Proprietà</th><th>Stato</th></tr>
+    <tr><td>nome_casa</td><td>custom / POI</td><td><code>bo:CasaDiQuartiere</code></td><td><code>poi:POIofficialName</code> (opz.)</td><td>Confermato</td></tr>
+    <tr><td>ed-casa</td><td>POI-AP_IT</td><td>—</td><td><code>poi:POIID</code></td><td>Confermato</td></tr>
+    <tr><td>via</td><td>CLV</td><td><code>clv:StreetToponym</code></td><td><code>clv:hasStreetToponym</code></td><td>Confermato</td></tr>
+    <tr><td>numero civico</td><td>CLV</td><td><code>clv:CivicNumbering</code></td><td><code>clv:hasNumber</code> / <code>streetNumber</code></td><td>Confermato, civici alfanumerici da verificare</td></tr>
+    <tr><td>gestore</td><td>COV</td><td><code>cov:PrivateOrganization</code></td><td><code>cov:legalName</code></td><td>Confermato</td></tr>
+    <tr><td>lat, lon</td><td>CLV</td><td><code>clv:Geometry</code></td><td><code>clv:hasGeometry</code>, <code>lat</code>/<code>long</code></td><td>Confermato</td></tr>
+    <tr><td>quartiere</td><td>CLV</td><td><code>clv:District</code></td><td><code>clv:hasDistrict</code></td><td>Confermato</td></tr>
+    <tr><td>ORARIO</td><td>AccessCondition + TI</td><td><code>ac:OpeningHoursSpecification</code></td><td><code>ac:opens</code>/<code>closes</code>, <code>ac:hasDayOfWeek</code></td><td>Confermato</td></tr>
+    <tr><td>link</td><td>SM</td><td><code>sm:WebSite</code></td><td><code>sm:hasWebSite</code> (URL = IRI)</td><td>Confermato</td></tr>
+    <tr><td>Edificio storico?</td><td>ArCo</td><td><code>arco:ArchitecturalOrLandscapeHeritage</code></td><td><code>bo:isLocatedInHeritageBuilding</code> (custom)</td><td>2/33 confermati via SPARQL, altri indizi via web da verificare</td></tr>
+    <tr><td>descrizione</td><td>POI-AP_IT</td><td>—</td><td><code>poi:POIdescription</code></td><td>Confermato</td></tr>
+  </table>
+  </div>
+
+  </main>
 <footer class="site-footer">
   <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
