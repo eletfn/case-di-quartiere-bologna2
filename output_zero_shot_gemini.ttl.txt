@@ -1,0 +1,181 @@
+@prefix bo:     <https://example.org/casediquartierebologna#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix cov:    <https://w3id.org/italia/onto/COV/> .
+@prefix clv:    <https://w3id.org/italia/onto/CLV/> .
+@prefix poi:    <https://w3id.org/italia/onto/POI/> .
+@prefix ti:     <https://w3id.org/italia/onto/TI/> .
+@prefix ac:     <https://w3id.org/italia/onto/AccessCondition/> .
+@prefix sm:     <https://w3id.org/italia/onto/SM/> .
+@prefix arco:   <https://w3id.org/arco/ontology/arco/> .
+@prefix l0:     <https://w3id.org/italia/onto/l0/> .
+@prefix cat:    <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/> .
+
+# ================================================================
+# INDIVIDUO UNICO: COMUNE DI BOLOGNA
+# ================================================================
+
+<https://example.org/casediquartierebologna/city/bologna> a clv:City ;
+    rdfs:label "Bologna"@it ;
+    clv:hasIdentifier <https://example.org/casediquartierebologna/city/bologna/id> ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1891> .
+
+<https://example.org/casediquartierebologna/city/bologna/id> a clv:Identifier ;
+    l0:identifier "037006" ;
+    clv:identifierType "ISTAT" ;
+    clv:issuedBy <https://example.org/casediquartierebologna/organization/istat> .
+
+# ================================================================
+# EDIFICI STORICI (ArCo)
+# ================================================================
+
+<https://example.org/casediquartierebologna/heritage/villa-bernaroli> a arco:ArchitecturalOrLandscapeHeritage ;
+    rdfs:label "Villa Bernaroli"@it .
+
+<https://example.org/casediquartierebologna/heritage/villa-mazzacorati> a arco:ArchitecturalOrLandscapeHeritage ;
+    rdfs:label "Villa Mazzacorati"@it .
+
+
+# ================================================================
+# CASE DI QUARTIERE
+# ================================================================
+
+### CASA 1: Casa di Quartiere Villa Bernaroli
+<https://example.org/casediquartierebologna/casa/1> a bo:CasaDiQuartiere ;
+    poi:POIID "1" ;
+    poi:POIofficialName "Casa di Quartiere Villa Bernaroli"@it ;
+    poi:POIdescription "Centro sociale e culturale immerso nel verde con attività ricreative e orti urbani."@it ;
+    bo:isLocatedInHeritageBuilding <https://example.org/casediquartierebologna/heritage/villa-bernaroli> ;
+    bo:isManagedBy <https://example.org/casediquartierebologna/gestore/associazione-villa-bernaroli> ;
+    clv:hasAddress <https://example.org/casediquartierebologna/address/1> ;
+    clv:hasGeometry <https://example.org/casediquartierebologna/geometry/1> ;
+    sm:hasWebSite <https://www.comune.bologna.it/luoghi/casa-quartiere-villa-bernaroli> ;
+    ac:hasAccessCondition <https://example.org/casediquartierebologna/opening/1-1> ,
+                           <https://example.org/casediquartierebologna/opening/1-2> ;
+    poi:isIncludedInPOI <https://example.org/casediquartierebologna/park/parco-villa-bernaroli> .
+
+<https://example.org/casediquartierebologna/gestore/associazione-villa-bernaroli> a cov:PrivateOrganization ;
+    cov:legalName "Aps Villa Bernaroli"@it .
+
+<https://example.org/casediquartierebologna/address/1> a clv:Address ;
+    clv:hasStreetToponym <https://example.org/casediquartierebologna/street/raibolini> ;
+    clv:hasNumber <https://example.org/casediquartierebologna/number/1-14> ;
+    clv:hasDistrict <https://example.org/casediquartierebologna/district/borgo-panigale-reno> ;
+    clv:hasCity <https://example.org/casediquartierebologna/city/bologna> .
+
+<https://example.org/casediquartierebologna/street/raibolini> a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Giacomo Raibolini"@it .
+
+<https://example.org/casediquartierebologna/number/1-14> a clv:CivicNumbering ;
+    clv:streetNumber 14 .
+
+<https://example.org/casediquartierebologna/district/borgo-panigale-reno> a clv:District ;
+    rdfs:label "Borgo Panigale-Reno"@it .
+
+<https://example.org/casediquartierebologna/geometry/1> a clv:Geometry ;
+    clv:lat "44.521834"^^xsd:decimal ;
+    clv:long "11.264212"^^xsd:decimal .
+
+<https://example.org/casediquartierebologna/park/parco-villa-bernaroli> a poi:PointOfInterest ;
+    poi:POIofficialName "Parco di Villa Bernaroli"@it ;
+    poi:hasPOICategory cat:cat_2_recreation .
+
+<https://example.org/casediquartierebologna/opening/1-1> a ac:OpeningHoursSpecification ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time .
+
+<https://example.org/casediquartierebologna/opening/1-2> a ac:OpeningHoursSpecification ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time .
+
+
+### CASA 2: Casa di Quartiere Villa Mazzacorati
+<https://example.org/casediquartierebologna/casa/2> a bo:CasaDiQuartiere ;
+    poi:POIID "2" ;
+    poi:POIofficialName "Casa di Quartiere Villa Mazzacorati"@it ;
+    poi:POIdescription "Spazio socioculturale con teatro storico e parco secolare."@it ;
+    bo:isLocatedInHeritageBuilding <https://example.org/casediquartierebologna/heritage/villa-mazzacorati> ;
+    bo:isManagedBy <https://example.org/casediquartierebologna/gestore/associazione-mazzacorati> ;
+    clv:hasAddress <https://example.org/casediquartierebologna/address/2> ;
+    clv:hasGeometry <https://example.org/casediquartierebologna/geometry/2> ;
+    sm:hasWebSite <https://www.comune.bologna.it/luoghi/casa-quartiere-villa-mazzacorati> ;
+    ac:hasAccessCondition <https://example.org/casediquartierebologna/opening/2-1> ;
+    poi:isIncludedInPOI <https://example.org/casediquartierebologna/park/parco-mazzacorati> .
+
+<https://example.org/casediquartierebologna/gestore/associazione-mazzacorati> a cov:PrivateOrganization ;
+    cov:legalName "Associazione Villa Mazzacorati APS"@it .
+
+<https://example.org/casediquartierebologna/address/2> a clv:Address ;
+    clv:hasStreetToponym <https://example.org/casediquartierebologna/street/toscana> ;
+    clv:hasNumber <https://example.org/casediquartierebologna/number/2-19> ;
+    clv:hasDistrict <https://example.org/casediquartierebologna/district/savena> ;
+    clv:hasCity <https://example.org/casediquartierebologna/city/bologna> .
+
+<https://example.org/casediquartierebologna/street/toscana> a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Toscana"@it .
+
+<https://example.org/casediquartierebologna/number/2-19> a clv:CivicNumbering ;
+    clv:streetNumber 19 .
+
+<https://example.org/casediquartierebologna/district/savena> a clv:District ;
+    rdfs:label "Savena"@it .
+
+<https://example.org/casediquartierebologna/geometry/2> a clv:Geometry ;
+    clv:lat "44.470512"^^xsd:decimal ;
+    clv:long "11.371940"^^xsd:decimal .
+
+<https://example.org/casediquartierebologna/park/parco-mazzacorati> a poi:PointOfInterest ;
+    poi:POIofficialName "Parco di Villa Mazzacorati"@it ;
+    poi:hasPOICategory cat:cat_2_recreation .
+
+<https://example.org/casediquartierebologna/opening/2-1> a ac:OpeningHoursSpecification ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday , ti:Saturday ;
+    ac:opens "08:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time .
+
+
+### CASA 3: Casa di Quartiere Katia Bertasi
+<https://example.org/casediquartierebologna/casa/3> a bo:CasaDiQuartiere ;
+    poi:POIID "3" ;
+    poi:POIofficialName "Casa di Quartiere Katia Bertasi"@it ;
+    poi:POIdescription "Presidio socio-culturale della Bolognina dedicato ad attività di aggregazione e solidarietà."@it ;
+    bo:isManagedBy <https://example.org/casediquartierebologna/gestore/associazione-katia-bertasi> ;
+    clv:hasAddress <https://example.org/casediquartierebologna/address/3> ;
+    clv:hasGeometry <https://example.org/casediquartierebologna/geometry/3> ;
+    sm:hasWebSite <https://www.comune.bologna.it/luoghi/casa-quartiere-katia-bertasi> ;
+    ac:hasAccessCondition <https://example.org/casediquartierebologna/opening/3-1> .
+
+<https://example.org/casediquartierebologna/gestore/associazione-katia-bertasi> a cov:PrivateOrganization ;
+    cov:legalName "Associazione Katia Bertasi APS"@it .
+
+<https://example.org/casediquartierebologna/address/3> a clv:Address ;
+    clv:hasStreetToponym <https://example.org/casediquartierebologna/street/fioravanti> ;
+    clv:hasNumber <https://example.org/casediquartierebologna/number/3-22> ;
+    clv:hasDistrict <https://example.org/casediquartierebologna/district/navile> ;
+    clv:hasCity <https://example.org/casediquartierebologna/city/bologna> .
+
+<https://example.org/casediquartierebologna/street/fioravanti> a clv:StreetToponym ;
+    clv:toponymQualifier "Via"@it ;
+    clv:officialStreetName "Aristotile Fioravanti"@it .
+
+<https://example.org/casediquartierebologna/number/3-22> a clv:CivicNumbering ;
+    clv:streetNumber 22 ;
+    clv:peculiarity "F" .
+
+<https://example.org/casediquartierebologna/district/navile> a clv:District ;
+    rdfs:label "Navile"@it .
+
+<https://example.org/casediquartierebologna/geometry/3> a clv:Geometry ;
+    clv:lat "44.510342"^^xsd:decimal ;
+    clv:long "11.341105"^^xsd:decimal .
+
+<https://example.org/casediquartierebologna/opening/3-1> a ac:OpeningHoursSpecification ;
+    ac:hasDayOfWeek ti:Monday , ti:Tuesday , ti:Wednesday , ti:Thursday , ti:Friday , ti:Saturday , ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time .
