@@ -37,7 +37,7 @@
     <p>Per la generazione delle triple RDF a partire dal CSV abbiamo sperimentato tre tecniche di prompting differenti sullo stesso compito, per osservare come la quantità e il tipo di guida fornita al modello influenzino la qualità e la correttezza dell'output.</p>
 
     <h3>1. Zero-shot</h3>
-    <p>Al modello viene fornito solo il CSV sorgente e un'ontologia di riferimento <em>puramente vocabolario</em> — senza alcun esempio di istanza già completata — per verificare la sua capacità di generalizzare autonomamente dal solo schema.</p>
+    <p>Al modello viene fornito solo il CSV sorgente e un'ontologia di riferimento <em>puramente vocabolario</em>, senza alcun esempio di istanza già completata, per verificare la sua capacità di generalizzare autonomamente dal solo schema.</p>
     <div class="card">
       <pre><code>Genera triple RDF in formato Turtle valide per descrivere le case di quartiere
 estratti dal dataset nome.csv, utilizzando l'ontologia allegata</code></pre>
@@ -84,7 +84,7 @@ RDF Triple: bo:Via_AzzoGardino clv:officialStreetName "Azzo Gardino"@it</code></
     <p><a href="data/output_few_shot.ttl" download>Scarica l'output few-shot completo</a></p>
 
     <h3>3. Chain-of-thought</h3>
-    <p>Al modello viene chiesto di ragionare esplicitamente passo dopo passo prima di generare le triple: identificare soggetto ed entità secondarie, estrarre le proprietà con il datatype corretto, verificare dominio/range — includendo regole esplicite per i casi limite (es. civico con "/" vs "-", edificio storico solo se confermato in ArCo).</p>
+    <p>Al modello viene chiesto di ragionare esplicitamente passo dopo passo prima di generare le triple: identificare soggetto ed entità secondarie, estrarre le proprietà con il datatype corretto, verificare dominio/range, includendo regole esplicite per i casi limite (es. civico con "/" vs "-", edificio storico solo se confermato in ArCo).</p>
     <pre><code>Sei un esperto di Semantic Web e Knowledge Graph.
 Il tuo compito è generare triple RDF (in sintassi Turtle) a partire dai dati
 estratti dal file CSV delle Case di Quartiere di Bologna allegato,
@@ -135,7 +135,7 @@ presenti per tutte le 33 Case), prima di generare le triple corrispondenti.</cod
     <div class="arcade" aria-hidden="true"></div>
 
     <h2>Confronto tra modelli: Claude vs Gemini (zero-shot)</h2>
-    <p>Per la tecnica zero-shot abbiamo confrontato l'output di due Large Language Model — <strong>Claude</strong> e <strong>Gemini</strong> — a parità di prompt, CSV e ontologia, verificando ogni tripla generata contro il CSV sorgente con uno script Python indipendente (rdflib + pandas).</p>
+    <p>Per la tecnica zero-shot abbiamo confrontato l'output di due Large Language Model, <strong>Claude</strong> e <strong>Gemini</strong>, a parità di prompt, CSV e ontologia, verificando ogni tripla generata contro il CSV sorgente con uno script Python indipendente (rdflib + pandas).</p>
 
     <table>
       <thead><tr><th>Aspetto verificato</th><th>Esito</th></tr></thead>
