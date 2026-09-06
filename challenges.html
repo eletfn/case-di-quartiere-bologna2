@@ -38,19 +38,7 @@
     <p>Durante l'inserimento dei siti web ufficiali per ciascuna Casa, una verifica incrociata con l'elenco pubblicato sul sito del Comune di Bologna ha mostrato che Villa Paradiso non compare più tra le Case di Quartiere attive. Approfondendo, è emerso che a gennaio 2025 l'Amministrazione ha revocato la convenzione con la storica gestione e destinato lo stabile a un uso diverso.</p>
     <p><strong>Soluzione:</strong> abbiamo rimosso questa voce dal dataset di lavoro (portando il totale da 33 a 32 Case), poiché non rappresenta più una Casa di Quartiere realmente attiva.</p>
 
-
     <div class="arcade" aria-hidden="true"></div>
-
-    <h3>Tab SPARQL Query di Protégé non funzionante</h3>
-    <p>Dopo aver caricato lo schema e le istanze in Protégé e attivato il tab SPARQL Query da Window &rarr; Tabs, il campo di inserimento della query non accettava input, né da tastiera né da copia-incolla — un probabile bug di rendering.</p>
-    <p><strong>Soluzione:</strong> passaggio a uno strumento SPARQL online, in sostituzione del tab non funzionante di Protégé.</p>
-
-    <div class="arcade" aria-hidden="true"></div>
-
-    <h3>Risultati sbagliati da un motore SPARQL online (non dai dati)</h3>
-    <p>Un primo strumento online testato restituiva risultati sbagliati su più tipi di query: con <code>OPTIONAL</code> combinato a <code>BIND</code> perdeva silenziosamente le colonne derivate; con <code>COUNT</code>/<code>GROUP BY</code> non calcolava affatto l'aggregazione; con <code>FILTER</code> + <code>REGEX</code> restituiva righe che non rispettavano il filtro e perdeva una delle variabili richieste in <code>SELECT</code>.</p>
-    <p><strong>Soluzione:</strong> ogni risultato sospetto è stato verificato in modo indipendente con <strong>rdflib</strong> (Python) sugli stessi file, per stabilire con certezza se il problema fosse nei dati o nello strumento. In tutti e tre i casi il problema era lo strumento, non il grafo. Si è quindi passati a <a href="https://atomgraph.github.io/SPARQL-Playground/" target="_blank" rel="noopener">SPARQL Playground</a>, basato sul motore <strong>Comunica</strong>, conforme allo standard SPARQL 1.1 — i risultati da quel momento sono risultati coerenti con la verifica indipendente.</p>
-    <div class="note ok">Questo episodio è un esempio concreto di metodologia di debugging: mai accettare un risultato "0 righe" o "risultato inatteso" come conclusione sui dati, senza prima escludere che il problema sia nello strumento di query.</div>
 
     <h3>Righe duplicate con OPTIONAL su una proprietà multi-valore</h3>
     <p>Una prima versione della query di completezza (Query 1) selezionava direttamente l'orario stesso all'interno dell'<code>OPTIONAL</code>, invece di un semplice booleano di presenza. Poiché una Casa può avere più fasce orarie (<code>ac:hasAccessCondition</code>), questo produceva una riga per ogni combinazione — molti apparenti "doppioni".</p>
