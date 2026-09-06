@@ -1,0 +1,2777 @@
+@prefix bo:    <https://example.org/casediquartierebologna#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix cov:   <https://w3id.org/italia/onto/COV/> .
+@prefix clv:   <https://w3id.org/italia/onto/CLV/> .
+@prefix poi:   <https://w3id.org/italia/onto/POI/> .
+@prefix ti:    <https://w3id.org/italia/onto/TI/> .
+@prefix ac:    <https://w3id.org/italia/onto/AccessCondition/> .
+@prefix sm:    <https://w3id.org/italia/onto/SM/> .
+@prefix arco:  <https://w3id.org/arco/ontology/arco/> .
+@prefix l0:    <https://w3id.org/italia/onto/l0/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+
+# ================================================================
+# Comune di Bologna (individuo unico, riusato da tutti gli indirizzi)
+# ================================================================
+bo:ComuneBologna
+    a clv:City ;
+    rdfs:label "Bologna"@it ;
+    clv:hasIdentifier bo:Identifier_ComuneBologna ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1891> .
+
+bo:Identifier_ComuneBologna
+    a clv:Identifier ;
+    l0:identifier "037006" ;
+    clv:identifierType "ISTAT" ;
+    clv:issuedBy bo:ISTAT .
+
+bo:ISTAT
+    a cov:Organization .
+
+
+# ================================================================
+# Quartieri (clv:District)
+# ================================================================
+bo:District_SanDonatoSanVitale a clv:District ;
+    rdfs:label "San Donato - San Vitale"@it .
+
+bo:District_BorgoPanigaleReno a clv:District ;
+    rdfs:label "Borgo Panigale - Reno"@it .
+
+bo:District_Savena a clv:District ;
+    rdfs:label "Savena"@it .
+
+bo:District_Navile a clv:District ;
+    rdfs:label "Navile"@it .
+
+bo:District_PortoSaragozza a clv:District ;
+    rdfs:label "Porto - Saragozza"@it .
+
+bo:District_SantoStefano a clv:District ;
+    rdfs:label "Santo Stefano"@it .
+
+
+# ================================================================
+# Organizzazioni gestrici (bo:isManagedBy / cov:PrivateOrganization)
+# ================================================================
+bo:Org_GrafSanDonatoAPS a cov:PrivateOrganization ;
+    cov:legalName "Graf San Donato APS"@it .
+
+bo:Org_CentroSocialeRicreativoCulturaleSantaViolaAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Ricreativo Culturale Santa Viola APS"@it .
+
+bo:Org_AssociazioneAreaOrtivaPaleottoAPS a cov:PrivateOrganization ;
+    cov:legalName "Associazione Area Ortiva Paleotto APS"@it .
+
+bo:Org_AssociazioneSenzaIlBanco a cov:PrivateOrganization ;
+    cov:legalName "Associazione Senza Il Banco"@it .
+
+bo:Org_CentroSocialeEOrtiVillaBernaroliAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale e Orti Villa Bernaroli APS"@it .
+
+bo:Org_AssociazioneCentroSocialeCasaGialla a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Casa Gialla"@it .
+
+bo:Org_CentroSociale2Agosto80APS a cov:PrivateOrganization ;
+    cov:legalName "Centro sociale 2 Agosto 80 APS"@it .
+
+bo:Org_CentroSocialeIlParcoAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Il Parco APS"@it .
+
+bo:Org_CentroSocialeRicreativoCulturaleAutogestitoAnzianiPescarola a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale, Ricreativo, Culturale, Autogestito Anziani Pescarola"@it .
+
+bo:Org_CentroSocialeRicreativoCulturaleFrassinettiAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Ricreativo Culturale Frassinetti APS"@it .
+
+bo:Org_AssociazioneCentroSocialeVillaTorchi a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Villa Torchi"@it .
+
+bo:Org_AICS a cov:PrivateOrganization ;
+    cov:legalName "AICS"@it .
+
+bo:Org_AssociazioneCentroSocialeLaDacia a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale La Dacia"@it .
+
+bo:Org_CentroSocialeAnzianiItalicus a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Anziani Italicus"@it .
+
+bo:Org_AssociazioneCentroSocialeFondoCominiAPS a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro sociale Fondo Comini APS"@it .
+
+bo:Org_AssociazioneCentroSocialeCroceCoperta a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Croce Coperta"@it .
+
+bo:Org_CentroSocialeGiorgioCosta a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Giorgio Costa"@it .
+
+bo:Org_AtlasASD a cov:PrivateOrganization ;
+    cov:legalName "Atlas ASD"@it .
+
+bo:Org_CentroSocialeCroceDelBiaccoAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Croce del Biacco APS"@it .
+
+bo:Org_CentroSocialeERicreativoRuozi a cov:PrivateOrganization ;
+    cov:legalName "Centro sociale e ricreativo Ruozi"@it .
+
+bo:Org_CentroSocialeDellaPace a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale della Pace"@it .
+
+bo:Org_SenzaIlBanco a cov:PrivateOrganization ;
+    cov:legalName "Senza il Banco"@it .
+
+bo:Org_AssociazioneCentroSocialeFoscherara a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Foscherara"@it .
+
+bo:Org_AssociazioneCentroSocialeVillaMazzacorati a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Villa Mazzacorati"@it .
+
+bo:Org_AssociazioneCentroSocialeAMontanariAPS a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale A. Montanari APS"@it .
+
+bo:Org_CentroSocialeSaffi a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Saffi"@it .
+
+bo:Org_CentroSocialeEOrtiRosaMarchiAPS a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale e orti Rosa Marchi APS"@it .
+
+bo:Org_CentroSocialeLunettaGamberini a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Lunetta Gamberini"@it .
+
+
+# ---------------------------------------------------------------
+# cdq_01 -> bo:CQ01  (Graf)
+# ---------------------------------------------------------------
+bo:CQ01 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_01" ;
+    poi:POIofficialName "Graf"@it ;
+    clv:hasAddress bo:Address_CQ01 ;
+    clv:hasGeometry bo:Geometry_CQ01 ;
+    bo:isManagedBy bo:Org_GrafSanDonatoAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-graf> ;
+    ac:hasAccessCondition bo:Orario_CQ01_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ01_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ01_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ01_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ01_VenM .
+
+bo:Via_Spadolini a clv:StreetToponym ;
+    clv:officialStreetName "Spadolini"@it ;
+    clv:toponymQualifier "Piazza"@it .
+
+bo:Address_CQ01
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Spadolini ;
+    clv:hasNumber bo:Civico_CQ01 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ01 a clv:CivicNumbering ;
+    clv:streetNumber "3"^^xsd:int .
+
+bo:Geometry_CQ01
+    a clv:Geometry ;
+    clv:lat "44.50411986097906"^^xsd:decimal ;
+    clv:long "11.3670925194173"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-graf> a sm:WebSite .
+
+bo:Orario_CQ01_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "11:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ01_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "11:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ01_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "11:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ01_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "11:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ01_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "11:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+
+# ---------------------------------------------------------------
+# cdq_02 -> bo:CQ02  (Santa Viola)
+# ---------------------------------------------------------------
+bo:CQ02 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_02" ;
+    poi:POIofficialName "Santa Viola"@it ;
+    clv:hasAddress bo:Address_CQ02 ;
+    clv:hasGeometry bo:Geometry_CQ02 ;
+    bo:isManagedBy bo:Org_CentroSocialeRicreativoCulturaleSantaViolaAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-santa-viola> ;
+    ac:hasAccessCondition bo:Orario_CQ02_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ02_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ02_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ02_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ02_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ02_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ02_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ02_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ02_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ02_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ02_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ02_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ02_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ02_DomP .
+
+bo:Via_EmiliaPonente a clv:StreetToponym ;
+    clv:officialStreetName "Emilia Ponente"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ02
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_EmiliaPonente ;
+    clv:hasNumber bo:Civico_CQ02 ;
+    clv:hasDistrict bo:District_BorgoPanigaleReno ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ02 a clv:CivicNumbering ;
+    clv:streetNumber "131"^^xsd:int .
+
+bo:Geometry_CQ02
+    a clv:Geometry ;
+    clv:lat "44.5072005"^^xsd:decimal ;
+    clv:long "11.3053172"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-santa-viola> a sm:WebSite .
+
+bo:Orario_CQ02_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ02_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ02_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ02_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ02_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ02_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ02_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ02_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ02_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ02_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ02_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ02_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ02_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ02_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_03 -> bo:CQ03  (Area Ortiva Paleotto)
+# ---------------------------------------------------------------
+bo:CQ03 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_03" ;
+    poi:POIofficialName "Area Ortiva Paleotto"@it ;
+    clv:hasAddress bo:Address_CQ03 ;
+    clv:hasGeometry bo:Geometry_CQ03 ;
+    bo:isManagedBy bo:Org_AssociazioneAreaOrtivaPaleottoAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-paleotto> ;
+    ac:hasAccessCondition bo:Orario_CQ03_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ03_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ03_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ03_SabP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ03 .
+
+bo:Via_DelPaleotto a clv:StreetToponym ;
+    clv:officialStreetName "del Paleotto"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ03
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DelPaleotto ;
+    clv:hasNumber bo:Civico_CQ03 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ03 a clv:CivicNumbering ;
+    clv:streetNumber "11"^^xsd:int .
+
+bo:Geometry_CQ03
+    a clv:Geometry ;
+    clv:lat "44.4442178"^^xsd:decimal ;
+    clv:long "11.3529744"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-paleotto> a sm:WebSite .
+
+bo:Orario_CQ03_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "17:00:00"^^xsd:time ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ03_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "17:00:00"^^xsd:time ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ03_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "17:00:00"^^xsd:time ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ03_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "17:00:00"^^xsd:time ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:AreaVerde_CQ03
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_04 -> bo:CQ04  (Casa del Gufo)
+# ---------------------------------------------------------------
+bo:CQ04 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_04" ;
+    poi:POIofficialName "Casa del Gufo"@it ;
+    clv:hasAddress bo:Address_CQ04 ;
+    clv:hasGeometry bo:Geometry_CQ04 ;
+    bo:isManagedBy bo:Org_AssociazioneSenzaIlBanco ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gufo> ;
+    ac:hasAccessCondition bo:Orario_CQ04_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ04_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ04_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ04_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ04_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ04_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ04_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ04_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ04_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ04_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ04_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ04_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ04_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ04_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ04 .
+
+bo:Via_LuigiLongo a clv:StreetToponym ;
+    clv:officialStreetName "Luigi Longo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ04
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_LuigiLongo ;
+    clv:hasNumber bo:Civico_CQ04_1 ;
+    clv:hasNumber bo:Civico_CQ04_2 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ04_1 a clv:CivicNumbering ;
+    clv:streetNumber "10"^^xsd:int .
+
+bo:Civico_CQ04_2 a clv:CivicNumbering ;
+    clv:streetNumber "12"^^xsd:int .
+
+bo:Geometry_CQ04
+    a clv:Geometry ;
+    clv:lat "44.4686989"^^xsd:decimal ;
+    clv:long "11.385095"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gufo> a sm:WebSite .
+
+bo:Orario_CQ04_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ04_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ04_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ04_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ04_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ04_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ04_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ04_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ04_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ04_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ04_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ04_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ04_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ04_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ04
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_05 -> bo:CQ05  (Villa Bernaroli)
+# ---------------------------------------------------------------
+bo:CQ05 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_05" ;
+    poi:POIofficialName "Villa Bernaroli"@it ;
+    clv:hasAddress bo:Address_CQ05 ;
+    clv:hasGeometry bo:Geometry_CQ05 ;
+    bo:isManagedBy bo:Org_CentroSocialeEOrtiVillaBernaroliAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-bernaroli> ;
+    ac:hasAccessCondition bo:Orario_CQ05_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ05_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ05_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ05_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ05_VenP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ05 ;
+    bo:isLocatedInHeritageBuilding arco:VillaBernaroli .
+
+bo:Via_Morazzo a clv:StreetToponym ;
+    clv:officialStreetName "Morazzo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ05
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Morazzo ;
+    clv:hasNumber bo:Civico_CQ05 ;
+    clv:hasDistrict bo:District_BorgoPanigaleReno ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ05 a clv:CivicNumbering ;
+    clv:streetNumber "1"^^xsd:int .
+
+bo:Geometry_CQ05
+    a clv:Geometry ;
+    clv:lat "44.5028129"^^xsd:decimal ;
+    clv:long "11.2559706"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-bernaroli> a sm:WebSite .
+
+bo:Orario_CQ05_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ05_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ05_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ05_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ05_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:AreaVerde_CQ05
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_06 -> bo:CQ06  (Casa Gialla)
+# ---------------------------------------------------------------
+bo:CQ06 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_06" ;
+    poi:POIofficialName "Casa Gialla"@it ;
+    clv:hasAddress bo:Address_CQ06 ;
+    clv:hasGeometry bo:Geometry_CQ06 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeCasaGialla ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gialla> ;
+    ac:hasAccessCondition bo:Orario_CQ06_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ06_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ06_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ06_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ06_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ06_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ06_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ06 .
+
+bo:Via_DaVerrazzano a clv:StreetToponym ;
+    clv:officialStreetName "Da Verrazzano"@it ;
+    clv:toponymQualifier "Piazza"@it .
+
+bo:Address_CQ06
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DaVerrazzano ;
+    clv:hasNumber bo:Civico_CQ06 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ06 a clv:CivicNumbering ;
+    clv:streetNumber "1"^^xsd:int ;
+    clv:peculiarity "3" .
+
+bo:Geometry_CQ06
+    a clv:Geometry ;
+    clv:lat "44.5192565"^^xsd:decimal ;
+    clv:long "11.3272229"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gialla> a sm:WebSite .
+
+bo:Orario_CQ06_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ06_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ06_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ06_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ06_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ06_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ06_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ06
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_07 -> bo:CQ07  (Due Agosto 1980)
+# ---------------------------------------------------------------
+bo:CQ07 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_07" ;
+    poi:POIofficialName "Due Agosto 1980"@it ;
+    clv:hasAddress bo:Address_CQ07 ;
+    clv:hasGeometry bo:Geometry_CQ07 ;
+    bo:isManagedBy bo:Org_CentroSociale2Agosto80APS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-due-agosto-1980> ;
+    ac:hasAccessCondition bo:Orario_CQ07_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ07_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ07_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ07_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ07_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ07_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ07_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ07 .
+
+bo:Via_FilippoTurati a clv:StreetToponym ;
+    clv:officialStreetName "Filippo Turati"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ07
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_FilippoTurati ;
+    clv:hasNumber bo:Civico_CQ07 ;
+    clv:hasDistrict bo:District_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ07 a clv:CivicNumbering ;
+    clv:streetNumber "98"^^xsd:int .
+
+bo:Geometry_CQ07
+    a clv:Geometry ;
+    clv:lat "44.4904754"^^xsd:decimal ;
+    clv:long "11.3212905"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-due-agosto-1980> a sm:WebSite .
+
+bo:Orario_CQ07_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ07_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ07_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ07_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ07_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ07_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ07_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ07
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_08 -> bo:CQ08  (Stella)
+# ---------------------------------------------------------------
+bo:CQ08 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_08" ;
+    poi:POIofficialName "Stella"@it ;
+    clv:hasAddress bo:Address_CQ08 ;
+    clv:hasGeometry bo:Geometry_CQ08 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-stella> ;
+    ac:hasAccessCondition bo:Orario_CQ08_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ08_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ08_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ08_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ08_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ08_SabP .
+
+bo:Via_Savioli a clv:StreetToponym ;
+    clv:officialStreetName "Savioli"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ08
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Savioli ;
+    clv:hasNumber bo:Civico_CQ08 ;
+    clv:hasDistrict bo:District_SantoStefano ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ08 a clv:CivicNumbering ;
+    clv:streetNumber "3"^^xsd:int .
+
+bo:Geometry_CQ08
+    a clv:Geometry ;
+    clv:lat "44.4870293"^^xsd:decimal ;
+    clv:long "11.3640299"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-stella> a sm:WebSite .
+
+bo:Orario_CQ08_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ08_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ08_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ08_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ08_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ08_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+
+# ---------------------------------------------------------------
+# cdq_09 -> bo:CQ09  (Il Parco)
+# ---------------------------------------------------------------
+bo:CQ09 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_09" ;
+    poi:POIofficialName "Il Parco"@it ;
+    clv:hasAddress bo:Address_CQ09 ;
+    clv:hasGeometry bo:Geometry_CQ09 ;
+    bo:isManagedBy bo:Org_CentroSocialeIlParcoAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-parco> ;
+    ac:hasAccessCondition bo:Orario_CQ09_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ09_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ09_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ09_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ09_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ09_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ09_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ09_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ09_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ09_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ09_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ09_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ09_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ09_DomP .
+
+bo:Via_EdgarAllanPoe a clv:StreetToponym ;
+    clv:officialStreetName "Edgar Allan Poe"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ09
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_EdgarAllanPoe ;
+    clv:hasNumber bo:Civico_CQ09 ;
+    clv:hasDistrict bo:District_BorgoPanigaleReno ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ09 a clv:CivicNumbering ;
+    clv:streetNumber "4"^^xsd:int .
+
+bo:Geometry_CQ09
+    a clv:Geometry ;
+    clv:lat "44.5111729"^^xsd:decimal ;
+    clv:long "11.2854848"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-parco> a sm:WebSite .
+
+bo:Orario_CQ09_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ09_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ09_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ09_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ09_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ09_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ09_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ09_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ09_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ09_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ09_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ09_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ09_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ09_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_10 -> bo:CQ10  (Pescarola)
+# ---------------------------------------------------------------
+bo:CQ10 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_10" ;
+    poi:POIofficialName "Pescarola"@it ;
+    clv:hasAddress bo:Address_CQ10 ;
+    clv:hasGeometry bo:Geometry_CQ10 ;
+    bo:isManagedBy bo:Org_CentroSocialeRicreativoCulturaleAutogestitoAnzianiPescarola ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-pescarola> ;
+    ac:hasAccessCondition bo:Orario_CQ10_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ10_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ10_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ10_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ10_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ10_SabP .
+
+bo:Via_FZanardi a clv:StreetToponym ;
+    clv:officialStreetName "F. Zanardi"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ10
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_FZanardi ;
+    clv:hasNumber bo:Civico_CQ10 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ10 a clv:CivicNumbering ;
+    clv:streetNumber "228"^^xsd:int .
+
+bo:Geometry_CQ10
+    a clv:Geometry ;
+    clv:lat "44.5245657"^^xsd:decimal ;
+    clv:long "11.3170639"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-pescarola> a sm:WebSite .
+
+bo:Orario_CQ10_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ10_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ10_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ10_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ10_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ10_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+
+# ---------------------------------------------------------------
+# cdq_11 -> bo:CQ11  (Nello Frassinetti)
+# ---------------------------------------------------------------
+bo:CQ11 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_11" ;
+    poi:POIofficialName "Nello Frassinetti"@it ;
+    clv:hasAddress bo:Address_CQ11 ;
+    clv:hasGeometry bo:Geometry_CQ11 ;
+    bo:isManagedBy bo:Org_CentroSocialeRicreativoCulturaleFrassinettiAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-nello-frassinetti> ;
+    ac:hasAccessCondition bo:Orario_CQ11_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ11_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ11_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ11_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ11_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ11_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ11_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ11_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ11_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ11_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ11_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ11_DomP .
+
+bo:Via_IsabellaAndreini a clv:StreetToponym ;
+    clv:officialStreetName "Isabella Andreini"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ11
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_IsabellaAndreini ;
+    clv:hasNumber bo:Civico_CQ11 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ11 a clv:CivicNumbering ;
+    clv:streetNumber "18"^^xsd:int .
+
+bo:Geometry_CQ11
+    a clv:Geometry ;
+    clv:lat "44.5036295"^^xsd:decimal ;
+    clv:long "11.3736824"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-nello-frassinetti> a sm:WebSite .
+
+bo:Orario_CQ11_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ11_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ11_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ11_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ11_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ11_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ11_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ11_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ11_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ11_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ11_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ11_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_12 -> bo:CQ12  (Villa Torchi)
+# ---------------------------------------------------------------
+bo:CQ12 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_12" ;
+    poi:POIofficialName "Villa Torchi"@it ;
+    clv:hasAddress bo:Address_CQ12 ;
+    clv:hasGeometry bo:Geometry_CQ12 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeVillaTorchi ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-torchi> ;
+    ac:hasAccessCondition bo:Orario_CQ12_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ12_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ12_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ12_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ12_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ12_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ12_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ12_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ12_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ12_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ12_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ12_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ12_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ12_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ12 .
+
+bo:Via_Colombarola a clv:StreetToponym ;
+    clv:officialStreetName "Colombarola"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ12
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Colombarola ;
+    clv:hasNumber bo:Civico_CQ12 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ12 a clv:CivicNumbering ;
+    clv:streetNumber "40"^^xsd:int .
+
+bo:Geometry_CQ12
+    a clv:Geometry ;
+    clv:lat "44.5443575"^^xsd:decimal ;
+    clv:long "11.3586988"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-torchi> a sm:WebSite .
+
+bo:Orario_CQ12_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ12_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ12_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ12_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ12_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ12_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ12_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ12_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ12_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ12_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ12_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ12_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ12_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ12_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ12
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_13 -> bo:CQ13  (Scipione dal Ferro)
+# ---------------------------------------------------------------
+bo:CQ13 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_13" ;
+    poi:POIofficialName "Scipione dal Ferro"@it ;
+    clv:hasAddress bo:Address_CQ13 ;
+    clv:hasGeometry bo:Geometry_CQ13 ;
+    bo:isManagedBy bo:Org_AICS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-scipione-dal-ferro> ;
+    ac:hasAccessCondition bo:Orario_CQ13_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ13_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ13_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ13_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ13_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ13_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ13_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ13_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ13_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ13_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ13_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ13_SabP .
+
+bo:Via_SanteVincenzi a clv:StreetToponym ;
+    clv:officialStreetName "Sante Vincenzi"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ13
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_SanteVincenzi ;
+    clv:hasNumber bo:Civico_CQ13 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ13 a clv:CivicNumbering ;
+    clv:streetNumber "50"^^xsd:int .
+
+bo:Geometry_CQ13
+    a clv:Geometry ;
+    clv:lat "44.4962566"^^xsd:decimal ;
+    clv:long "11.3707323"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-scipione-dal-ferro> a sm:WebSite .
+
+bo:Orario_CQ13_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ13_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ13_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ13_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ13_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ13_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ13_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ13_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ13_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ13_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ13_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ13_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+
+# ---------------------------------------------------------------
+# cdq_14 -> bo:CQ14  (La Dacia)
+# ---------------------------------------------------------------
+bo:CQ14 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_14" ;
+    poi:POIofficialName "La Dacia"@it ;
+    clv:hasAddress bo:Address_CQ14 ;
+    clv:hasGeometry bo:Geometry_CQ14 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeLaDacia ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-dacia> ;
+    ac:hasAccessCondition bo:Orario_CQ14_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ14_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ14_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ14_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ14_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ14_SabP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ14 .
+
+bo:Via_AbramoLincoln a clv:StreetToponym ;
+    clv:officialStreetName "Abramo Lincoln"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ14
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_AbramoLincoln ;
+    clv:hasNumber bo:Civico_CQ14 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ14 a clv:CivicNumbering ;
+    clv:streetNumber "22"^^xsd:int ;
+    clv:peculiarity "3" .
+
+bo:Geometry_CQ14
+    a clv:Geometry ;
+    clv:lat "44.4837011"^^xsd:decimal ;
+    clv:long "11.3914509"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-dacia> a sm:WebSite .
+
+bo:Orario_CQ14_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ14_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ14_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ14_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ14_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ14_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:AreaVerde_CQ14
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_16 -> bo:CQ16  (Italicus)
+# ---------------------------------------------------------------
+bo:CQ16 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_16" ;
+    poi:POIofficialName "Italicus"@it ;
+    clv:hasAddress bo:Address_CQ16 ;
+    clv:hasGeometry bo:Geometry_CQ16 ;
+    bo:isManagedBy bo:Org_CentroSocialeAnzianiItalicus ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-italicus> ;
+    ac:hasAccessCondition bo:Orario_CQ16_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ16_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ16_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ16_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ16_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ16_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ16_DomP .
+
+bo:Via_GiovanniAntonioSacco a clv:StreetToponym ;
+    clv:officialStreetName "Giovanni Antonio Sacco"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ16
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_GiovanniAntonioSacco ;
+    clv:hasNumber bo:Civico_CQ16 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ16 a clv:CivicNumbering ;
+    clv:streetNumber "16"^^xsd:int .
+
+bo:Geometry_CQ16
+    a clv:Geometry ;
+    clv:lat "44.5044436"^^xsd:decimal ;
+    clv:long "11.356646"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-italicus> a sm:WebSite .
+
+bo:Orario_CQ16_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ16_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ16_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ16_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ16_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ16_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ16_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_17 -> bo:CQ17  (Fondo Comini)
+# ---------------------------------------------------------------
+bo:CQ17 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_17" ;
+    poi:POIofficialName "Fondo Comini"@it ;
+    clv:hasAddress bo:Address_CQ17 ;
+    clv:hasGeometry bo:Geometry_CQ17 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeFondoCominiAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-fondo-comini> ;
+    ac:hasAccessCondition bo:Orario_CQ17_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ17_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ17_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ17_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ17_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ17_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ17_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ17_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ17_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ17_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ17_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ17_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ17_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ17_DomP .
+
+bo:Via_Fioravanti a clv:StreetToponym ;
+    clv:officialStreetName "Fioravanti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ17
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Fioravanti ;
+    clv:hasNumber bo:Civico_CQ17 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ17 a clv:CivicNumbering ;
+    clv:streetNumber "68"^^xsd:int .
+
+bo:Geometry_CQ17
+    a clv:Geometry ;
+    clv:lat "44.5154599"^^xsd:decimal ;
+    clv:long "11.3393495"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-fondo-comini> a sm:WebSite .
+
+bo:Orario_CQ17_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ17_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ17_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ17_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ17_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ17_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ17_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ17_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ17_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ17_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ17_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ17_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ17_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ17_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_18 -> bo:CQ18  (Croce Coperta)
+# ---------------------------------------------------------------
+bo:CQ18 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_18" ;
+    poi:POIofficialName "Croce Coperta"@it ;
+    clv:hasAddress bo:Address_CQ18 ;
+    clv:hasGeometry bo:Geometry_CQ18 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeCroceCoperta ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-croce-coperta> ;
+    ac:hasAccessCondition bo:Orario_CQ18_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ18_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ18_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ18_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ18_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ18_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ18_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ18_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ18_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ18_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ18_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ18_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ18_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ18_DomP .
+
+bo:Via_Papini a clv:StreetToponym ;
+    clv:officialStreetName "Papini"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ18
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Papini ;
+    clv:hasNumber bo:Civico_CQ18 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ18 a clv:CivicNumbering ;
+    clv:streetNumber "28"^^xsd:int .
+
+bo:Geometry_CQ18
+    a clv:Geometry ;
+    clv:lat "44.5348056"^^xsd:decimal ;
+    clv:long "11.3521691"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-croce-coperta> a sm:WebSite .
+
+bo:Orario_CQ18_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ18_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ18_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ18_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ18_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ18_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ18_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ18_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ18_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ18_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ18_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ18_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ18_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ18_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_19 -> bo:CQ19  (Giorgio Costa)
+# ---------------------------------------------------------------
+bo:CQ19 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_19" ;
+    poi:POIofficialName "Giorgio Costa"@it ;
+    clv:hasAddress bo:Address_CQ19 ;
+    clv:hasGeometry bo:Geometry_CQ19 ;
+    bo:isManagedBy bo:Org_CentroSocialeGiorgioCosta ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-giorgio-costa> ;
+    ac:hasAccessCondition bo:Orario_CQ19_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ19_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ19_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ19_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ19_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ19_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ19_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ19_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ19_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ19_VenP .
+
+bo:Via_AzzoGardino a clv:StreetToponym ;
+    clv:officialStreetName "Azzo Gardino"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ19
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_AzzoGardino ;
+    clv:hasNumber bo:Civico_CQ19 ;
+    clv:hasDistrict bo:District_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ19 a clv:CivicNumbering ;
+    clv:streetNumber "48"^^xsd:int .
+
+bo:Geometry_CQ19
+    a clv:Geometry ;
+    clv:lat "44.5016786"^^xsd:decimal ;
+    clv:long "11.3352507"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-giorgio-costa> a sm:WebSite .
+
+bo:Orario_CQ19_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ19_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ19_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ19_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ19_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ19_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ19_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ19_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ19_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ19_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+
+# ---------------------------------------------------------------
+# cdq_20 -> bo:CQ20  (Cà Solare)
+# ---------------------------------------------------------------
+bo:CQ20 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_20" ;
+    poi:POIofficialName "Cà Solare"@it ;
+    clv:hasAddress bo:Address_CQ20 ;
+    clv:hasGeometry bo:Geometry_CQ20 ;
+    bo:isManagedBy bo:Org_AtlasASD ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-ca-solare> ;
+    ac:hasAccessCondition bo:Orario_CQ20_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ20_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ20_VenM .
+
+bo:Via_DelPilastro a clv:StreetToponym ;
+    clv:officialStreetName "Del Pilastro"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ20
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DelPilastro ;
+    clv:hasNumber bo:Civico_CQ20 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ20 a clv:CivicNumbering ;
+    clv:streetNumber "5"^^xsd:int .
+
+bo:Geometry_CQ20
+    a clv:Geometry ;
+    clv:lat "44.5080438"^^xsd:decimal ;
+    clv:long "11.3849782"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-ca-solare> a sm:WebSite .
+
+bo:Orario_CQ20_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ20_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ20_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+
+# ---------------------------------------------------------------
+# cdq_21 -> bo:CQ21  (Croce del Biacco)
+# ---------------------------------------------------------------
+bo:CQ21 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_21" ;
+    poi:POIofficialName "Croce del Biacco"@it ;
+    clv:hasAddress bo:Address_CQ21 ;
+    clv:hasGeometry bo:Geometry_CQ21 ;
+    bo:isManagedBy bo:Org_CentroSocialeCroceDelBiaccoAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-croce-del-biacco> ;
+    ac:hasAccessCondition bo:Orario_CQ21_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ21_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ21_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ21_VenP .
+
+bo:Via_GiuseppeRivani a clv:StreetToponym ;
+    clv:officialStreetName "Giuseppe Rivani"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ21
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_GiuseppeRivani ;
+    clv:hasNumber bo:Civico_CQ21 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ21 a clv:CivicNumbering ;
+    clv:streetNumber "1"^^xsd:int .
+
+bo:Geometry_CQ21
+    a clv:Geometry ;
+    clv:lat "44.4899689"^^xsd:decimal ;
+    clv:long "11.3980917"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-croce-del-biacco> a sm:WebSite .
+
+bo:Orario_CQ21_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ21_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ21_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:00:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ21_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+
+# ---------------------------------------------------------------
+# cdq_22 -> bo:CQ22  (Katia Bertasi)
+# ---------------------------------------------------------------
+bo:CQ22 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_22" ;
+    poi:POIofficialName "Katia Bertasi"@it ;
+    clv:hasAddress bo:Address_CQ22 ;
+    clv:hasGeometry bo:Geometry_CQ22 ;
+    bo:isManagedBy bo:Org_AssociazioneSenzaIlBanco ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-katia-bertasi> ;
+    ac:hasAccessCondition bo:Orario_CQ22_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ22_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ22_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ22_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ22_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ22_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ22_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ22_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ22_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ22_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ22_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ22_DomP .
+
+bo:Address_CQ22
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Fioravanti ;
+    clv:hasNumber bo:Civico_CQ22 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ22 a clv:CivicNumbering ;
+    clv:streetNumber "22"^^xsd:int .
+
+bo:Geometry_CQ22
+    a clv:Geometry ;
+    clv:lat "44.5119457"^^xsd:decimal ;
+    clv:long "11.3409813"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-katia-bertasi> a sm:WebSite .
+
+bo:Orario_CQ22_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "07:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ22_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ22_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "07:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ22_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ22_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "07:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ22_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ22_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "07:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ22_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ22_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "07:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ22_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ22_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ22_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_23 -> bo:CQ23  (Ruozi)
+# ---------------------------------------------------------------
+bo:CQ23 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_23" ;
+    poi:POIofficialName "Ruozi"@it ;
+    clv:hasAddress bo:Address_CQ23 ;
+    clv:hasGeometry bo:Geometry_CQ23 ;
+    bo:isManagedBy bo:Org_CentroSocialeERicreativoRuozi ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-ruozi> ;
+    ac:hasAccessCondition bo:Orario_CQ23_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ23_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ23_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ23_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ23_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ23_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ23_VenP .
+
+bo:Via_Castelmerlo a clv:StreetToponym ;
+    clv:officialStreetName "Castelmerlo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ23
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Castelmerlo ;
+    clv:hasNumber bo:Civico_CQ23 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ23 a clv:CivicNumbering ;
+    clv:streetNumber "13"^^xsd:int .
+
+bo:Geometry_CQ23
+    a clv:Geometry ;
+    clv:lat "44.4917146"^^xsd:decimal ;
+    clv:long "11.3782433"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-ruozi> a sm:WebSite .
+
+bo:Orario_CQ23_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ23_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ23_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ23_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "11:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ23_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ23_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "11:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ23_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+
+# ---------------------------------------------------------------
+# cdq_24 -> bo:CQ24  (Della Pace)
+# ---------------------------------------------------------------
+bo:CQ24 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_24" ;
+    poi:POIofficialName "Della Pace"@it ;
+    clv:hasAddress bo:Address_CQ24 ;
+    clv:hasGeometry bo:Geometry_CQ24 ;
+    bo:isManagedBy bo:Org_CentroSocialeDellaPace ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-della-pace> ;
+    ac:hasAccessCondition bo:Orario_CQ24_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ24_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ24_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ24_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ24_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ24_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ24_DomP .
+
+bo:Via_DelPratello a clv:StreetToponym ;
+    clv:officialStreetName "del Pratello"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ24
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DelPratello ;
+    clv:hasNumber bo:Civico_CQ24 ;
+    clv:hasDistrict bo:District_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ24 a clv:CivicNumbering ;
+    clv:streetNumber "53"^^xsd:int .
+
+bo:Geometry_CQ24
+    a clv:Geometry ;
+    clv:lat "44.495539"^^xsd:decimal ;
+    clv:long "11.3316777"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-della-pace> a sm:WebSite .
+
+bo:Orario_CQ24_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ24_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ24_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ24_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ24_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ24_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ24_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_25 -> bo:CQ25  (Pilastro)
+# ---------------------------------------------------------------
+bo:CQ25 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_25" ;
+    poi:POIofficialName "Pilastro"@it ;
+    clv:hasAddress bo:Address_CQ25 ;
+    clv:hasGeometry bo:Geometry_CQ25 ;
+    bo:isManagedBy bo:Org_SenzaIlBanco ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-pilastro> .
+
+bo:Via_DinoCampana a clv:StreetToponym ;
+    clv:officialStreetName "Dino Campana"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ25
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DinoCampana ;
+    clv:hasNumber bo:Civico_CQ25 ;
+    clv:hasDistrict bo:District_SanDonatoSanVitale ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ25 a clv:CivicNumbering ;
+    clv:streetNumber "4"^^xsd:int .
+
+bo:Geometry_CQ25
+    a clv:Geometry ;
+    clv:lat "44.513998"^^xsd:decimal ;
+    clv:long "11.3980091"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-pilastro> a sm:WebSite .
+
+
+# ---------------------------------------------------------------
+# cdq_26 -> bo:CQ26  (Foscherara)
+# ---------------------------------------------------------------
+bo:CQ26 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_26" ;
+    poi:POIofficialName "Foscherara"@it ;
+    clv:hasAddress bo:Address_CQ26 ;
+    clv:hasGeometry bo:Geometry_CQ26 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeFoscherara ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-foscherara> .
+
+bo:Via_GiuseppeCesareAbba a clv:StreetToponym ;
+    clv:officialStreetName "Giuseppe Cesare Abba"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ26
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_GiuseppeCesareAbba ;
+    clv:hasNumber bo:Civico_CQ26 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ26 a clv:CivicNumbering ;
+    clv:streetNumber "6"^^xsd:int ;
+    clv:peculiarity "A" .
+
+bo:Geometry_CQ26
+    a clv:Geometry ;
+    clv:lat "44.4650825"^^xsd:decimal ;
+    clv:long "11.379103"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-foscherara> a sm:WebSite .
+
+
+# ---------------------------------------------------------------
+# cdq_27 -> bo:CQ27  (San Rafel)
+# ---------------------------------------------------------------
+bo:CQ27 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_27" ;
+    poi:POIofficialName "San Rafel"@it ;
+    clv:hasAddress bo:Address_CQ27 ;
+    clv:hasGeometry bo:Geometry_CQ27 ;
+    bo:isManagedBy bo:Org_AssociazioneSenzaIlBanco ;
+    sm:hasWebSite <https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-san-rafel> ;
+    ac:hasAccessCondition bo:Orario_CQ27_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ27_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ27_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ27_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ27_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ27_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ27_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ27_DomP .
+
+bo:Via_APonchielli a clv:StreetToponym ;
+    clv:officialStreetName "A. Ponchielli"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ27
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_APonchielli ;
+    clv:hasNumber bo:Civico_CQ27 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ27 a clv:CivicNumbering ;
+    clv:streetNumber "21"^^xsd:int .
+
+bo:Geometry_CQ27
+    a clv:Geometry ;
+    clv:lat "44.4659745"^^xsd:decimal ;
+    clv:long "11.3739898"^^xsd:decimal .
+
+<https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-san-rafel> a sm:WebSite .
+
+bo:Orario_CQ27_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "21:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ27_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ27_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ27_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ27_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:30:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ27_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ27_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ27_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_28 -> bo:CQ28  (Villa Mazzacorati)
+# ---------------------------------------------------------------
+bo:CQ28 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_28" ;
+    poi:POIofficialName "Villa Mazzacorati"@it ;
+    clv:hasAddress bo:Address_CQ28 ;
+    clv:hasGeometry bo:Geometry_CQ28 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeVillaMazzacorati ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-mazzacorati> ;
+    bo:isLocatedInHeritageBuilding arco:VillaMazzacorati .
+
+bo:Via_Toscana a clv:StreetToponym ;
+    clv:officialStreetName "Toscana"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ28
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Toscana ;
+    clv:hasNumber bo:Civico_CQ28 ;
+    clv:hasDistrict bo:District_Savena ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ28 a clv:CivicNumbering ;
+    clv:streetNumber "19"^^xsd:int .
+
+bo:Geometry_CQ28
+    a clv:Geometry ;
+    clv:lat "44.4697316"^^xsd:decimal ;
+    clv:long "11.3700086"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-mazzacorati> a sm:WebSite .
+
+
+# ---------------------------------------------------------------
+# cdq_29 -> bo:CQ29  (Montanari)
+# ---------------------------------------------------------------
+bo:CQ29 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_29" ;
+    poi:POIofficialName "Montanari"@it ;
+    clv:hasAddress bo:Address_CQ29 ;
+    clv:hasGeometry bo:Geometry_CQ29 ;
+    bo:isManagedBy bo:Org_AssociazioneCentroSocialeAMontanariAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-montanari> ;
+    ac:hasAccessCondition bo:Orario_CQ29_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ29_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ29_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ29_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ29_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ29_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ29_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ29_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ29_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ29_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ29 .
+
+bo:Via_DiSaliceto a clv:StreetToponym ;
+    clv:officialStreetName "di Saliceto"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ29
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DiSaliceto ;
+    clv:hasNumber bo:Civico_CQ29 ;
+    clv:hasDistrict bo:District_Navile ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ29 a clv:CivicNumbering ;
+    clv:streetNumber "3"^^xsd:int ;
+    clv:peculiarity "21" .
+
+bo:Geometry_CQ29
+    a clv:Geometry ;
+    clv:lat "44.5130313"^^xsd:decimal ;
+    clv:long "11.3504039"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-montanari> a sm:WebSite .
+
+bo:Orario_CQ29_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ29_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "08:45:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ29_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ29_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "08:45:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ29_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ29_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "08:45:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ29_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ29_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "08:45:00"^^xsd:time ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ29_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ29_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ29
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_30 -> bo:CQ30  (Saffi)
+# ---------------------------------------------------------------
+bo:CQ30 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_30" ;
+    poi:POIofficialName "Saffi"@it ;
+    clv:hasAddress bo:Address_CQ30 ;
+    clv:hasGeometry bo:Geometry_CQ30 ;
+    bo:isManagedBy bo:Org_CentroSocialeSaffi ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-saffi> ;
+    ac:hasAccessCondition bo:Orario_CQ30_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ30_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ30_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ30_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ30_VenP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ30 .
+
+bo:Via_LudovicoBerti a clv:StreetToponym ;
+    clv:officialStreetName "Ludovico Berti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ30
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_LudovicoBerti ;
+    clv:hasNumber bo:Civico_CQ30 ;
+    clv:hasDistrict bo:District_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ30 a clv:CivicNumbering ;
+    clv:streetNumber "2"^^xsd:int ;
+    clv:peculiarity "10" .
+
+bo:Geometry_CQ30
+    a clv:Geometry ;
+    clv:lat "44.5017676"^^xsd:decimal ;
+    clv:long "11.3299532"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-saffi> a sm:WebSite .
+
+bo:Orario_CQ30_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ30_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ30_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ30_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ30_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:00:00"^^xsd:time ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:AreaVerde_CQ30
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_31 -> bo:CQ31  (Tolmino)
+# ---------------------------------------------------------------
+bo:CQ31 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_31" ;
+    poi:POIofficialName "Tolmino"@it ;
+    clv:hasAddress bo:Address_CQ31 ;
+    clv:hasGeometry bo:Geometry_CQ31 ;
+    sm:hasWebSite <https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-tolmino> ;
+    ac:hasAccessCondition bo:Orario_CQ31_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ31_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ31_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ31_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ31_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ31_DomM .
+
+bo:Via_Podgora a clv:StreetToponym ;
+    clv:officialStreetName "Podgora"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ31
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_Podgora ;
+    clv:hasNumber bo:Civico_CQ31 ;
+    clv:hasDistrict bo:District_PortoSaragozza ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ31 a clv:CivicNumbering ;
+    clv:streetNumber "41"^^xsd:int .
+
+bo:Geometry_CQ31
+    a clv:Geometry ;
+    clv:lat "44.4977357"^^xsd:decimal ;
+    clv:long "11.3181005"^^xsd:decimal .
+
+<https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-tolmino> a sm:WebSite .
+
+bo:Orario_CQ31_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "15:15:00"^^xsd:time ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ31_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "15:15:00"^^xsd:time ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ31_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "15:15:00"^^xsd:time ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ31_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "15:15:00"^^xsd:time ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ31_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "15:15:00"^^xsd:time ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ31_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "10:00:00"^^xsd:time ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+
+# ---------------------------------------------------------------
+# cdq_32 -> bo:CQ32  (Rosa Marchi)
+# ---------------------------------------------------------------
+bo:CQ32 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_32" ;
+    poi:POIofficialName "Rosa Marchi"@it ;
+    clv:hasAddress bo:Address_CQ32 ;
+    clv:hasGeometry bo:Geometry_CQ32 ;
+    bo:isManagedBy bo:Org_CentroSocialeEOrtiRosaMarchiAPS ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-rosa-marchi> ;
+    ac:hasAccessCondition bo:Orario_CQ32_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ32_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ32_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ32_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ32_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ32_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ32_DomP ;
+    poi:isIncludedInPOI bo:AreaVerde_CQ32 .
+
+bo:Via_PietroNenni a clv:StreetToponym ;
+    clv:officialStreetName "Pietro Nenni"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ32
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_PietroNenni ;
+    clv:hasNumber bo:Civico_CQ32 ;
+    clv:hasDistrict bo:District_BorgoPanigaleReno ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ32 a clv:CivicNumbering ;
+    clv:streetNumber "11"^^xsd:int .
+
+bo:Geometry_CQ32
+    a clv:Geometry ;
+    clv:lat "44.4927777"^^xsd:decimal ;
+    clv:long "11.2907756"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-rosa-marchi> a sm:WebSite .
+
+bo:Orario_CQ32_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ32_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ32_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ32_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ32_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ32_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ32_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "14:30:00"^^xsd:time ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:AreaVerde_CQ32
+    a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+
+# ---------------------------------------------------------------
+# cdq_33 -> bo:CQ33  (Lunetta Gamberini)
+# ---------------------------------------------------------------
+bo:CQ33 a bo:CasaDiQuartiere ;
+    poi:POIID "cdq_33" ;
+    poi:POIofficialName "Lunetta Gamberini"@it ;
+    clv:hasAddress bo:Address_CQ33 ;
+    clv:hasGeometry bo:Geometry_CQ33 ;
+    bo:isManagedBy bo:Org_CentroSocialeLunettaGamberini ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-lunetta-gamberini> ;
+    ac:hasAccessCondition bo:Orario_CQ33_LunM ;
+    ac:hasAccessCondition bo:Orario_CQ33_LunP ;
+    ac:hasAccessCondition bo:Orario_CQ33_MarM ;
+    ac:hasAccessCondition bo:Orario_CQ33_MarP ;
+    ac:hasAccessCondition bo:Orario_CQ33_MerM ;
+    ac:hasAccessCondition bo:Orario_CQ33_MerP ;
+    ac:hasAccessCondition bo:Orario_CQ33_GioM ;
+    ac:hasAccessCondition bo:Orario_CQ33_GioP ;
+    ac:hasAccessCondition bo:Orario_CQ33_VenM ;
+    ac:hasAccessCondition bo:Orario_CQ33_VenP ;
+    ac:hasAccessCondition bo:Orario_CQ33_SabM ;
+    ac:hasAccessCondition bo:Orario_CQ33_SabP ;
+    ac:hasAccessCondition bo:Orario_CQ33_DomM ;
+    ac:hasAccessCondition bo:Orario_CQ33_DomP .
+
+bo:Via_DegliOrti a clv:StreetToponym ;
+    clv:officialStreetName "Degli Orti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:Address_CQ33
+    a clv:Address ;
+    clv:hasStreetToponym bo:Via_DegliOrti ;
+    clv:hasNumber bo:Civico_CQ33 ;
+    clv:hasDistrict bo:District_SantoStefano ;
+    clv:hasCity bo:ComuneBologna .
+
+bo:Civico_CQ33 a clv:CivicNumbering ;
+    clv:streetNumber "60"^^xsd:int .
+
+bo:Geometry_CQ33
+    a clv:Geometry ;
+    clv:lat "44.4769847"^^xsd:decimal ;
+    clv:long "11.3748928"^^xsd:decimal .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-lunetta-gamberini> a sm:WebSite .
+
+bo:Orario_CQ33_LunM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ33_LunP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday .
+
+bo:Orario_CQ33_MarM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ33_MarP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday .
+
+bo:Orario_CQ33_MerM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ33_MerP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday .
+
+bo:Orario_CQ33_GioM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ33_GioP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday .
+
+bo:Orario_CQ33_VenM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ33_VenP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday .
+
+bo:Orario_CQ33_SabM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ33_SabP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday .
+
+bo:Orario_CQ33_DomM a ac:OpeningHoursSpecification ;
+    ac:opens "09:00:00"^^xsd:time ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
+
+bo:Orario_CQ33_DomP a ac:OpeningHoursSpecification ;
+    ac:opens "13:00:00"^^xsd:time ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday .
