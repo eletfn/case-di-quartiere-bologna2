@@ -210,7 +210,7 @@ bo:isLocatedInHeritageBuilding
     rdfs:domain bo:CasaDiQuartiere ;
     rdfs:range arco:ArchitecturalOrLandscapeHeritage ;
     rdfs:label "è ubicata nell'edificio storico"@it ;
-    rdfs:comment "Collega una Casa di Quartiere al bene architettonico/paesaggistico ArCo che la ospita, indicato dalla colonna 'edificio_storico' del CSV."@it .
+    rdfs:comment "Collega una Casa di Quartiere al bene architettonico/paesaggistico ArCo che la ospita. La colonna 'edificio_storico' del CSV è booleana: generare la tripla solo per le righe in cui è vera, individuando il bene ArCo corrispondente in base al nome della Casa (allo stato attuale, gli unici edifici catalogati in ArCo sono Villa Bernaroli e Villa Mazzacorati)."@it .
 
 bo:isManagedBy
     a owl:ObjectProperty ;
@@ -272,8 +272,8 @@ bo:isManagedBy
 # poi:hasPOICategory  [dominio: poi:PointOfInterest] [range: skos:Concept] — usa l'individuo fisso cat_2_recreation (categoria "Settore svago": giardini, parchi) del vocabolario &lt;https://w3id.org/italia/controlled-vocabulary/poi-category-classification&gt;
 # poi:POIofficialName — anche sul parco/orto, per il suo nome proprio (se noto)
 
-# --- Edificio storico (colonna 'edificio_storico' del CSV) ---
-# bo:isLocatedInHeritageBuilding [dominio: bo:CasaDiQuartiere] [range: arco:ArchitecturalOrLandscapeHeritage] — collega la Casa al bene ArCo indicato dalla colonna 'edificio_storico' del CSV (vedi definizione sopra); genera la tripla solo per le righe in cui questa colonna non è vuota</code></pre>
+# --- Edificio storico (colonna booleana 'edificio_storico' del CSV) ---
+# bo:isLocatedInHeritageBuilding [dominio: bo:CasaDiQuartiere] [range: arco:ArchitecturalOrLandscapeHeritage] — generare la tripla solo per le righe in cui 'edificio_storico' è vera (true); il bene ArCo va scelto in base al nome della Casa, tra Villa Bernaroli e Villa Mazzacorati (gli unici al momento catalogati in ArCo)</code></pre>
   </main>
 <footer class="site-footer">
   <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
