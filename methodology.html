@@ -39,27 +39,31 @@
     <h2>Le fasi del lavoro</h2>
     <div class="timeline">
       <div class="timeline-step">
-        <h3>1. Analisi del gap ed esplorazione ontologica</h3>
+        <h3>1. Interrogazione degli endpoint SPARQL di OntoPiA e ArCo</h3>
+        <p>Prima ancora di progettare lo schema, abbiamo interrogato direttamente gli endpoint SPARQL pubblici di <a href="https://schema.gov.it/sparql" target="_blank" rel="noopener" style="text-decoration: underline;">OntoPiA</a> e di <a href="https://dati.cultura.gov.it/sparql" target="_blank" rel="noopener" style="text-decoration: underline;">ArCo</a>, per capire quali classi e proprietà fossero effettivamente disponibili e utili a descrivere le Case di Quartiere.</p>
+      </div>
+      <div class="timeline-step">
+        <h3>2. Analisi del gap ed esplorazione ontologica</h3>
         <p>Studio del dataset per individuare i concetti mancanti rispetto a un vocabolario semantico standard, ed esplorazione della rete <strong>OntoPiA</strong> per identificare le classi e proprietà già disponibili (indirizzo, organizzazione, condizioni di accesso, punti di interesse) da riusare invece di reinventarle.</p>
       </div>
       <div class="timeline-step">
-        <h3>2. Progettazione dello schema (Turtle)</h3>
+        <h3>3. Progettazione dello schema (Turtle)</h3>
         <p>Definizione di un piccolo vocabolario proprio (namespace <code>bo:</code>) che estende OntoPiA e ArCo solo dove necessario: la classe <code>bo:CasaDiQuartiere</code> e le proprietà <code>bo:isManagedBy</code> e <code>bo:isLocatedInHeritageBuilding</code>. Dettagli nella pagina <a href="ontology.html" style="text-decoration: underline;">Ontologia</a>.</p>
       </div>
       <div class="timeline-step">
-        <h3>3. Generazione delle triple con più LLM</h3>
+        <h3>4. Generazione delle triple con più LLM</h3>
         <p>Le triple RDF di istanza sono state generate sottoponendo il CSV e lo schema a più Large Language Model, confrontati su tre tecniche di prompting (zero-shot, few-shot, chain-of-thought). Dettagli e confronto nella pagina <a href="llm.html" style="text-decoration: underline;">LLM</a>.</p>
       </div>
       <div class="timeline-step">
-        <h3>4. Caricamento e verifica di consistenza</h3>
+        <h3>5. Caricamento e verifica di consistenza</h3>
         <p>Schema e istanze sono stati uniti in un unico grafo Turtle e caricati in <strong>Protégé</strong>, dove il reasoner <strong>HermiT</strong> ha confermato l'assenza di inconsistenze logiche.</p>
       </div>
       <div class="timeline-step">
-        <h3>5. Verifica dei dati con SPARQL</h3>
+        <h3>6. Verifica dei dati con SPARQL</h3>
         <p>Interrogazione del grafo con query SPARQL per verificarne completezza e correttezza, coprendo tutte le keyword richieste (OPTIONAL, DISTINCT, UNION, FILTER, REGEX, LIMIT, ORDER BY). Dettagli nelle pagine <a href="sparql-ontopia.html" style="text-decoration: underline;">SPARQL 1 · OntoPiA</a> e <a href="sparql-ontologia.html" style="text-decoration: underline;">SPARQL 2 · Ontologia</a>.</p>
       </div>
       <div class="timeline-step">
-        <h3>6. Pubblicazione</h3>
+        <h3>7. Pubblicazione</h3>
         <p>Documentazione del progetto e pubblicazione di questo sito su GitHub Pages, con i dati, lo schema e i prompt utilizzati resi pubblicamente disponibili nella repository.</p>
       </div>
     </div>
@@ -70,7 +74,7 @@
  
     <h2>Strumenti utilizzati</h2>
     <ul>
-      <li>Google Colab &ndash; pandas — notebook Python usato per la pulizia e l'analisi del CSV sorgente</li>
+      <li>Google Colab &ndash; <a href="https://pandas.pydata.org/" target="_blank" rel="noopener" style="text-decoration: underline;">pandas</a> — notebook Python usato per la pulizia e l'analisi del CSV sorgente</li>
       <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener" style="text-decoration: underline;">OntoPiA</a> — rete ontologica della PA italiana, riusata per le classi e proprietà del vocabolario</li>
       <li><a href="https://w3id.org/arco" target="_blank" rel="noopener" style="text-decoration: underline;">ArCo</a> — grafo del patrimonio culturale italiano, riusato per il collegamento agli edifici storici</li>
       <li>Claude e Gemini — Large Language Model usati per la generazione e il confronto delle triple RDF</li>
