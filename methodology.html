@@ -69,25 +69,15 @@
  <p><a href="https://colab.research.google.com/drive/1bf9gQRHNSyTTojuHl5Hlv2-R2PRlTFoE#scrollTo=_nayeBr0e7FN" target="_blank" rel="noopener" style="text-decoration: underline;">Apri il notebook su Google Colab</a></p>
  
     <h2>Strumenti utilizzati</h2>
-    <div class="grid-2">
-      <div>
-        <h3 style="font-size:1.1rem; color:var(--brick-dark);">Modellazione e verifica</h3>
-        <ul>
-          <li><a href="https://protege.stanford.edu/" target="_blank" rel="noopener" style="text-decoration: underline;">Protégé</a> — editor di ontologie</li>
-          <li>Reasoner <strong>HermiT</strong> — verifica di consistenza logica</li>
-          <li><a href="https://github.com/RDFLib/rdflib" target="_blank" rel="noopener" style="text-decoration: underline;">rdflib</a> (Python) — parsing e verifica indipendente</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="font-size:1.1rem; color:var(--brick-dark);">Ontologie di riferimento</h3>
-        <ul>
-          <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener" style="text-decoration: underline;">OntoPiA</a> — rete ontologica della PA italiana</li>
-          <li><a href="https://w3id.org/arco" target="_blank" rel="noopener" style="text-decoration: underline;">ArCo</a> — grafo del patrimonio culturale italiano</li>
-          <li>pandas — pulizia e analisi del CSV sorgente</li>
-          <li>Claude e Gemini — generazione e confronto delle triple</li>
-        </ul>
-      </div>
-    </div>
+    <ul>
+      <li>Google Colab &ndash; pandas — notebook Python usato per la pulizia e l'analisi del CSV sorgente</li>
+      <li><a href="https://github.com/italia/daf-ontologie-vocabolari-controllati" target="_blank" rel="noopener" style="text-decoration: underline;">OntoPiA</a> — rete ontologica della PA italiana, riusata per le classi e proprietà del vocabolario</li>
+      <li><a href="https://w3id.org/arco" target="_blank" rel="noopener" style="text-decoration: underline;">ArCo</a> — grafo del patrimonio culturale italiano, riusato per il collegamento agli edifici storici</li>
+      <li>Claude e Gemini — Large Language Model usati per la generazione e il confronto delle triple RDF</li>
+      <li>Google Colab &ndash; <a href="https://github.com/RDFLib/rdflib" target="_blank" rel="noopener" style="text-decoration: underline;">rdflib</a> — notebook Python usato per il parsing e la verifica indipendente delle triple</li>
+      <li><a href="https://protege.stanford.edu/" target="_blank" rel="noopener" style="text-decoration: underline;">Protégé</a> — editor di ontologie usato per caricare e ispezionare il grafo</li>
+      <li>Reasoner HermiT — usato per la verifica di consistenza logica del grafo</li>
+    </ul>
   </main>
 
 <footer class="site-footer">
