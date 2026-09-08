@@ -1,0 +1,2558 @@
+@prefix ac: <https://w3id.org/italia/onto/AccessCondition/> .
+@prefix bo: <https://example.org/casediquartierebologna#> .
+@prefix clv: <https://w3id.org/italia/onto/CLV/> .
+@prefix cov: <https://w3id.org/italia/onto/COV/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix poi: <https://w3id.org/italia/onto/POI/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sm: <https://w3id.org/italia/onto/SM/> .
+@prefix ti: <https://w3id.org/italia/onto/TI/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bo:cdq_01 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_graf_san_donato_aps ;
+    ac:hasAccessCondition bo:orario_cdq_01_giovedi_mattina,
+        bo:orario_cdq_01_lunedi_mattina,
+        bo:orario_cdq_01_martedi_mattina,
+        bo:orario_cdq_01_mercoledi_mattina,
+        bo:orario_cdq_01_venerdi_mattina ;
+    clv:hasAddress bo:address_cdq_01 ;
+    clv:hasGeometry bo:geometria_cdq_01 ;
+    poi:POIID "cdq_01" ;
+    poi:POIofficialName "Graf"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-graf> .
+
+bo:cdq_02 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_ricreativo_culturale_santa_viola_aps ;
+    ac:hasAccessCondition bo:orario_cdq_02_domenica_mattina,
+        bo:orario_cdq_02_domenica_pomeriggio,
+        bo:orario_cdq_02_giovedi_mattina,
+        bo:orario_cdq_02_giovedi_pomeriggio,
+        bo:orario_cdq_02_lunedi_mattina,
+        bo:orario_cdq_02_lunedi_pomeriggio,
+        bo:orario_cdq_02_martedi_mattina,
+        bo:orario_cdq_02_martedi_pomeriggio,
+        bo:orario_cdq_02_mercoledi_mattina,
+        bo:orario_cdq_02_mercoledi_pomeriggio,
+        bo:orario_cdq_02_sabato_mattina,
+        bo:orario_cdq_02_sabato_pomeriggio,
+        bo:orario_cdq_02_venerdi_mattina,
+        bo:orario_cdq_02_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_02 ;
+    clv:hasGeometry bo:geometria_cdq_02 ;
+    poi:POIID "cdq_02" ;
+    poi:POIofficialName "Santa Viola"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-santa-viola> .
+
+bo:cdq_03 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_area_ortiva_paleotto_aps ;
+    ac:hasAccessCondition bo:orario_cdq_03_giovedi_pomeriggio,
+        bo:orario_cdq_03_mercoledi_pomeriggio,
+        bo:orario_cdq_03_sabato_pomeriggio,
+        bo:orario_cdq_03_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_03 ;
+    clv:hasGeometry bo:geometria_cdq_03 ;
+    poi:POIID "cdq_03" ;
+    poi:POIofficialName "Area Ortiva Paleotto"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_03 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-paleotto> .
+
+bo:cdq_04 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_senza_il_banco ;
+    ac:hasAccessCondition bo:orario_cdq_04_domenica_mattina,
+        bo:orario_cdq_04_domenica_pomeriggio,
+        bo:orario_cdq_04_giovedi_mattina,
+        bo:orario_cdq_04_giovedi_pomeriggio,
+        bo:orario_cdq_04_lunedi_mattina,
+        bo:orario_cdq_04_lunedi_pomeriggio,
+        bo:orario_cdq_04_martedi_mattina,
+        bo:orario_cdq_04_martedi_pomeriggio,
+        bo:orario_cdq_04_mercoledi_mattina,
+        bo:orario_cdq_04_mercoledi_pomeriggio,
+        bo:orario_cdq_04_sabato_mattina,
+        bo:orario_cdq_04_sabato_pomeriggio,
+        bo:orario_cdq_04_venerdi_mattina,
+        bo:orario_cdq_04_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_04 ;
+    clv:hasGeometry bo:geometria_cdq_04 ;
+    poi:POIID "cdq_04" ;
+    poi:POIofficialName "Casa del Gufo"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_04 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gufo> .
+
+bo:cdq_05 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_e_orti_villa_bernaroli_aps ;
+    ac:hasAccessCondition bo:orario_cdq_05_giovedi_pomeriggio,
+        bo:orario_cdq_05_lunedi_pomeriggio,
+        bo:orario_cdq_05_martedi_pomeriggio,
+        bo:orario_cdq_05_mercoledi_pomeriggio,
+        bo:orario_cdq_05_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_05 ;
+    clv:hasGeometry bo:geometria_cdq_05 ;
+    poi:POIID "cdq_05" ;
+    poi:POIofficialName "Villa Bernaroli"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_05 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-bernaroli> .
+
+bo:cdq_06 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_casa_gialla ;
+    ac:hasAccessCondition bo:orario_cdq_06_domenica_pomeriggio,
+        bo:orario_cdq_06_giovedi_pomeriggio,
+        bo:orario_cdq_06_lunedi_pomeriggio,
+        bo:orario_cdq_06_martedi_pomeriggio,
+        bo:orario_cdq_06_mercoledi_pomeriggio,
+        bo:orario_cdq_06_sabato_pomeriggio,
+        bo:orario_cdq_06_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_06 ;
+    clv:hasGeometry bo:geometria_cdq_06 ;
+    poi:POIID "cdq_06" ;
+    poi:POIofficialName "Casa Gialla"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_06 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gialla> .
+
+bo:cdq_07 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_2_agosto_80_aps ;
+    ac:hasAccessCondition bo:orario_cdq_07_domenica_pomeriggio,
+        bo:orario_cdq_07_giovedi_pomeriggio,
+        bo:orario_cdq_07_lunedi_pomeriggio,
+        bo:orario_cdq_07_martedi_pomeriggio,
+        bo:orario_cdq_07_mercoledi_pomeriggio,
+        bo:orario_cdq_07_sabato_pomeriggio,
+        bo:orario_cdq_07_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_07 ;
+    clv:hasGeometry bo:geometria_cdq_07 ;
+    poi:POIID "cdq_07" ;
+    poi:POIofficialName "Due Agosto 1980"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_07 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-due-agosto-1980> .
+
+bo:cdq_08 a bo:CasaDiQuartiere ;
+    ac:hasAccessCondition bo:orario_cdq_08_giovedi_pomeriggio,
+        bo:orario_cdq_08_lunedi_pomeriggio,
+        bo:orario_cdq_08_martedi_pomeriggio,
+        bo:orario_cdq_08_mercoledi_pomeriggio,
+        bo:orario_cdq_08_sabato_pomeriggio,
+        bo:orario_cdq_08_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_08 ;
+    clv:hasGeometry bo:geometria_cdq_08 ;
+    poi:POIID "cdq_08" ;
+    poi:POIofficialName "Stella"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-stella> .
+
+bo:cdq_09 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_il_parco_aps ;
+    ac:hasAccessCondition bo:orario_cdq_09_domenica_mattina,
+        bo:orario_cdq_09_domenica_pomeriggio,
+        bo:orario_cdq_09_giovedi_mattina,
+        bo:orario_cdq_09_giovedi_pomeriggio,
+        bo:orario_cdq_09_lunedi_mattina,
+        bo:orario_cdq_09_lunedi_pomeriggio,
+        bo:orario_cdq_09_martedi_mattina,
+        bo:orario_cdq_09_martedi_pomeriggio,
+        bo:orario_cdq_09_mercoledi_mattina,
+        bo:orario_cdq_09_mercoledi_pomeriggio,
+        bo:orario_cdq_09_sabato_mattina,
+        bo:orario_cdq_09_sabato_pomeriggio,
+        bo:orario_cdq_09_venerdi_mattina,
+        bo:orario_cdq_09_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_09 ;
+    clv:hasGeometry bo:geometria_cdq_09 ;
+    poi:POIID "cdq_09" ;
+    poi:POIofficialName "Il Parco"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-parco> .
+
+bo:cdq_10 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_ricreativo_culturale_autogestito_anziani_pescarola ;
+    ac:hasAccessCondition bo:orario_cdq_10_giovedi_pomeriggio,
+        bo:orario_cdq_10_lunedi_pomeriggio,
+        bo:orario_cdq_10_martedi_pomeriggio,
+        bo:orario_cdq_10_mercoledi_pomeriggio,
+        bo:orario_cdq_10_sabato_pomeriggio,
+        bo:orario_cdq_10_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_10 ;
+    clv:hasGeometry bo:geometria_cdq_10 ;
+    poi:POIID "cdq_10" ;
+    poi:POIofficialName "Pescarola"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-pescarola> .
+
+bo:cdq_11 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_ricreativo_culturale_frassinetti_aps ;
+    ac:hasAccessCondition bo:orario_cdq_11_domenica_mattina,
+        bo:orario_cdq_11_domenica_pomeriggio,
+        bo:orario_cdq_11_giovedi_mattina,
+        bo:orario_cdq_11_giovedi_pomeriggio,
+        bo:orario_cdq_11_martedi_mattina,
+        bo:orario_cdq_11_martedi_pomeriggio,
+        bo:orario_cdq_11_mercoledi_mattina,
+        bo:orario_cdq_11_mercoledi_pomeriggio,
+        bo:orario_cdq_11_sabato_mattina,
+        bo:orario_cdq_11_sabato_pomeriggio,
+        bo:orario_cdq_11_venerdi_mattina,
+        bo:orario_cdq_11_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_11 ;
+    clv:hasGeometry bo:geometria_cdq_11 ;
+    poi:POIID "cdq_11" ;
+    poi:POIofficialName "Nello Frassinetti"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-nello-frassinetti> .
+
+bo:cdq_12 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_villa_torchi ;
+    ac:hasAccessCondition bo:orario_cdq_12_domenica_mattina,
+        bo:orario_cdq_12_domenica_pomeriggio,
+        bo:orario_cdq_12_giovedi_mattina,
+        bo:orario_cdq_12_giovedi_pomeriggio,
+        bo:orario_cdq_12_lunedi_mattina,
+        bo:orario_cdq_12_lunedi_pomeriggio,
+        bo:orario_cdq_12_martedi_mattina,
+        bo:orario_cdq_12_martedi_pomeriggio,
+        bo:orario_cdq_12_mercoledi_mattina,
+        bo:orario_cdq_12_mercoledi_pomeriggio,
+        bo:orario_cdq_12_sabato_mattina,
+        bo:orario_cdq_12_sabato_pomeriggio,
+        bo:orario_cdq_12_venerdi_mattina,
+        bo:orario_cdq_12_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_12 ;
+    clv:hasGeometry bo:geometria_cdq_12 ;
+    poi:POIID "cdq_12" ;
+    poi:POIofficialName "Villa Torchi"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_12 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-torchi> .
+
+bo:cdq_13 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_aics ;
+    ac:hasAccessCondition bo:orario_cdq_13_giovedi_mattina,
+        bo:orario_cdq_13_giovedi_pomeriggio,
+        bo:orario_cdq_13_lunedi_mattina,
+        bo:orario_cdq_13_lunedi_pomeriggio,
+        bo:orario_cdq_13_martedi_mattina,
+        bo:orario_cdq_13_martedi_pomeriggio,
+        bo:orario_cdq_13_mercoledi_mattina,
+        bo:orario_cdq_13_mercoledi_pomeriggio,
+        bo:orario_cdq_13_sabato_mattina,
+        bo:orario_cdq_13_sabato_pomeriggio,
+        bo:orario_cdq_13_venerdi_mattina,
+        bo:orario_cdq_13_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_13 ;
+    clv:hasGeometry bo:geometria_cdq_13 ;
+    poi:POIID "cdq_13" ;
+    poi:POIofficialName "Scipione dal Ferro"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-scipione-dal-ferro> .
+
+bo:cdq_14 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_la_dacia ;
+    ac:hasAccessCondition bo:orario_cdq_14_giovedi_pomeriggio,
+        bo:orario_cdq_14_lunedi_pomeriggio,
+        bo:orario_cdq_14_martedi_pomeriggio,
+        bo:orario_cdq_14_mercoledi_pomeriggio,
+        bo:orario_cdq_14_sabato_pomeriggio,
+        bo:orario_cdq_14_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_14 ;
+    clv:hasGeometry bo:geometria_cdq_14 ;
+    poi:POIID "cdq_14" ;
+    poi:POIofficialName "La Dacia"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_14 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-dacia> .
+
+bo:cdq_16 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_anziani_italicus ;
+    ac:hasAccessCondition bo:orario_cdq_16_domenica_pomeriggio,
+        bo:orario_cdq_16_giovedi_pomeriggio,
+        bo:orario_cdq_16_lunedi_pomeriggio,
+        bo:orario_cdq_16_martedi_pomeriggio,
+        bo:orario_cdq_16_mercoledi_pomeriggio,
+        bo:orario_cdq_16_sabato_pomeriggio,
+        bo:orario_cdq_16_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_16 ;
+    clv:hasGeometry bo:geometria_cdq_16 ;
+    poi:POIID "cdq_16" ;
+    poi:POIofficialName "Italicus"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-italicus> .
+
+bo:cdq_17 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_fondo_comini_aps ;
+    ac:hasAccessCondition bo:orario_cdq_17_domenica_mattina,
+        bo:orario_cdq_17_domenica_pomeriggio,
+        bo:orario_cdq_17_giovedi_mattina,
+        bo:orario_cdq_17_giovedi_pomeriggio,
+        bo:orario_cdq_17_lunedi_mattina,
+        bo:orario_cdq_17_lunedi_pomeriggio,
+        bo:orario_cdq_17_martedi_mattina,
+        bo:orario_cdq_17_martedi_pomeriggio,
+        bo:orario_cdq_17_mercoledi_mattina,
+        bo:orario_cdq_17_mercoledi_pomeriggio,
+        bo:orario_cdq_17_sabato_mattina,
+        bo:orario_cdq_17_sabato_pomeriggio,
+        bo:orario_cdq_17_venerdi_mattina,
+        bo:orario_cdq_17_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_17 ;
+    clv:hasGeometry bo:geometria_cdq_17 ;
+    poi:POIID "cdq_17" ;
+    poi:POIofficialName "Fondo Comini"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-fondo-comini> .
+
+bo:cdq_18 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_croce_coperta ;
+    ac:hasAccessCondition bo:orario_cdq_18_domenica_mattina,
+        bo:orario_cdq_18_domenica_pomeriggio,
+        bo:orario_cdq_18_giovedi_mattina,
+        bo:orario_cdq_18_giovedi_pomeriggio,
+        bo:orario_cdq_18_lunedi_mattina,
+        bo:orario_cdq_18_lunedi_pomeriggio,
+        bo:orario_cdq_18_martedi_mattina,
+        bo:orario_cdq_18_martedi_pomeriggio,
+        bo:orario_cdq_18_mercoledi_mattina,
+        bo:orario_cdq_18_mercoledi_pomeriggio,
+        bo:orario_cdq_18_sabato_mattina,
+        bo:orario_cdq_18_sabato_pomeriggio,
+        bo:orario_cdq_18_venerdi_mattina,
+        bo:orario_cdq_18_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_18 ;
+    clv:hasGeometry bo:geometria_cdq_18 ;
+    poi:POIID "cdq_18" ;
+    poi:POIofficialName "Croce Coperta"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-croce-coperta> .
+
+bo:cdq_19 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_giorgio_costa ;
+    ac:hasAccessCondition bo:orario_cdq_19_giovedi_mattina,
+        bo:orario_cdq_19_giovedi_pomeriggio,
+        bo:orario_cdq_19_lunedi_mattina,
+        bo:orario_cdq_19_lunedi_pomeriggio,
+        bo:orario_cdq_19_martedi_mattina,
+        bo:orario_cdq_19_martedi_pomeriggio,
+        bo:orario_cdq_19_mercoledi_mattina,
+        bo:orario_cdq_19_mercoledi_pomeriggio,
+        bo:orario_cdq_19_venerdi_mattina,
+        bo:orario_cdq_19_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_19 ;
+    clv:hasGeometry bo:geometria_cdq_19 ;
+    poi:POIID "cdq_19" ;
+    poi:POIofficialName "Giorgio Costa"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-giorgio-costa> .
+
+bo:cdq_20 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_atlas_asd ;
+    ac:hasAccessCondition bo:orario_cdq_20_lunedi_mattina,
+        bo:orario_cdq_20_mercoledi_mattina,
+        bo:orario_cdq_20_venerdi_mattina ;
+    clv:hasAddress bo:address_cdq_20 ;
+    clv:hasGeometry bo:geometria_cdq_20 ;
+    poi:POIID "cdq_20" ;
+    poi:POIofficialName "Cà Solare"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-ca-solare> .
+
+bo:cdq_21 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_croce_del_biacco_aps ;
+    ac:hasAccessCondition bo:orario_cdq_21_lunedi_pomeriggio,
+        bo:orario_cdq_21_martedi_mattina,
+        bo:orario_cdq_21_venerdi_mattina,
+        bo:orario_cdq_21_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_21 ;
+    clv:hasGeometry bo:geometria_cdq_21 ;
+    poi:POIID "cdq_21" ;
+    poi:POIofficialName "Croce del Biacco"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-croce-del-biacco> .
+
+bo:cdq_22 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_senza_il_banco ;
+    ac:hasAccessCondition bo:orario_cdq_22_domenica_pomeriggio,
+        bo:orario_cdq_22_giovedi_mattina,
+        bo:orario_cdq_22_giovedi_pomeriggio,
+        bo:orario_cdq_22_lunedi_mattina,
+        bo:orario_cdq_22_lunedi_pomeriggio,
+        bo:orario_cdq_22_martedi_mattina,
+        bo:orario_cdq_22_martedi_pomeriggio,
+        bo:orario_cdq_22_mercoledi_mattina,
+        bo:orario_cdq_22_mercoledi_pomeriggio,
+        bo:orario_cdq_22_sabato_pomeriggio,
+        bo:orario_cdq_22_venerdi_mattina,
+        bo:orario_cdq_22_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_22 ;
+    clv:hasGeometry bo:geometria_cdq_22 ;
+    poi:POIID "cdq_22" ;
+    poi:POIofficialName "Katia Bertasi"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-katia-bertasi> .
+
+bo:cdq_23 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_e_ricreativo_ruozi ;
+    ac:hasAccessCondition bo:orario_cdq_23_lunedi_mattina,
+        bo:orario_cdq_23_lunedi_pomeriggio,
+        bo:orario_cdq_23_martedi_pomeriggio,
+        bo:orario_cdq_23_mercoledi_mattina,
+        bo:orario_cdq_23_mercoledi_pomeriggio,
+        bo:orario_cdq_23_venerdi_mattina,
+        bo:orario_cdq_23_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_23 ;
+    clv:hasGeometry bo:geometria_cdq_23 ;
+    poi:POIID "cdq_23" ;
+    poi:POIofficialName "Ruozi"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-ruozi> .
+
+bo:cdq_24 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_della_pace ;
+    ac:hasAccessCondition bo:orario_cdq_24_domenica_pomeriggio,
+        bo:orario_cdq_24_giovedi_pomeriggio,
+        bo:orario_cdq_24_lunedi_pomeriggio,
+        bo:orario_cdq_24_martedi_pomeriggio,
+        bo:orario_cdq_24_mercoledi_pomeriggio,
+        bo:orario_cdq_24_sabato_pomeriggio,
+        bo:orario_cdq_24_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_24 ;
+    clv:hasGeometry bo:geometria_cdq_24 ;
+    poi:POIID "cdq_24" ;
+    poi:POIofficialName "Della Pace"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-della-pace> .
+
+bo:cdq_25 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_senza_il_banco ;
+    clv:hasAddress bo:address_cdq_25 ;
+    clv:hasGeometry bo:geometria_cdq_25 ;
+    poi:POIID "cdq_25" ;
+    poi:POIofficialName "Pilastro"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-pilastro> .
+
+bo:cdq_26 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_foscherara ;
+    clv:hasAddress bo:address_cdq_26 ;
+    clv:hasGeometry bo:geometria_cdq_26 ;
+    poi:POIID "cdq_26" ;
+    poi:POIofficialName "Foscherara"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-foscherara> .
+
+bo:cdq_27 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_senza_il_banco ;
+    ac:hasAccessCondition bo:orario_cdq_27_domenica_pomeriggio,
+        bo:orario_cdq_27_giovedi_pomeriggio,
+        bo:orario_cdq_27_martedi_pomeriggio,
+        bo:orario_cdq_27_mercoledi_mattina,
+        bo:orario_cdq_27_mercoledi_pomeriggio,
+        bo:orario_cdq_27_sabato_pomeriggio,
+        bo:orario_cdq_27_venerdi_mattina,
+        bo:orario_cdq_27_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_27 ;
+    clv:hasGeometry bo:geometria_cdq_27 ;
+    poi:POIID "cdq_27" ;
+    poi:POIofficialName "San Rafel"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-san-rafel> .
+
+bo:cdq_28 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_villa_mazzacorati ;
+    clv:hasAddress bo:address_cdq_28 ;
+    clv:hasGeometry bo:geometria_cdq_28 ;
+    poi:POIID "cdq_28" ;
+    poi:POIofficialName "Villa Mazzacorati"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-villa-mazzacorati> .
+
+bo:cdq_29 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_associazione_centro_sociale_a_montanari_aps ;
+    ac:hasAccessCondition bo:orario_cdq_29_domenica_pomeriggio,
+        bo:orario_cdq_29_giovedi_mattina,
+        bo:orario_cdq_29_giovedi_pomeriggio,
+        bo:orario_cdq_29_lunedi_pomeriggio,
+        bo:orario_cdq_29_martedi_mattina,
+        bo:orario_cdq_29_martedi_pomeriggio,
+        bo:orario_cdq_29_mercoledi_mattina,
+        bo:orario_cdq_29_mercoledi_pomeriggio,
+        bo:orario_cdq_29_venerdi_mattina,
+        bo:orario_cdq_29_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_29 ;
+    clv:hasGeometry bo:geometria_cdq_29 ;
+    poi:POIID "cdq_29" ;
+    poi:POIofficialName "Montanari"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_29 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-montanari> .
+
+bo:cdq_30 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_saffi ;
+    ac:hasAccessCondition bo:orario_cdq_30_giovedi_pomeriggio,
+        bo:orario_cdq_30_lunedi_pomeriggio,
+        bo:orario_cdq_30_martedi_pomeriggio,
+        bo:orario_cdq_30_mercoledi_pomeriggio,
+        bo:orario_cdq_30_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_30 ;
+    clv:hasGeometry bo:geometria_cdq_30 ;
+    poi:POIID "cdq_30" ;
+    poi:POIofficialName "Saffi"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_30 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-saffi> .
+
+bo:cdq_31 a bo:CasaDiQuartiere ;
+    ac:hasAccessCondition bo:orario_cdq_31_domenica_mattina,
+        bo:orario_cdq_31_giovedi_pomeriggio,
+        bo:orario_cdq_31_lunedi_pomeriggio,
+        bo:orario_cdq_31_martedi_pomeriggio,
+        bo:orario_cdq_31_mercoledi_pomeriggio,
+        bo:orario_cdq_31_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_31 ;
+    clv:hasGeometry bo:geometria_cdq_31 ;
+    poi:POIID "cdq_31" ;
+    poi:POIofficialName "Tolmino"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-tolmino> .
+
+bo:cdq_32 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_e_orti_rosa_marchi_aps ;
+    ac:hasAccessCondition bo:orario_cdq_32_domenica_pomeriggio,
+        bo:orario_cdq_32_giovedi_pomeriggio,
+        bo:orario_cdq_32_lunedi_pomeriggio,
+        bo:orario_cdq_32_martedi_pomeriggio,
+        bo:orario_cdq_32_mercoledi_pomeriggio,
+        bo:orario_cdq_32_sabato_pomeriggio,
+        bo:orario_cdq_32_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_32 ;
+    clv:hasGeometry bo:geometria_cdq_32 ;
+    poi:POIID "cdq_32" ;
+    poi:POIofficialName "Rosa Marchi"@it ;
+    poi:isIncludedInPOI bo:area_verde_cdq_32 ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-rosa-marchi> .
+
+bo:cdq_33 a bo:CasaDiQuartiere ;
+    bo:isManagedBy bo:gestore_centro_sociale_lunetta_gamberini ;
+    ac:hasAccessCondition bo:orario_cdq_33_domenica_mattina,
+        bo:orario_cdq_33_domenica_pomeriggio,
+        bo:orario_cdq_33_giovedi_mattina,
+        bo:orario_cdq_33_giovedi_pomeriggio,
+        bo:orario_cdq_33_lunedi_mattina,
+        bo:orario_cdq_33_lunedi_pomeriggio,
+        bo:orario_cdq_33_martedi_mattina,
+        bo:orario_cdq_33_martedi_pomeriggio,
+        bo:orario_cdq_33_mercoledi_mattina,
+        bo:orario_cdq_33_mercoledi_pomeriggio,
+        bo:orario_cdq_33_sabato_mattina,
+        bo:orario_cdq_33_sabato_pomeriggio,
+        bo:orario_cdq_33_venerdi_mattina,
+        bo:orario_cdq_33_venerdi_pomeriggio ;
+    clv:hasAddress bo:address_cdq_33 ;
+    clv:hasGeometry bo:geometria_cdq_33 ;
+    poi:POIID "cdq_33" ;
+    poi:POIofficialName "Lunetta Gamberini"@it ;
+    sm:hasWebSite <https://www.comune.bologna.it/informazioni/casa-quartiere-lunetta-gamberini> .
+
+bo:address_cdq_01 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_01 ;
+    clv:hasStreetToponym bo:toponym_cdq_01 .
+
+bo:address_cdq_02 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_borgo_panigale_reno ;
+    clv:hasNumber bo:civico_cdq_02 ;
+    clv:hasStreetToponym bo:toponym_cdq_02 .
+
+bo:address_cdq_03 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_03 ;
+    clv:hasStreetToponym bo:toponym_cdq_03 .
+
+bo:address_cdq_04 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_04 ;
+    clv:hasStreetToponym bo:toponym_cdq_04 .
+
+bo:address_cdq_05 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_borgo_panigale_reno ;
+    clv:hasNumber bo:civico_cdq_05 ;
+    clv:hasStreetToponym bo:toponym_cdq_05 .
+
+bo:address_cdq_06 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_06 ;
+    clv:hasStreetToponym bo:toponym_cdq_06 .
+
+bo:address_cdq_07 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_porto_saragozza ;
+    clv:hasNumber bo:civico_cdq_07 ;
+    clv:hasStreetToponym bo:toponym_cdq_07 .
+
+bo:address_cdq_08 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_santo_stefano ;
+    clv:hasNumber bo:civico_cdq_08 ;
+    clv:hasStreetToponym bo:toponym_cdq_08 .
+
+bo:address_cdq_09 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_borgo_panigale_reno ;
+    clv:hasNumber bo:civico_cdq_09 ;
+    clv:hasStreetToponym bo:toponym_cdq_09 .
+
+bo:address_cdq_10 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_10 ;
+    clv:hasStreetToponym bo:toponym_cdq_10 .
+
+bo:address_cdq_11 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_11 ;
+    clv:hasStreetToponym bo:toponym_cdq_11 .
+
+bo:address_cdq_12 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_12 ;
+    clv:hasStreetToponym bo:toponym_cdq_12 .
+
+bo:address_cdq_13 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_13 ;
+    clv:hasStreetToponym bo:toponym_cdq_13 .
+
+bo:address_cdq_14 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_14 ;
+    clv:hasStreetToponym bo:toponym_cdq_14 .
+
+bo:address_cdq_16 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_16 ;
+    clv:hasStreetToponym bo:toponym_cdq_16 .
+
+bo:address_cdq_17 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_17 ;
+    clv:hasStreetToponym bo:toponym_cdq_17 .
+
+bo:address_cdq_18 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_18 ;
+    clv:hasStreetToponym bo:toponym_cdq_18 .
+
+bo:address_cdq_19 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_porto_saragozza ;
+    clv:hasNumber bo:civico_cdq_19 ;
+    clv:hasStreetToponym bo:toponym_cdq_19 .
+
+bo:address_cdq_20 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_20 ;
+    clv:hasStreetToponym bo:toponym_cdq_20 .
+
+bo:address_cdq_21 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_21 ;
+    clv:hasStreetToponym bo:toponym_cdq_21 .
+
+bo:address_cdq_22 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_22 ;
+    clv:hasStreetToponym bo:toponym_cdq_22 .
+
+bo:address_cdq_23 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_23 ;
+    clv:hasStreetToponym bo:toponym_cdq_23 .
+
+bo:address_cdq_24 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_porto_saragozza ;
+    clv:hasNumber bo:civico_cdq_24 ;
+    clv:hasStreetToponym bo:toponym_cdq_24 .
+
+bo:address_cdq_25 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_san_donato_san_vitale ;
+    clv:hasNumber bo:civico_cdq_25 ;
+    clv:hasStreetToponym bo:toponym_cdq_25 .
+
+bo:address_cdq_26 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_26 ;
+    clv:hasStreetToponym bo:toponym_cdq_26 .
+
+bo:address_cdq_27 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_27 ;
+    clv:hasStreetToponym bo:toponym_cdq_27 .
+
+bo:address_cdq_28 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_savena ;
+    clv:hasNumber bo:civico_cdq_28 ;
+    clv:hasStreetToponym bo:toponym_cdq_28 .
+
+bo:address_cdq_29 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_navile ;
+    clv:hasNumber bo:civico_cdq_29 ;
+    clv:hasStreetToponym bo:toponym_cdq_29 .
+
+bo:address_cdq_30 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_porto_saragozza ;
+    clv:hasNumber bo:civico_cdq_30 ;
+    clv:hasStreetToponym bo:toponym_cdq_30 .
+
+bo:address_cdq_31 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_porto_saragozza ;
+    clv:hasNumber bo:civico_cdq_31 ;
+    clv:hasStreetToponym bo:toponym_cdq_31 .
+
+bo:address_cdq_32 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_borgo_panigale_reno ;
+    clv:hasNumber bo:civico_cdq_32 ;
+    clv:hasStreetToponym bo:toponym_cdq_32 .
+
+bo:address_cdq_33 a clv:Address ;
+    clv:hasCity bo:comune_bologna ;
+    clv:hasDistrict bo:quartiere_santo_stefano ;
+    clv:hasNumber bo:civico_cdq_33 ;
+    clv:hasStreetToponym bo:toponym_cdq_33 .
+
+bo:area_verde_cdq_03 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_04 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_05 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_06 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_07 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_12 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_14 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_29 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_30 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:area_verde_cdq_32 a poi:MultiplePointOfInterest ;
+    poi:hasPOICategory <https://w3id.org/italia/controlled-vocabulary/poi-category-classification/cat_2_recreation> .
+
+bo:civico_cdq_01 a clv:CivicNumbering ;
+    clv:streetNumber "3"^^xsd:int .
+
+bo:civico_cdq_02 a clv:CivicNumbering ;
+    clv:streetNumber "131"^^xsd:int .
+
+bo:civico_cdq_03 a clv:CivicNumbering ;
+    clv:streetNumber "11"^^xsd:int .
+
+bo:civico_cdq_04 a clv:CivicNumbering ;
+    clv:streetNumber "10-12" .
+
+bo:civico_cdq_05 a clv:CivicNumbering ;
+    clv:streetNumber "1"^^xsd:int .
+
+bo:civico_cdq_06 a clv:CivicNumbering ;
+    clv:peculiarity "3" ;
+    clv:streetNumber "1"^^xsd:int .
+
+bo:civico_cdq_07 a clv:CivicNumbering ;
+    clv:streetNumber "98"^^xsd:int .
+
+bo:civico_cdq_08 a clv:CivicNumbering ;
+    clv:streetNumber "3"^^xsd:int .
+
+bo:civico_cdq_09 a clv:CivicNumbering ;
+    clv:streetNumber "4"^^xsd:int .
+
+bo:civico_cdq_10 a clv:CivicNumbering ;
+    clv:streetNumber "228"^^xsd:int .
+
+bo:civico_cdq_11 a clv:CivicNumbering ;
+    clv:streetNumber "18"^^xsd:int .
+
+bo:civico_cdq_12 a clv:CivicNumbering ;
+    clv:streetNumber "40"^^xsd:int .
+
+bo:civico_cdq_13 a clv:CivicNumbering ;
+    clv:streetNumber "50"^^xsd:int .
+
+bo:civico_cdq_14 a clv:CivicNumbering ;
+    clv:peculiarity "3" ;
+    clv:streetNumber "22"^^xsd:int .
+
+bo:civico_cdq_16 a clv:CivicNumbering ;
+    clv:streetNumber "16"^^xsd:int .
+
+bo:civico_cdq_17 a clv:CivicNumbering ;
+    clv:streetNumber "68"^^xsd:int .
+
+bo:civico_cdq_18 a clv:CivicNumbering ;
+    clv:streetNumber "28"^^xsd:int .
+
+bo:civico_cdq_19 a clv:CivicNumbering ;
+    clv:streetNumber "48"^^xsd:int .
+
+bo:civico_cdq_20 a clv:CivicNumbering ;
+    clv:streetNumber "5"^^xsd:int .
+
+bo:civico_cdq_21 a clv:CivicNumbering ;
+    clv:streetNumber "1"^^xsd:int .
+
+bo:civico_cdq_22 a clv:CivicNumbering ;
+    clv:streetNumber "22"^^xsd:int .
+
+bo:civico_cdq_23 a clv:CivicNumbering ;
+    clv:streetNumber "13"^^xsd:int .
+
+bo:civico_cdq_24 a clv:CivicNumbering ;
+    clv:streetNumber "53"^^xsd:int .
+
+bo:civico_cdq_25 a clv:CivicNumbering ;
+    clv:streetNumber "4"^^xsd:int .
+
+bo:civico_cdq_26 a clv:CivicNumbering ;
+    clv:peculiarity "A" ;
+    clv:streetNumber "6"^^xsd:int .
+
+bo:civico_cdq_27 a clv:CivicNumbering ;
+    clv:streetNumber "21"^^xsd:int .
+
+bo:civico_cdq_28 a clv:CivicNumbering ;
+    clv:streetNumber "19"^^xsd:int .
+
+bo:civico_cdq_29 a clv:CivicNumbering ;
+    clv:peculiarity "21" ;
+    clv:streetNumber "3"^^xsd:int .
+
+bo:civico_cdq_30 a clv:CivicNumbering ;
+    clv:peculiarity "10" ;
+    clv:streetNumber "2"^^xsd:int .
+
+bo:civico_cdq_31 a clv:CivicNumbering ;
+    clv:streetNumber "41"^^xsd:int .
+
+bo:civico_cdq_32 a clv:CivicNumbering ;
+    clv:streetNumber "11"^^xsd:int .
+
+bo:civico_cdq_33 a clv:CivicNumbering ;
+    clv:streetNumber "60"^^xsd:int .
+
+bo:geometria_cdq_01 a clv:Geometry ;
+    clv:lat 44.50411986097906 ;
+    clv:long 11.3670925194173 .
+
+bo:geometria_cdq_02 a clv:Geometry ;
+    clv:lat 44.5072005 ;
+    clv:long 11.3053172 .
+
+bo:geometria_cdq_03 a clv:Geometry ;
+    clv:lat 44.4442178 ;
+    clv:long 11.3529744 .
+
+bo:geometria_cdq_04 a clv:Geometry ;
+    clv:lat 44.4686989 ;
+    clv:long 11.385095 .
+
+bo:geometria_cdq_05 a clv:Geometry ;
+    clv:lat 44.5028129 ;
+    clv:long 11.2559706 .
+
+bo:geometria_cdq_06 a clv:Geometry ;
+    clv:lat 44.5192565 ;
+    clv:long 11.3272229 .
+
+bo:geometria_cdq_07 a clv:Geometry ;
+    clv:lat 44.4904754 ;
+    clv:long 11.3212905 .
+
+bo:geometria_cdq_08 a clv:Geometry ;
+    clv:lat 44.4870293 ;
+    clv:long 11.3640299 .
+
+bo:geometria_cdq_09 a clv:Geometry ;
+    clv:lat 44.5111729 ;
+    clv:long 11.2854848 .
+
+bo:geometria_cdq_10 a clv:Geometry ;
+    clv:lat 44.5245657 ;
+    clv:long 11.3170639 .
+
+bo:geometria_cdq_11 a clv:Geometry ;
+    clv:lat 44.5036295 ;
+    clv:long 11.3736824 .
+
+bo:geometria_cdq_12 a clv:Geometry ;
+    clv:lat 44.5443575 ;
+    clv:long 11.3586988 .
+
+bo:geometria_cdq_13 a clv:Geometry ;
+    clv:lat 44.4962566 ;
+    clv:long 11.3707323 .
+
+bo:geometria_cdq_14 a clv:Geometry ;
+    clv:lat 44.4837011 ;
+    clv:long 11.3914509 .
+
+bo:geometria_cdq_16 a clv:Geometry ;
+    clv:lat 44.5044436 ;
+    clv:long 11.356646 .
+
+bo:geometria_cdq_17 a clv:Geometry ;
+    clv:lat 44.5154599 ;
+    clv:long 11.3393495 .
+
+bo:geometria_cdq_18 a clv:Geometry ;
+    clv:lat 44.5348056 ;
+    clv:long 11.3521691 .
+
+bo:geometria_cdq_19 a clv:Geometry ;
+    clv:lat 44.5016786 ;
+    clv:long 11.3352507 .
+
+bo:geometria_cdq_20 a clv:Geometry ;
+    clv:lat 44.5080438 ;
+    clv:long 11.3849782 .
+
+bo:geometria_cdq_21 a clv:Geometry ;
+    clv:lat 44.4899689 ;
+    clv:long 11.3980917 .
+
+bo:geometria_cdq_22 a clv:Geometry ;
+    clv:lat 44.5119457 ;
+    clv:long 11.3409813 .
+
+bo:geometria_cdq_23 a clv:Geometry ;
+    clv:lat 44.4917146 ;
+    clv:long 11.3782433 .
+
+bo:geometria_cdq_24 a clv:Geometry ;
+    clv:lat 44.495539 ;
+    clv:long 11.3316777 .
+
+bo:geometria_cdq_25 a clv:Geometry ;
+    clv:lat 44.513998 ;
+    clv:long 11.3980091 .
+
+bo:geometria_cdq_26 a clv:Geometry ;
+    clv:lat 44.4650825 ;
+    clv:long 11.379103 .
+
+bo:geometria_cdq_27 a clv:Geometry ;
+    clv:lat 44.4659745 ;
+    clv:long 11.3739898 .
+
+bo:geometria_cdq_28 a clv:Geometry ;
+    clv:lat 44.4697316 ;
+    clv:long 11.3700086 .
+
+bo:geometria_cdq_29 a clv:Geometry ;
+    clv:lat 44.5130313 ;
+    clv:long 11.3504039 .
+
+bo:geometria_cdq_30 a clv:Geometry ;
+    clv:lat 44.5017676 ;
+    clv:long 11.3299532 .
+
+bo:geometria_cdq_31 a clv:Geometry ;
+    clv:lat 44.4977357 ;
+    clv:long 11.3181005 .
+
+bo:geometria_cdq_32 a clv:Geometry ;
+    clv:lat 44.4927777 ;
+    clv:long 11.2907756 .
+
+bo:geometria_cdq_33 a clv:Geometry ;
+    clv:lat 44.4769847 ;
+    clv:long 11.3748928 .
+
+bo:gestore_aics a cov:PrivateOrganization ;
+    cov:legalName "AICS"@it .
+
+bo:gestore_associazione_area_ortiva_paleotto_aps a cov:PrivateOrganization ;
+    cov:legalName "Associazione Area Ortiva Paleotto APS"@it .
+
+bo:gestore_associazione_centro_sociale_a_montanari_aps a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale A. Montanari APS"@it .
+
+bo:gestore_associazione_centro_sociale_casa_gialla a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Casa Gialla"@it .
+
+bo:gestore_associazione_centro_sociale_croce_coperta a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Croce Coperta"@it .
+
+bo:gestore_associazione_centro_sociale_fondo_comini_aps a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro sociale Fondo Comini APS"@it .
+
+bo:gestore_associazione_centro_sociale_foscherara a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Foscherara"@it .
+
+bo:gestore_associazione_centro_sociale_la_dacia a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale La Dacia"@it .
+
+bo:gestore_associazione_centro_sociale_villa_mazzacorati a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Villa Mazzacorati"@it .
+
+bo:gestore_associazione_centro_sociale_villa_torchi a cov:PrivateOrganization ;
+    cov:legalName "Associazione Centro Sociale Villa Torchi"@it .
+
+bo:gestore_atlas_asd a cov:PrivateOrganization ;
+    cov:legalName "Atlas ASD"@it .
+
+bo:gestore_centro_sociale_2_agosto_80_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro sociale 2 Agosto 80 APS"@it .
+
+bo:gestore_centro_sociale_anziani_italicus a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Anziani Italicus"@it .
+
+bo:gestore_centro_sociale_croce_del_biacco_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Croce del Biacco APS"@it .
+
+bo:gestore_centro_sociale_della_pace a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale della Pace"@it .
+
+bo:gestore_centro_sociale_e_orti_rosa_marchi_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale e orti Rosa Marchi APS"@it .
+
+bo:gestore_centro_sociale_e_orti_villa_bernaroli_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale e Orti Villa Bernaroli APS"@it .
+
+bo:gestore_centro_sociale_e_ricreativo_ruozi a cov:PrivateOrganization ;
+    cov:legalName "Centro sociale e ricreativo Ruozi"@it .
+
+bo:gestore_centro_sociale_giorgio_costa a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Giorgio Costa"@it .
+
+bo:gestore_centro_sociale_il_parco_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Il Parco APS"@it .
+
+bo:gestore_centro_sociale_lunetta_gamberini a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Lunetta Gamberini"@it .
+
+bo:gestore_centro_sociale_ricreativo_culturale_autogestito_anziani_pescarola a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale, Ricreativo, Culturale, Autogestito Anziani Pescarola"@it .
+
+bo:gestore_centro_sociale_ricreativo_culturale_frassinetti_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Ricreativo Culturale Frassinetti APS"@it .
+
+bo:gestore_centro_sociale_ricreativo_culturale_santa_viola_aps a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Ricreativo Culturale Santa Viola APS"@it .
+
+bo:gestore_centro_sociale_saffi a cov:PrivateOrganization ;
+    cov:legalName "Centro Sociale Saffi"@it .
+
+bo:gestore_graf_san_donato_aps a cov:PrivateOrganization ;
+    cov:legalName "Graf San Donato APS"@it .
+
+bo:gestore_senza_il_banco a cov:PrivateOrganization ;
+    cov:legalName "Senza il Banco"@it .
+
+bo:identifier_comune_bologna a clv:Identifier ;
+    clv:identifierType "ISTAT" ;
+    clv:issuedBy bo:organizzazione_istat ;
+    l0:identifier "037006" .
+
+bo:orario_cdq_01_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "11:00:00"^^xsd:time .
+
+bo:orario_cdq_01_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "11:00:00"^^xsd:time .
+
+bo:orario_cdq_01_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "11:00:00"^^xsd:time .
+
+bo:orario_cdq_01_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "11:00:00"^^xsd:time .
+
+bo:orario_cdq_01_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "11:00:00"^^xsd:time .
+
+bo:orario_cdq_02_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_02_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_02_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_03_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "17:00:00"^^xsd:time .
+
+bo:orario_cdq_03_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "17:00:00"^^xsd:time .
+
+bo:orario_cdq_03_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "17:00:00"^^xsd:time .
+
+bo:orario_cdq_03_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "21:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "17:00:00"^^xsd:time .
+
+bo:orario_cdq_04_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_04_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_04_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_05_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_05_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_05_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_05_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_05_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_06_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_06_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_07_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_07_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_08_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_08_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_08_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_08_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_08_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_08_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_09_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_09_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_09_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_10_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_10_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_10_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_10_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_10_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_10_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_11_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_11_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_11_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_11_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_11_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_11_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_11_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_12_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_12_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_12_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_13_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_13_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_14_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_16_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_16_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:00:00"^^xsd:time .
+
+bo:orario_cdq_17_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_17_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_17_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_18_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_18_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_18_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_19_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_19_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_19_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_19_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_19_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_19_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_19_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_19_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_19_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_19_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "00:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_20_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_20_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_20_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_21_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_21_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_21_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:00:00"^^xsd:time .
+
+bo:orario_cdq_21_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_22_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_22_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "07:00:00"^^xsd:time .
+
+bo:orario_cdq_22_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_22_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "07:00:00"^^xsd:time .
+
+bo:orario_cdq_22_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_22_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "07:00:00"^^xsd:time .
+
+bo:orario_cdq_22_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_22_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "07:00:00"^^xsd:time .
+
+bo:orario_cdq_22_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_22_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_22_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "07:00:00"^^xsd:time .
+
+bo:orario_cdq_22_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_23_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_23_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_23_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_23_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_23_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_23_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "11:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_23_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_24_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "22:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "21:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_27_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_27_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:30:00"^^xsd:time .
+
+bo:orario_cdq_27_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "08:45:00"^^xsd:time .
+
+bo:orario_cdq_29_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "08:45:00"^^xsd:time .
+
+bo:orario_cdq_29_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "08:45:00"^^xsd:time .
+
+bo:orario_cdq_29_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_29_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "08:45:00"^^xsd:time .
+
+bo:orario_cdq_29_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_30_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_30_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_30_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_30_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_30_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:00:00"^^xsd:time .
+
+bo:orario_cdq_31_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "12:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "10:00:00"^^xsd:time .
+
+bo:orario_cdq_31_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "15:15:00"^^xsd:time .
+
+bo:orario_cdq_31_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "15:15:00"^^xsd:time .
+
+bo:orario_cdq_31_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "15:15:00"^^xsd:time .
+
+bo:orario_cdq_31_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "15:15:00"^^xsd:time .
+
+bo:orario_cdq_31_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "18:20:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "15:15:00"^^xsd:time .
+
+bo:orario_cdq_32_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_32_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "19:30:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "14:30:00"^^xsd:time .
+
+bo:orario_cdq_33_domenica_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_domenica_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Sunday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_giovedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_giovedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Thursday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_lunedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_lunedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Monday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_martedi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_martedi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Tuesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_mercoledi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_mercoledi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "23:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Wednesday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_sabato_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_sabato_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Saturday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:orario_cdq_33_venerdi_mattina a ac:OpeningHoursSpecification ;
+    ac:closes "13:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "09:00:00"^^xsd:time .
+
+bo:orario_cdq_33_venerdi_pomeriggio a ac:OpeningHoursSpecification ;
+    ac:closes "20:00:00"^^xsd:time ;
+    ac:hasDayOfWeek ti:Friday ;
+    ac:opens "13:00:00"^^xsd:time .
+
+bo:organizzazione_istat a cov:Organization ;
+    rdfs:label "ISTAT"@it .
+
+bo:toponym_cdq_01 a clv:StreetToponym ;
+    clv:officialStreetName "Spadolini"@it ;
+    clv:toponymQualifier "Piazza"@it .
+
+bo:toponym_cdq_02 a clv:StreetToponym ;
+    clv:officialStreetName "Emilia Ponente"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_03 a clv:StreetToponym ;
+    clv:officialStreetName "del Paleotto"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_04 a clv:StreetToponym ;
+    clv:officialStreetName "Luigi Longo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_05 a clv:StreetToponym ;
+    clv:officialStreetName "Morazzo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_06 a clv:StreetToponym ;
+    clv:officialStreetName "Da Verrazzano"@it ;
+    clv:toponymQualifier "Piazza"@it .
+
+bo:toponym_cdq_07 a clv:StreetToponym ;
+    clv:officialStreetName "Filippo Turati"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_08 a clv:StreetToponym ;
+    clv:officialStreetName "Savioli"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_09 a clv:StreetToponym ;
+    clv:officialStreetName "Edgar Allan Poe"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_10 a clv:StreetToponym ;
+    clv:officialStreetName "F. Zanardi"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_11 a clv:StreetToponym ;
+    clv:officialStreetName "Isabella Andreini"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_12 a clv:StreetToponym ;
+    clv:officialStreetName "Colombarola"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_13 a clv:StreetToponym ;
+    clv:officialStreetName "Sante Vincenzi"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_14 a clv:StreetToponym ;
+    clv:officialStreetName "Abramo Lincoln"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_16 a clv:StreetToponym ;
+    clv:officialStreetName "Giovanni Antonio Sacco"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_17 a clv:StreetToponym ;
+    clv:officialStreetName "Fioravanti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_18 a clv:StreetToponym ;
+    clv:officialStreetName "Papini"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_19 a clv:StreetToponym ;
+    clv:officialStreetName "Azzo Gardino"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_20 a clv:StreetToponym ;
+    clv:officialStreetName "Del Pilastro"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_21 a clv:StreetToponym ;
+    clv:officialStreetName "Giuseppe Rivani"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_22 a clv:StreetToponym ;
+    clv:officialStreetName "Fioravanti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_23 a clv:StreetToponym ;
+    clv:officialStreetName "Castelmerlo"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_24 a clv:StreetToponym ;
+    clv:officialStreetName "del Pratello"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_25 a clv:StreetToponym ;
+    clv:officialStreetName "Dino Campana"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_26 a clv:StreetToponym ;
+    clv:officialStreetName "Giuseppe Cesare Abba"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_27 a clv:StreetToponym ;
+    clv:officialStreetName "A. Ponchielli"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_28 a clv:StreetToponym ;
+    clv:officialStreetName "Toscana"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_29 a clv:StreetToponym ;
+    clv:officialStreetName "di Saliceto"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_30 a clv:StreetToponym ;
+    clv:officialStreetName "Ludovico Berti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_31 a clv:StreetToponym ;
+    clv:officialStreetName "Podgora"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_32 a clv:StreetToponym ;
+    clv:officialStreetName "Pietro Nenni"@it ;
+    clv:toponymQualifier "Via"@it .
+
+bo:toponym_cdq_33 a clv:StreetToponym ;
+    clv:officialStreetName "Degli Orti"@it ;
+    clv:toponymQualifier "Via"@it .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-ca-solare> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gialla> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-casa-gufo> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-croce-coperta> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-croce-del-biacco> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-dacia> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-della-pace> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-due-agosto-1980> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-fondo-comini> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-foscherara> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-giorgio-costa> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-graf> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-italicus> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-katia-bertasi> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-lunetta-gamberini> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-montanari> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-nello-frassinetti> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-paleotto> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-parco> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-pescarola> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-pilastro> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-rosa-marchi> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-ruozi> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-saffi> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-santa-viola> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-scipione-dal-ferro> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-stella> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-bernaroli> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-mazzacorati> a sm:WebSite .
+
+<https://www.comune.bologna.it/informazioni/casa-quartiere-villa-torchi> a sm:WebSite .
+
+<https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-san-rafel> a sm:WebSite .
+
+<https://www.comune.bologna.it/vivere-il-comune/luoghi/case-quartiere/casa-quartiere-tolmino> a sm:WebSite .
+
+bo:quartiere_santo_stefano a clv:District ;
+    rdfs:label "Santo Stefano"@it .
+
+bo:gestore_associazione_senza_il_banco a cov:PrivateOrganization ;
+    cov:legalName "Associazione Senza Il Banco"@it .
+
+bo:quartiere_borgo_panigale_reno a clv:District ;
+    rdfs:label "Borgo Panigale - Reno"@it .
+
+bo:quartiere_porto_saragozza a clv:District ;
+    rdfs:label "Porto - Saragozza"@it .
+
+bo:quartiere_savena a clv:District ;
+    rdfs:label "Savena"@it .
+
+bo:quartiere_navile a clv:District ;
+    rdfs:label "Navile"@it .
+
+bo:quartiere_san_donato_san_vitale a clv:District ;
+    rdfs:label "San Donato - San Vitale"@it .
+
+bo:comune_bologna a clv:City ;
+    rdfs:label "Bologna"@it ;
+    owl:sameAs <http://www.wikidata.org/entity/Q1891> ;
+    clv:hasIdentifier bo:identifier_comune_bologna .
+
