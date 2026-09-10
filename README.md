@@ -5,4 +5,4 @@ combinando le ontologie OntoPiA e ArCo con la generazione di triple assistita da
 (Claude, Gemini) su tre tecniche di prompting (zero-shot, few-shot, chain-of-thought),
 verificato tramite Protégé/HermiT e query SPARQL.
 
-Sito pubblicato: `https://<eletfn>.github.io/case-di-quartiere-bologna2/`
+Sito pubblicato: `https://eletfn.github.io/case-di-quartiere-bologna2/`
