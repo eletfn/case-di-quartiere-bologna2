@@ -41,24 +41,9 @@
   <p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">
     Fonte coordinate: dataset open data del Comune di Bologna. Non compare Villa Paradiso (cdq_15): convenzione revocata nel 2025 — vedi <a href="challenges.html">Sfide</a>.
   </p>
-
-  <h2>Bologna in immagini</h2>
-  <p>Non tutte le 32 Case dispongono di una fotografia con diritti d'uso verificabili online: qui alcune immagini rappresentative del contesto urbano in cui sono inserite (portici e vie del centro), con relativo credito.</p>
-  <div class="photo-gallery">
-    <figure class="photo-card">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bologna_Portici_di_Via_dei_Mille.jpg" alt="Portici di Via dei Mille, Bologna">
-      <figcaption>Portici di Via dei Mille<span class="credit">Foto: Wikimedia Commons — CC BY-SA 4.0</span></figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Portici_bologna.jpg" alt="Portico di San Luca, Bologna">
-      <figcaption>Portico di San Luca<span class="credit">Foto: Wikimedia Commons — CC BY-SA 4.0</span></figcaption>
-    </figure>
-    <figure class="photo-card">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/I_portici_di_Bologna.JPG" alt="Portici di via Farini, Bologna">
-      <figcaption>Portici di via Farini<span class="credit">Foto: Wikimedia Commons — CC BY-SA 3.0</span></figcaption>
-    </figure>
-  </div>
-  <div class="todo">Sostituire con foto reali delle singole Case di Quartiere (es. dai rispettivi siti/social ufficiali, citando la fonte) quando disponibili.</div>
+<h2>Le Case in fotografia</h2>
+<p>Le 32 Case di Quartiere raggruppate per quartiere, con una fotografia di riferimento per ciascuna.</p>
+<div id="gallery"></div>
 </main>
 
 <footer class="site-footer">
@@ -140,6 +125,33 @@
       "<strong>" + c.nome + "</strong><br>" + c.via + "<br>" + c.quartiere + "<br><code>" + c.id + "</code>"
     );
   });
+  // Galleria fotografica raggruppata per quartiere
+var gallery = document.getElementById("gallery");
+var perQuartiere = {};
+case_di_quartiere.forEach(function (c) {
+  if (!perQuartiere[c.quartiere]) perQuartiere[c.quartiere] = [];
+  perQuartiere[c.quartiere].push(c);
+});
+Object.keys(coloriQuartiere).forEach(function (q) {
+  var lista = (perQuartiere[q] || []).slice().sort(function (a, b) { return a.nome.localeCompare(b.nome); });
+  if (lista.length === 0) return;
+  var gruppo = document.createElement("div");
+  gruppo.className = "district-group";
+  var titolo = document.createElement("h3");
+  titolo.innerHTML = '<span class="dot" style="background:' + coloriQuartiere[q] + '"></span>' + q +
+    ' <span style="font-weight:400;color:var(--ink-soft);font-family:var(--body);font-size:0.85rem;">(' + lista.length + ' Case)</span>';
+  gruppo.appendChild(titolo);
+  var griglia = document.createElement("div");
+  griglia.className = "photo-gallery";
+  lista.forEach(function (c) {
+    var figure = document.createElement("figure");
+    figure.className = "photo-card";
+    figure.innerHTML = '<img src="images/' + c.id + '.jpg" alt="' + c.nome + '" loading="lazy"><figcaption>' + c.nome + '<span class="credit">' + c.via + '</span></figcaption>';
+    griglia.appendChild(figure);
+  });
+  gruppo.appendChild(griglia);
+  gallery.appendChild(gruppo);
+});
 </script>
 </body>
 </html>
