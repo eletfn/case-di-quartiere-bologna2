@@ -6,6 +6,9 @@
 <title>Mappa — Case di Quartiere di Bologna nel Knowledge Graph</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <style>
+.card { box-shadow: 0 4px 14px rgba(42, 36, 32, 0.10); }
+</style>
 </head>
 <body>
 
@@ -34,16 +37,18 @@
   <h1 class="page-title">Le 32 Case sui sei quartieri</h1>
   <p class="lede">Coordinate usate nel Knowledge Graph. Clicca un marker per vedere nome, indirizzo e quartiere; il colore indica il quartiere amministrativo di appartenenza.</p>
 
-  <div class="legend" id="legend"></div>
-
-  <div id="map"></div>
-
-  <p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">
-    Fonte coordinate: dataset open data del Comune di Bologna. Non compare Villa Paradiso (cdq_15): convenzione revocata nel 2025 — vedi <a href="challenges.html">Sfide</a>.
-  </p>
-<h2>Le Case in fotografia</h2>
+  <div class="card">
+<div class="legend" id="legend"></div>
+<div id="map"></div>
+<p style="margin-top:1rem; font-size:0.85rem; color:var(--ink-soft);">
+Fonte coordinate: dataset open data del Comune di Bologna. Non compare Villa Paradiso (cdq_15): convenzione revocata nel 2025 — vedi <a href="challenges.html">Sfide</a>.
+</p>
+</div>
+<div class="card">
+<h2 style="margin-top:0">Le Case in fotografia</h2>
 <p>Le 32 Case di Quartiere raggruppate per quartiere, con una fotografia di riferimento per ciascuna.</p>
 <div id="gallery"></div>
+</div>
 </main>
 
 <footer class="site-footer">
