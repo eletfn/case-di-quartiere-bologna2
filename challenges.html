@@ -40,13 +40,15 @@
 
     <div class="arcade" aria-hidden="true"></div>
     <h3>Valore orario limite: "00:00:00" come chiusura</h3>
-    <p>La Query 4 (orari del lunedì) ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
+    <p>La Query 4 (orari del lunedì) di SPARQL 2 ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
     <p><strong>Stato:</strong> segnalato come punto da verificare manualmente sul CSV sorgente — verosimilmente rappresenta un orario fino a mezzanotte da normalizzare, coerentemente con un problema analogo già individuato altrove nel dataset ("24:00:00", anch'esso non un valore <code>xsd:time</code> valido in senso stretto).</p>
 
     <div class="arcade" aria-hidden="true"></div>
     <h3>Possibili lavori futuri</h3>
-    <p>La Query 4 (orari del lunedì) ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
-    <p><strong>Stato:</strong> segnalato come punto da verificare manualmente sul CSV sorgente — verosimilmente rappresenta un orario fino a mezzanotte da normalizzare, coerentemente con un problema analogo già individuato altrove nel dataset ("24:00:00", anch'esso non un valore <code>xsd:time</code> valido in senso stretto).</p>
+    <ul>
+      <li><strong>Arricchimento con geodati e accessibilità</strong>: collegare il grafo a informazioni su accessibilità (rampe, mezzi pubblici vicini) o a dati su eventi/attività ospitate, ampliando l'utilità del KG per applicazioni cittadine reali.</li>
+      <li><strong>Aggiornamento automatico del grafo</strong>: creare una pipeline che si sincronizzi periodicamente con il dataset open data originale, per intercettare automaticamente variazioni (nuove Case, chiusure, cambi di orario) invece di intervenire manualmente come nel caso di Villa Paradiso.</li>
+    </ul>
 
   </main>
 
