@@ -39,19 +39,18 @@
     <p><strong>Soluzione:</strong> abbiamo rimosso questa voce dal dataset di lavoro (portando il totale da 33 a 32 Case), poiché non rappresenta più una Casa di Quartiere realmente attiva.</p>
 
     <div class="arcade" aria-hidden="true"></div>
-
-    <h3>Righe duplicate con OPTIONAL su una proprietà multi-valore</h3>
-    <p>Una prima versione della query di completezza (Query 1) selezionava direttamente l'orario stesso all'interno dell'<code>OPTIONAL</code>, invece di un semplice booleano di presenza. Poiché una Casa può avere più fasce orarie (<code>ac:hasAccessCondition</code>), questo produceva una riga per ogni combinazione — molti apparenti "doppioni".</p>
-    <p><strong>Soluzione:</strong> non è un errore nei dati, ma una conseguenza della semantica standard dei join in SPARQL su variabili multi-valore. Risolto riducendo l'esito di ciascun <code>OPTIONAL</code> a un valore booleano con <code>BIND</code>, quando l'obiettivo è verificare l'esistenza e non elencare ogni valore.</p>
-
-    <h3>FILTER isolato dentro un ramo di UNION</h3>
-    <p>La query per confrontare le Case di due quartieri (Query 3) restituiva inizialmente 0 risultati. La causa non era nei dati: un blocco <code>{ FILTER(...) }</code> usato come ramo di <code>UNION</code>, senza uno schema di tripla al suo interno, non eredita i binding di variabile stabiliti fuori da quel ramo — valuta il filtro su una variabile non vincolata, che fallisce sempre.</p>
-    <p><strong>Soluzione:</strong> vincolare la variabile con una tripla e un <code>BIND</code> dentro ciascun ramo dello <code>UNION</code>, invece di affidarsi a un <code>FILTER</code> isolato. Verificato prima con rdflib (13 risultati attesi), poi confermato identico su SPARQL Playground.</p>
-
     <h3>Valore orario limite: "00:00:00" come chiusura</h3>
     <p>La Query 4 (orari del lunedì) ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
     <p><strong>Stato:</strong> segnalato come punto da verificare manualmente sul CSV sorgente — verosimilmente rappresenta un orario fino a mezzanotte da normalizzare, coerentemente con un problema analogo già individuato altrove nel dataset ("24:00:00", anch'esso non un valore <code>xsd:time</code> valido in senso stretto).</p>
+
+    <div class="arcade" aria-hidden="true"></div>
+    <h3>Possibili lavori futuri</h3>
+    <p>La Query 4 (orari del lunedì) ha evidenziato un caso limite: la Casa Giorgio Costa risulta con apertura alle 13:00 e chiusura alle 00:00:00 — formalmente un valore <code>xsd:time</code> valido, ma privo di senso se letto come "chiude prima di aprire".</p>
+    <p><strong>Stato:</strong> segnalato come punto da verificare manualmente sul CSV sorgente — verosimilmente rappresenta un orario fino a mezzanotte da normalizzare, coerentemente con un problema analogo già individuato altrove nel dataset ("24:00:00", anch'esso non un valore <code>xsd:time</code> valido in senso stretto).</p>
+
   </main>
+
+  
 
 <footer class="site-footer">
   <p>Progetto d'esame — Case di Quartiere di Bologna nel Knowledge Graph con OntoPiA/ArCo e LLM · Rossana Pedroni · Camilla Sabato · Elena Tufoni — 2026</p>
